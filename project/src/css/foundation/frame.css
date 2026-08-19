@@ -23,16 +23,34 @@ body {
     width: var(--extension-width);
     height: var(--extension-height);
     overflow: hidden;
-    font-family: var(--font-family);
+    font-family: var(--font-family) !important;
     background: var(--color-surface-primary);
     color: var(--color-text-primary);
     user-select: none;
 }
 
 input,
+button,
+textarea,
+select {
+    font-family: var(--font-family) !important;
+}
+
+input,
 textarea,
 [contenteditable="true"] {
     user-select: text;
+}
+
+/* Explicitly preserve monospace fonts for code/secrets/OTP inputs */
+code,
+pre,
+kbd,
+samp,
+.otp-code,
+.account-hotp-counter,
+.manual-setup__input--secret {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
 }
 
 button:focus {

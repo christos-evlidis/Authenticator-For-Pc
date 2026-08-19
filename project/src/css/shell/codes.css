@@ -1,21 +1,7 @@
 /* Codes section layout */
-.codes-section {
+.app-body__view--codes-yes .app-body__content {
     --codes-card-height: 104px;
     --codes-card-gap: 3px;
-
-    flex: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    padding: 14px 14px;
-    overflow: hidden;
-}
-
-.codes-section.is-hidden {
-    display: none;
-}
-
-.codes-section__list {
     --delete-poof-ms: 1000ms;
     --delete-poof-shrink-ms: 250ms;
 
@@ -29,14 +15,20 @@
     overflow-y: auto;
     overflow-anchor: none;
     scroll-behavior: smooth;
+
+    /* Override defaults from general .app-body__content */
+    align-items: stretch;
+    justify-content: flex-start;
+    text-align: left;
+    color: inherit;
 }
 
-.codes-section__list.is-hidden {
+.app-body__view--codes-yes .app-body__content.is-hidden {
     display: none;
 }
 
 /* Legacy account card (from popup/styles.css) */
-.codes-section__list .account-block {
+.app-body__view--codes-yes .app-body__content .account-block {
     position: relative;
     box-sizing: border-box;
     height: var(--codes-card-height);
@@ -55,21 +47,21 @@
     cursor: pointer;
 }
 
-.codes-section__list .account-block:last-child {
+.app-body__view--codes-yes .app-body__content .account-block:last-child {
     margin-bottom: 0;
 }
 
 /* Account block layout spacers */
-.codes-section__list .account-block.account-block--manual-add-spacer {
+.app-body__view--codes-yes .app-body__content .account-block.account-block--manual-add-spacer {
     display: none;
 }
 
 /* Copy feedback and deletion states simplified to instant */
-.codes-section__list .account-block.is-copy-feedback-active {
+.app-body__view--codes-yes .app-body__content .account-block.is-copy-feedback-active {
     pointer-events: none;
 }
 
-.codes-section__list .account-block__copy-feedback {
+.app-body__view--codes-yes .app-body__content .account-block__copy-feedback {
     position: absolute;
     inset: 0;
     border-radius: var(--radius-md);
@@ -84,29 +76,29 @@
     justify-content: center;
 }
 
-.codes-section__list .account-block.is-copy-feedback-active .account-block__copy-feedback {
+.app-body__view--codes-yes .app-body__content .account-block.is-copy-feedback-active .account-block__copy-feedback {
     opacity: 1;
     visibility: visible;
 }
 
-.codes-section__list .account-block__copy-check {
+.app-body__view--codes-yes .app-body__content .account-block__copy-check {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.codes-section__list .copy-check__icon {
+.app-body__view--codes-yes .app-body__content .copy-check__icon {
     width: 48px;
     height: 48px;
 }
 
-.codes-section__list .copy-check__circle {
+.app-body__view--codes-yes .app-body__content .copy-check__circle {
     stroke-width: 2;
     stroke: var(--color-brand);
     stroke-dashoffset: 0;
 }
 
-.codes-section__list .copy-check__mark {
+.app-body__view--codes-yes .app-body__content .copy-check__mark {
     stroke-width: 3;
     stroke: var(--color-brand);
     stroke-linecap: round;
@@ -114,23 +106,23 @@
     stroke-dashoffset: 0;
 }
 
-.codes-section__list .account-block--delete-pending {
+.app-body__view--codes-yes .app-body__content .account-block--delete-pending {
     pointer-events: none;
     overflow: visible;
     z-index: 2;
 }
 
-.codes-section__list .account-block--delete-pending .account-block__header,
-.codes-section__list .account-block--delete-pending .account-block__body {
+.app-body__view--codes-yes .app-body__content .account-block--delete-pending .account-block__header,
+.app-body__view--codes-yes .app-body__content .account-block--delete-pending .account-block__body {
     filter: blur(2px);
 }
 
-.codes-section__list .account-block--delete-pending .edit-button,
-.codes-section__list .account-block--delete-pending .delete-button {
+.app-body__view--codes-yes .app-body__content .account-block--delete-pending .edit-button,
+.app-body__view--codes-yes .app-body__content .account-block--delete-pending .delete-button {
     visibility: hidden;
 }
 
-.codes-section__list .account-block__header {
+.app-body__view--codes-yes .app-body__content .account-block__header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -143,7 +135,7 @@
     margin: 0;
 }
 
-.codes-section__list .account-block__identity {
+.app-body__view--codes-yes .app-body__content .account-block__identity {
     flex: 1;
     min-width: 0;
     min-height: 0;
@@ -155,7 +147,7 @@
     overflow: hidden;
 }
 
-.codes-section__list .account-block__actions {
+.app-body__view--codes-yes .app-body__content .account-block__actions {
     position: relative;
     display: flex;
     align-items: flex-start;
@@ -165,7 +157,7 @@
     align-self: flex-start;
 }
 
-.codes-section__list .account-block__body {
+.app-body__view--codes-yes .app-body__content .account-block__body {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -177,7 +169,7 @@
     padding-top: 10px;
 }
 
-.codes-section__list .account-name {
+.app-body__view--codes-yes .app-body__content .account-name {
     font-weight: 600;
     font-size: 18px;
     line-height: 1.15;
@@ -189,7 +181,7 @@
     text-overflow: ellipsis;
 }
 
-.codes-section__list .account-email {
+.app-body__view--codes-yes .app-body__content .account-email {
     font-size: 12px;
     line-height: 1.15;
     color: var(--color-text-secondary);
@@ -200,11 +192,11 @@
     text-overflow: ellipsis;
 }
 
-.codes-section__list .account-email.is-hidden {
+.app-body__view--codes-yes .app-body__content .account-email.is-hidden {
     display: none;
 }
 
-.codes-section__list .account-hotp-counter {
+.app-body__view--codes-yes .app-body__content .account-hotp-counter {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -225,15 +217,15 @@
     white-space: nowrap;
 }
 
-.codes-section__list .account-hotp-counter.is-hidden {
+.app-body__view--codes-yes .app-body__content .account-hotp-counter.is-hidden {
     display: none;
 }
 
-.codes-section__list .account-block--hotp .timer-wrapper {
+.app-body__view--codes-yes .app-body__content .account-block--hotp .timer-wrapper {
     display: none;
 }
 
-.codes-section__list .otp-code {
+.app-body__view--codes-yes .app-body__content .otp-code {
     flex: 1;
     min-width: 0;
     font-family: monospace;
@@ -244,8 +236,8 @@
     color: var(--color-brand);
 }
 
-.codes-section__list .edit-button,
-.codes-section__list .delete-button {
+.app-body__view--codes-yes .app-body__content .edit-button,
+.app-body__view--codes-yes .app-body__content .delete-button {
     position: static;
     background: none;
     border: none;
@@ -261,39 +253,39 @@
     flex-shrink: 0;
 }
 
-.codes-section__list .edit-button {
+.app-body__view--codes-yes .app-body__content .edit-button {
     font-size: 12px;
     color: var(--color-icon-secondary);
 }
 
-.codes-section__list .edit-button:hover {
+.app-body__view--codes-yes .app-body__content .edit-button:hover {
     color: var(--color-icon-primary);
     background-color: var(--color-brand-hover);
 }
 
-.codes-section__list .delete-button {
+.app-body__view--codes-yes .app-body__content .delete-button {
     font-size: 20px;
     color: var(--color-icon-secondary);
 }
 
-.codes-section__list .delete-button:hover {
+.app-body__view--codes-yes .app-body__content .delete-button:hover {
     color: var(--color-error);
     background-color: var(--color-error-hover);
 }
 
-.codes-section__list .edit-button.is-hidden,
-.codes-section__list .delete-button.is-hidden {
+.app-body__view--codes-yes .app-body__content .edit-button.is-hidden,
+.app-body__view--codes-yes .app-body__content .delete-button.is-hidden {
     display: none;
 }
 
-.codes-section__list .edit-buttons-container {
+.app-body__view--codes-yes .app-body__content .edit-buttons-container {
     display: flex;
     gap: var(--gap-sm);
     flex-shrink: 0;
 }
 
-.codes-section__list .save-edit-button,
-.codes-section__list .cancel-edit-button {
+.app-body__view--codes-yes .app-body__content .save-edit-button,
+.app-body__view--codes-yes .app-body__content .cancel-edit-button {
     background: none;
     border: none;
     font-size: 10px;
@@ -308,49 +300,49 @@
     line-height: 1;
 }
 
-.codes-section__list .save-edit-button {
+.app-body__view--codes-yes .app-body__content .save-edit-button {
     color: var(--color-success);
 }
 
-.codes-section__list .save-edit-button:hover {
+.app-body__view--codes-yes .app-body__content .save-edit-button:hover {
     background-color: var(--color-success-hover);
 }
 
-.codes-section__list .cancel-edit-button {
+.app-body__view--codes-yes .app-body__content .cancel-edit-button {
     color: var(--color-error);
 }
 
-.codes-section__list .cancel-edit-button:hover {
+.app-body__view--codes-yes .app-body__content .cancel-edit-button:hover {
     background-color: var(--color-error-hover);
 }
 
-.codes-section__list .account-block.editing {
+.app-body__view--codes-yes .app-body__content .account-block.editing {
     overflow: visible;
 }
 
-.codes-section__list .account-block.editing .account-block__header {
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-block__header {
     max-height: none;
     overflow: visible;
 }
 
-.codes-section__list .account-block.editing .account-block__identity {
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-block__identity {
     gap: var(--gap-sm);
     overflow: visible;
 }
 
-.codes-section__list .account-block.editing .account-name,
-.codes-section__list .account-block.editing .account-email {
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-name,
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-email {
     overflow: visible;
 }
 
-.codes-section__list .account-block.editing .account-name[contenteditable="true"],
-.codes-section__list .account-block.editing .account-email[contenteditable="true"] {
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-name[contenteditable="true"],
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-email[contenteditable="true"] {
     overflow: hidden;
 }
 
-.codes-section__list .account-name[contenteditable="true"],
-.codes-section__list .account-email[contenteditable="true"],
-.codes-section__list .account-hotp-counter[contenteditable="true"] {
+.app-body__view--codes-yes .app-body__content .account-name[contenteditable="true"],
+.app-body__view--codes-yes .app-body__content .account-email[contenteditable="true"],
+.app-body__view--codes-yes .app-body__content .account-hotp-counter[contenteditable="true"] {
     box-sizing: border-box;
     width: 100%;
     max-width: 97%;
@@ -365,15 +357,15 @@
     text-overflow: ellipsis;
 }
 
-.codes-section__list .account-name[contenteditable="true"] {
+.app-body__view--codes-yes .app-body__content .account-name[contenteditable="true"] {
     line-height: 1.15;
 }
 
-.codes-section__list .account-email[contenteditable="true"] {
+.app-body__view--codes-yes .app-body__content .account-email[contenteditable="true"] {
     line-height: 1.15;
 }
 
-.codes-section__list .account-hotp-counter[contenteditable="true"] {
+.app-body__view--codes-yes .app-body__content .account-hotp-counter[contenteditable="true"] {
     width: 72px;
     max-width: 72px;
     min-width: 0;
@@ -385,10 +377,11 @@
     caret-color: var(--color-text-secondary);
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.codes-section__list .account-name[contenteditable="true"]:focus,
-.codes-section__list .account-email[contenteditable="true"]:focus {
+.app-body__view--codes-yes .app-body__content .account-name[contenteditable="true"]:focus,
+.app-body__view--codes-yes .app-body__content .account-email[contenteditable="true"]:focus {
     outline: 1px solid var(--color-border-primary);
     box-shadow: none;
     white-space: nowrap;
@@ -397,7 +390,7 @@
     text-overflow: clip;
 }
 
-.codes-section__list .account-hotp-counter[contenteditable="true"]:focus {
+.app-body__view--codes-yes .app-body__content .account-hotp-counter[contenteditable="true"]:focus {
     outline: 1px solid var(--color-border-primary);
     box-shadow: none;
     white-space: nowrap;
@@ -405,7 +398,7 @@
     text-overflow: ellipsis;
 }
 
-.codes-section__list .timer-wrapper {
+.app-body__view--codes-yes .app-body__content .timer-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -416,7 +409,7 @@
     padding-bottom: 5px;
 }
 
-.codes-section__list .pie-timer-svg {
+.app-body__view--codes-yes .app-body__content .pie-timer-svg {
     width: 25px;
     height: 25px;
     display: block;
@@ -427,7 +420,7 @@
 }
 
 /* Default: grey track, blue fill */
-.codes-section__list .pie-bg {
+.app-body__view--codes-yes .app-body__content .pie-bg {
     fill: var(--color-border-secondary);
     stroke: none;
     shape-rendering: geometricPrecision;
@@ -435,7 +428,7 @@
     z-index: 1;
 }
 
-.codes-section__list .pie-fg {
+.app-body__view--codes-yes .app-body__content .pie-fg {
     fill: var(--color-brand);
     stroke-width: 0;
     shape-rendering: geometricPrecision;
@@ -445,24 +438,24 @@
     vector-effect: non-scaling-stroke;
 }
 
-.codes-section__list .pie-fg.is-hidden {
+.app-body__view--codes-yes .app-body__content .pie-fg.is-hidden {
     display: none;
 }
 
 /* Swapped: blue track, grey fill */
-.codes-section__list .timer-wrapper.inverted .pie-bg {
+.app-body__view--codes-yes .app-body__content .timer-wrapper.inverted .pie-bg {
     fill: var(--color-brand);
 }
 
-.codes-section__list .timer-wrapper.inverted .pie-fg {
+.app-body__view--codes-yes .app-body__content .timer-wrapper.inverted .pie-fg {
     fill: var(--color-border-secondary);
 }
 
-.codes-section__list .account-block.is-filtered-out {
+.app-body__view--codes-yes .app-body__content .account-block.is-filtered-out {
     display: none;
 }
 
-.codes-section__list .account-block--delete-pending .delete-confirmation {
+.app-body__view--codes-yes .app-body__content .account-block--delete-pending .delete-confirmation {
     position: absolute;
     top: 10px;
     right: 10px;

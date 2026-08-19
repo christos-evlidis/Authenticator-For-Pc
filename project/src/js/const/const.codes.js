@@ -1,6 +1,6 @@
 // Shell selectors.
-export const CODES_ROOT_SELECTOR = ".codes-section";
-export const CODES_LIST_SELECTOR = ".codes-section__list";
+export const CODES_ROOT_SELECTOR = ".app-body__view--codes-yes";
+export const CODES_LIST_SELECTOR = ".app-body__view--codes-yes .app-body__content";
 export const CODES_CARD_TEMPLATE_SELECTOR = ".code-card-template";
 
 // Shared state classes.

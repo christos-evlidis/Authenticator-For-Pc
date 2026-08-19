@@ -1,1 +1,0 @@
-// Duplicate timing constants removed.

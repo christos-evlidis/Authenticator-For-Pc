@@ -1,6 +1,6 @@
 import { BODY_ACTIVE_CLASS } from "../../../const/const.body.js";
-import { BODY_CONTENT_HIDDEN_CLASS } from "../../../const/const.body.js";
-import { BODY_CONTENT_SIGNED_IN_SELECTOR } from "../../../const/const.body.js";
+import { BODY_CODES_NO_VIEW_SELECTOR } from "../../../const/const.body.js";
+import { BODY_CODES_YES_VIEW_SELECTOR } from "../../../const/const.body.js";
 import { BODY_HIDDEN_CLASS } from "../../../const/const.body.js";
 import { BODY_ROOT_SELECTOR } from "../../../const/const.body.js";
 import { BODY_SIGNED_IN_VIEW_SELECTOR } from "../../../const/const.body.js";
@@ -15,9 +15,10 @@ function _bodyInit(isSignedIn, options = {}) {
   signedInView?.classList.toggle(BODY_HIDDEN_CLASS, !isSignedIn);
   if (isSignedIn) {
     const showCodes = options.stateCodes === true;
-    document
-      .querySelector(BODY_CONTENT_SIGNED_IN_SELECTOR)
-      ?.classList.toggle(BODY_CONTENT_HIDDEN_CLASS, showCodes);
+    const codesYesView = document.querySelector(BODY_CODES_YES_VIEW_SELECTOR);
+    const codesNoView = document.querySelector(BODY_CODES_NO_VIEW_SELECTOR);
+    codesYesView?.classList.toggle(BODY_HIDDEN_CLASS, !showCodes);
+    codesNoView?.classList.toggle(BODY_HIDDEN_CLASS, showCodes);
     document.querySelector(CODES_ROOT_SELECTOR)?.classList.toggle(CODES_HIDDEN_CLASS, !showCodes);
     document.querySelector(BODY_ROOT_SELECTOR)?.classList.remove(BODY_ACTIVE_CLASS);
   }

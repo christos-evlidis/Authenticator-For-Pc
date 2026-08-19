@@ -15,6 +15,13 @@
     flex-direction: column;
 }
 
+.app-body__shell {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
 .app-body__view {
     flex: 1;
     min-height: 0;
@@ -28,26 +35,23 @@
 
 .app-body__view--signed-in {
     padding: 0;
+    background: transparent;
+    border-radius: 0;
 }
 
-.app-body__view--signed-in .app-body__content {
+/* Inner views should act as complete body views */
+.app-body__view--codes-yes,
+.app-body__view--codes-no {
     flex: 1;
     min-height: 0;
-    color: var(--color-text-secondary);
+    display: flex;
+    flex-direction: column;
 }
 
-.app-body__view--signed-in .app-body__icon {
-    color: var(--color-icon-tertiary);
-}
-
-.app-body__view--signed-in .codes-section {
-    flex: 1;
-    min-height: 0;
-}
 
 .app-body.is-hidden,
-.app-body__view.is-hidden,
-.app-body__view--signed-in .app-body__content.is-hidden {
+.app-body__shell.is-hidden,
+.app-body__view.is-hidden {
     display: none;
 }
 

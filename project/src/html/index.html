@@ -16,29 +16,29 @@
         <!-- Header Section -->
         <header class="app-header">
             <div class="app-header__shell">
-                    <h1 class="app-header__title">PC Authenticator</h1>
-                    <!-- Signed-out View -->
-                    <section class="app-header__view app-header__view--signed-out is-hidden">
-                        <div class="app-header__actions">
-                            <button type="button" class="app-header__btn app-header__btn--user-menu">
-                                <i class="fas fa-user"></i>
-                            </button>
-                        </div>
-                    </section>
-                    <!-- Signed-in View -->
-                    <section class="app-header__view app-header__view--signed-in is-hidden">
-                        <div class="app-header__actions">
-                            <button type="button" class="app-header__btn app-header__btn--manual-setup">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                            <button type="button" class="app-header__btn app-header__btn--scan-qr">
-                                <i class="fas fa-qrcode"></i>
-                            </button>
-                            <button type="button" class="app-header__btn app-header__btn--user-menu">
-                                <i class="fas fa-user"></i>
-                            </button>
-                        </div>
-                    </section>
+                <h1 class="app-header__title">PC Authenticator</h1>
+                <!-- Signed-out View -->
+                <section class="app-header__view app-header__view--signed-out is-hidden">
+                    <div class="app-header__actions">
+                        <button type="button" class="app-header__btn app-header__btn--user-menu">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </section>
+                <!-- Signed-in View -->
+                <section class="app-header__view app-header__view--signed-in is-hidden">
+                    <div class="app-header__actions">
+                        <button type="button" class="app-header__btn app-header__btn--manual-setup">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <button type="button" class="app-header__btn app-header__btn--scan-qr">
+                            <i class="fas fa-qrcode"></i>
+                        </button>
+                        <button type="button" class="app-header__btn app-header__btn--user-menu">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </section>
             </div>
         </header>
 
@@ -52,70 +52,76 @@
 
         <!-- Body Section -->
         <section class="app-body">
-            <!-- Signed-out View -->
-            <section class="app-body__view app-body__view--signed-out is-hidden">
-                <div class="app-body__content">
-                    <div class="app-body__icon" aria-hidden="true">
-                        <i class="fas fa-lock"></i>
+            <div class="app-body__shell">
+                <!-- Signed-out View -->
+                <section class="app-body__view app-body__view--signed-out is-hidden">
+                    <div class="app-body__content">
+                        <div class="app-body__icon" aria-hidden="true">
+                            <i class="fas fa-lock"></i>
+                        </div>
+
+                        <p class="app-body__message">To use the authenticator<br>sign in or sign up.</p>
                     </div>
-
-                    <p class="app-body__message">To use the authenticator<br>sign in or sign up.</p>
-                </div>
-            </section>
-
-            <!-- Signed-in View -->
-            <section class="app-body__view app-body__view--signed-in is-hidden">
-                <div class="app-body__content">
-                    <div class="app-body__icon" aria-hidden="true">
-                        <i class="fas fa-shield-halved"></i>
-                    </div>
-
-                    <p class="app-body__message">Use + or scan a QR code<br>to get started.</p>
-                </div>
-
-                <section class="codes-section is-hidden" aria-label="Authentication codes">
-                    <ul class="codes-section__list is-hidden" role="list"></ul>
-
-                    <template class="code-card-template">
-                        <li class="account-block" role="listitem">
-                            <header class="account-block__header">
-                                <div class="account-block__identity">
-                                    <div class="account-name"></div>
-                                    <div class="account-email is-hidden"></div>
-                                </div>
-                                <div class="account-block__actions">
-                                    <button type="button" class="edit-button" title="Edit account"
-                                        aria-label="Edit account">
-                                        <i class="fas fa-pencil-alt" aria-hidden="true"></i>
-                                    </button>
-                                    <button type="button" class="delete-button" title="Delete account"
-                                        aria-label="Delete account">&times;</button>
-                                </div>
-                            </header>
-                            <div class="account-block__body">
-                                <div class="otp-code" aria-live="polite">000000</div>
-                                <div class="account-hotp-counter is-hidden" aria-label="HOTP counter"></div>
-                                <div class="timer-wrapper">
-                                    <svg width="35" height="35" class="pie-timer-svg" viewBox="0 0 32 32"
-                                        aria-hidden="true">
-                                        <circle class="pie-bg" cx="16" cy="16" r="14.5" />
-                                        <path class="pie-fg" d="" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="account-block__copy-feedback" aria-hidden="true">
-                                <span class="account-block__copy-fill"></span>
-                                <div class="account-block__copy-check">
-                                    <svg class="copy-check__icon" viewBox="0 0 52 52" aria-hidden="true">
-                                        <circle class="copy-check__circle" cx="26" cy="26" r="24" fill="none" />
-                                        <path class="copy-check__mark" fill="none" d="M14 27l7 7 16-16" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </li>
-                    </template>
                 </section>
-            </section>
+
+                <!-- Signed-in View -->
+                <section class="app-body__view app-body__view--signed-in is-hidden">
+                    <!-- Codes No View -->
+                    <section class="app-body__view app-body__view--codes-no is-hidden">
+                        <div class="app-body__content">
+                            <div class="app-body__icon" aria-hidden="true">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+
+                            <p class="app-body__message">Use + or scan a QR code<br>to get started.</p>
+                        </div>
+                    </section>
+
+                    <!-- Codes Yes View -->
+                    <section class="app-body__view app-body__view--codes-yes is-hidden">
+                        <ul class="app-body__content is-hidden" role="list"></ul>
+
+                        <template class="code-card-template">
+                            <li class="account-block" role="listitem">
+                                <header class="account-block__header">
+                                    <div class="account-block__identity">
+                                        <div class="account-name"></div>
+                                        <div class="account-email is-hidden"></div>
+                                    </div>
+                                    <div class="account-block__actions">
+                                        <button type="button" class="edit-button" title="Edit account"
+                                            aria-label="Edit account">
+                                            <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="delete-button" title="Delete account"
+                                            aria-label="Delete account">&times;</button>
+                                    </div>
+                                </header>
+                                <div class="account-block__body">
+                                    <div class="otp-code" aria-live="polite">000000</div>
+                                    <div class="account-hotp-counter is-hidden" aria-label="HOTP counter"></div>
+                                    <div class="timer-wrapper">
+                                        <svg width="35" height="35" class="pie-timer-svg" viewBox="0 0 32 32"
+                                            aria-hidden="true">
+                                            <circle class="pie-bg" cx="16" cy="16" r="14.5" />
+                                            <path class="pie-fg" d="" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="account-block__copy-feedback" aria-hidden="true">
+                                    <span class="account-block__copy-fill"></span>
+                                    <div class="account-block__copy-check">
+                                        <svg class="copy-check__icon" viewBox="0 0 52 52" aria-hidden="true">
+                                            <circle class="copy-check__circle" cx="26" cy="26" r="24" fill="none" />
+                                            <path class="copy-check__mark" fill="none" d="M14 27l7 7 16-16" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </li>
+                        </template>
+                    </section>
+                </section>
+            </div>
         </section>
 
         <!-- User Menu Section -->
@@ -365,3 +371,4 @@
 </body>
 
 </html>
+<!-- trigger rebuild -->

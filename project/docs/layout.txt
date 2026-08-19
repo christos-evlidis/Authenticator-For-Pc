@@ -35,7 +35,6 @@ project
 │       ├── app
 │       │   ├── app.actions.js
 │       │   ├── app.index.js
-│       │   ├── app.scan.js
 │       │   ├── app.session.js
 │       │   ├── app.shell.js
 │       │   └── app.state.js
@@ -47,13 +46,9 @@ project
 │       │   ├── const.header.js
 │       │   ├── const.manual-setup.js
 │       │   ├── const.otp.js
-│       │   ├── const.qr-setup.js
-│       │   ├── const.scan.js
 │       │   ├── const.search.js
-│       │   ├── const.sequences.js
 │       │   ├── const.theme.js
-│       │   ├── const.user-menu.js
-│       │   └── const.utility.js
+│       │   └── const.user-menu.js
 │       ├── sections
 │       │   ├── overlay
 │       │   │   ├── manual-setup
@@ -66,16 +61,6 @@ project
 │       │   │   │   ├── manual-setup.index.js
 │       │   │   │   ├── manual-setup.render.js
 │       │   │   │   └── manual-setup.state.js
-│       │   │   ├── qr-code-setup
-│       │   │   │   ├── action
-│       │   │   │   │   ├── qr-code-setup.lock.js
-│       │   │   │   │   ├── qr-code-setup.panel.js
-│       │   │   │   │   ├── qr-code-setup.resume.js
-│       │   │   │   │   └── qr-code-setup.scan.js
-│       │   │   │   ├── qr-code-setup.dom.js
-│       │   │   │   ├── qr-code-setup.events.js
-│       │   │   │   ├── qr-code-setup.index.js
-│       │   │   │   └── qr-code-setup.state.js
 │       │   │   └── user-menu
 │       │   │       ├── action
 │       │   │       │   ├── user-menu.account.js
@@ -123,135 +108,91 @@ project
 │       │   │       │   └── reset.js
 │       │   │       └── search-index.js
 │       │   └── sections-index.js
-│       ├── services
-│       │   ├── auth
-│       │   │   ├── api
-│       │   │   │   ├── create.js
-│       │   │   │   └── verify.js
-│       │   │   ├── sanitize
-│       │   │   │   └── number.js
-│       │   │   ├── storage
-│       │   │   │   ├── clear.js
-│       │   │   │   ├── get.js
-│       │   │   │   └── set.js
-│       │   │   └── auth-index.js
-│       │   ├── data
-│       │   │   ├── action
-│       │   │   │   ├── add
-│       │   │   │   │   ├── manual.js
-│       │   │   │   │   └── qr.js
-│       │   │   │   ├── delete.js
-│       │   │   │   └── update.js
-│       │   │   ├── api
-│       │   │   │   ├── backup.js
-│       │   │   │   └── restore.js
-│       │   │   ├── code
-│       │   │   │   ├── type
-│       │   │   │   │   ├── hotp.js
-│       │   │   │   │   └── totp.js
-│       │   │   │   ├── clock.js
-│       │   │   │   ├── counter.js
-│       │   │   │   ├── generate.js
-│       │   │   │   └── options.js
-│       │   │   ├── crypto
-│       │   │   │   ├── type
-│       │   │   │   │   └── encrypted.js
-│       │   │   │   ├── decrypt.js
-│       │   │   │   └── encrypt.js
-│       │   │   ├── handle
-│       │   │   │   ├── backup.js
-│       │   │   │   ├── merge.js
-│       │   │   │   ├── restore.js
-│       │   │   │   └── sync.js
-│       │   │   ├── parse
-│       │   │   │   ├── manual.js
-│       │   │   │   └── qr.js
-│       │   │   ├── record
-│       │   │   │   ├── build
-│       │   │   │   │   ├── account.js
-│       │   │   │   │   └── issuer.js
-│       │   │   │   └── sanitize
-│       │   │   │       ├── list.js
-│       │   │   │       ├── name.js
-│       │   │   │       ├── secret.js
-│       │   │   │       └── trim.js
-│       │   │   ├── storage
-│       │   │   │   ├── merged
-│       │   │   │   │   ├── clear.js
-│       │   │   │   │   ├── get.js
-│       │   │   │   │   └── set.js
-│       │   │   │   ├── pending
-│       │   │   │   │   ├── append.js
-│       │   │   │   │   ├── clear.js
-│       │   │   │   │   ├── get.js
-│       │   │   │   │   └── set.js
-│       │   │   │   ├── ready
-│       │   │   │   │   ├── clear.js
-│       │   │   │   │   ├── get.js
-│       │   │   │   │   └── set.js
-│       │   │   │   ├── restored
-│       │   │   │   │   ├── clear.js
-│       │   │   │   │   ├── get.js
-│       │   │   │   │   └── set.js
-│       │   │   │   └── purge.js
-│       │   │   └── data-index.js
-│       │   ├── scan
-│       │   │   ├── content
-│       │   │   │   ├── overlay
-│       │   │   │   │   ├── state
-│       │   │   │   │   │   └── store.js
-│       │   │   │   │   ├── create.js
-│       │   │   │   │   ├── remove.js
-│       │   │   │   │   └── start.js
-│       │   │   │   ├── screenshot
-│       │   │   │   │   ├── capture.js
-│       │   │   │   │   ├── crop.js
-│       │   │   │   │   └── load.js
-│       │   │   │   └── content-index.js
-│       │   │   ├── message
-│       │   │   │   ├── content.js
-│       │   │   │   ├── message-index.js
-│       │   │   │   └── worker.js
-│       │   │   ├── worker
-│       │   │   │   ├── codex
-│       │   │   │   │   └── decode.js
-│       │   │   │   ├── handle
-│       │   │   │   │   ├── abort.js
-│       │   │   │   │   ├── capture.js
-│       │   │   │   │   ├── selection.js
-│       │   │   │   │   ├── start.js
-│       │   │   │   │   └── target.js
-│       │   │   │   ├── storage
-│       │   │   │   │   ├── pending
-│       │   │   │   │   │   ├── clear.js
-│       │   │   │   │   │   ├── get.js
-│       │   │   │   │   │   └── set.js
-│       │   │   │   │   └── store
-│       │   │   │   │       ├── failure.js
-│       │   │   │   │       └── success.js
-│       │   │   │   ├── tab
-│       │   │   │   │   ├── capture.js
-│       │   │   │   │   ├── inject.js
-│       │   │   │   │   └── resolve.js
-│       │   │   │   └── worker-index.js
-│       │   │   └── scan-index.js
-│       │   ├── sequences
-│       │   │   ├── sequences-const.js
-│       │   │   └── sequences-index.js
-│       │   ├── shell
-│       │   │   └── extension-window.js
-│       │   └── theme
-│       │       ├── action
-│       │       │   ├── apply.js
-│       │       │   ├── clear.js
-│       │       │   └── set.js
-│       │       ├── state
-│       │       │   └── get.js
-│       │       ├── storage
-│       │       │   ├── clear.js
-│       │       │   ├── get.js
-│       │       │   └── set.js
-│       │       ├── init.js
-│       │       └── theme-index.js
-│       └── utils
+│       └── services
+│           ├── auth
+│           │   ├── api
+│           │   │   ├── create.js
+│           │   │   └── verify.js
+│           │   ├── sanitize
+│           │   │   └── number.js
+│           │   ├── storage
+│           │   │   ├── clear.js
+│           │   │   ├── get.js
+│           │   │   └── set.js
+│           │   └── auth-index.js
+│           ├── data
+│           │   ├── action
+│           │   │   ├── add
+│           │   │   │   ├── manual.js
+│           │   │   │   └── qr.js
+│           │   │   ├── delete.js
+│           │   │   └── update.js
+│           │   ├── api
+│           │   │   ├── backup.js
+│           │   │   └── restore.js
+│           │   ├── code
+│           │   │   ├── type
+│           │   │   │   ├── hotp.js
+│           │   │   │   └── totp.js
+│           │   │   ├── clock.js
+│           │   │   ├── counter.js
+│           │   │   ├── generate.js
+│           │   │   └── options.js
+│           │   ├── crypto
+│           │   │   ├── type
+│           │   │   │   └── encrypted.js
+│           │   │   ├── decrypt.js
+│           │   │   └── encrypt.js
+│           │   ├── handle
+│           │   │   ├── backup.js
+│           │   │   ├── merge.js
+│           │   │   ├── restore.js
+│           │   │   └── sync.js
+│           │   ├── parse
+│           │   │   ├── manual.js
+│           │   │   └── qr.js
+│           │   ├── record
+│           │   │   ├── build
+│           │   │   │   ├── account.js
+│           │   │   │   └── issuer.js
+│           │   │   └── sanitize
+│           │   │       ├── list.js
+│           │   │       ├── name.js
+│           │   │       ├── secret.js
+│           │   │       └── trim.js
+│           │   ├── storage
+│           │   │   ├── merged
+│           │   │   │   ├── clear.js
+│           │   │   │   ├── get.js
+│           │   │   │   └── set.js
+│           │   │   ├── pending
+│           │   │   │   ├── append.js
+│           │   │   │   ├── clear.js
+│           │   │   │   ├── get.js
+│           │   │   │   └── set.js
+│           │   │   ├── ready
+│           │   │   │   ├── clear.js
+│           │   │   │   ├── get.js
+│           │   │   │   └── set.js
+│           │   │   ├── restored
+│           │   │   │   ├── clear.js
+│           │   │   │   ├── get.js
+│           │   │   │   └── set.js
+│           │   │   └── purge.js
+│           │   └── data-index.js
+│           ├── shell
+│           │   └── extension-window.js
+│           └── theme
+│               ├── action
+│               │   ├── apply.js
+│               │   ├── clear.js
+│               │   └── set.js
+│               ├── state
+│               │   └── get.js
+│               ├── storage
+│               │   ├── clear.js
+│               │   ├── get.js
+│               │   └── set.js
+│               ├── init.js
+│               └── theme-index.js
 └── manifest.json

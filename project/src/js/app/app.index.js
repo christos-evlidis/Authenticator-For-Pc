@@ -1,15 +1,18 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { authApiVerify, authStorageGet } from "../services/auth/auth-index.js";
 import { dataHandleSync } from "../services/data/data-index.js";
-import { loadAnimationStart } from "../services/sequences/sequences-index.js";
 import { themeInit } from "../services/theme/theme-index.js";
 
-import { appScanCheck, appScanResume } from "./app.scan.js";
 import { appSessionRefresh } from "./app.session.js";
 import { appStateGet } from "./app.state.js";
 
 import { initSectionModules } from "../sections/sections-index.js";
 
+/** Reveals the app elements by removing is-hidden. */
+function revealApp() {
+  document.querySelector(".app-header")?.classList.remove("is-hidden");
+  document.querySelector(".app-body")?.classList.remove("is-hidden");
+}
 
 /** Initializes and starts the application. */
 async function appInit() {
@@ -28,13 +31,7 @@ async function appInit() {
     } else { // Continue with signed-out startup when no stored key exists.
       await appSessionRefresh(); // Refresh app state, shell, and signed-out UI.
     }
-    const result = await appScanCheck(); // Check whether a pending scan should resume on startup.
-    if (result) { // Resume scan flow without playing the intro animation.
-      await loadAnimationStart(appStateGet().stateAuth, { skipIntro: true }); // Reveal the shell instantly and remove the intro overlay.
-      await appScanResume(); // Resume the saved scan flow and QR setup animation.
-      return; // Exit after handling the pending scan resume.
-    }
-    await loadAnimationStart(appStateGet().stateAuth); // Play the normal startup intro animation.
+    revealApp(); // Play the normal startup intro animation.
   } catch {}
   return; // Stop startup quietly when initialization fails.
 }

@@ -94,7 +94,7 @@
     display: none;
 }
 
-.qr-setup.is-active {
+.qr-setup.is-open {
     visibility: visible;
     pointer-events: auto;
 }

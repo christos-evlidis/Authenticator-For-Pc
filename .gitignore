@@ -1,3 +1,4 @@
 .bun/
 .vite/
 jsconfig.json
+package.json

@@ -112,7 +112,7 @@
     min-height: 0;
 }
 
-.app-user-menu.is-active {
+.app-user-menu.is-open {
     visibility: visible;
     pointer-events: auto;
 }
