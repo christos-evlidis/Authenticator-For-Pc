@@ -1,0 +1,27 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "manifest_version": 3,
+  "name": "Authenticator For PC",
+  "version": "1.0.3",
+  "description": "A desktop authenticator for saving and managing your 2FA codes",
+  "action": {
+    "default_title": "Authenticator For PC",
+    "default_popup": "html/index.html",
+    "default_icon": {
+      "16": "icons/light/icon16.png",
+      "48": "icons/light/icon48.png",
+      "128": "icons/light/icon128.png"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "icons": {
+    "16": "icons/light/icon16.png",
+    "48": "icons/light/icon48.png",
+    "128": "icons/light/icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self'; font-src 'self' data:"
+  }
+}

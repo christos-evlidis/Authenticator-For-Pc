@@ -1,6 +1,5 @@
-/* Light theme */
-body.theme-white {
-    color-scheme: light;
+/* Active theme (light) */
+body {
 
     /* Brand */
     --color-brand: #176cca;
@@ -35,10 +34,9 @@ body.theme-white {
     --color-border-secondary: #ebebeb;
 }
 
-/* Dark theme */
+/* Dark theme — reserved for future use */
 body.theme-dark {
-    color-scheme: dark;
-
+    
     /* Brand */
     --color-brand: #176cca;
     --color-brand-active: #125aa8;

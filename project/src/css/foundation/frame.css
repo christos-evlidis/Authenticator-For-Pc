@@ -2,68 +2,35 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    scrollbar-width: none;
-}
-
-*::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    display: none;
-}
-
-html {
-    width: var(--extension-width);
-    height: var(--extension-height);
-    overflow: hidden;
-}
-
-body {
     margin: 0;
     padding: 0;
-    width: var(--extension-width);
-    height: var(--extension-height);
-    overflow: hidden;
-    font-family: var(--font-family) !important;
-    background: var(--color-surface-primary);
-    color: var(--color-text-primary);
+    scrollbar-width: none;
     user-select: none;
 }
 
-input,
-button,
-textarea,
-select {
-    font-family: var(--font-family) !important;
+* {
+    overflow: hidden;
 }
 
-input,
-textarea,
-[contenteditable="true"] {
-    user-select: text;
+.fa,
+.fas,
+.fa-solid,
+.far,
+.fa-regular,
+.fab,
+.fa-brands {
+    overflow: visible;
 }
 
-/* Explicitly preserve monospace fonts for code/secrets/OTP inputs */
-code,
-pre,
-kbd,
-samp,
-.otp-code,
-.account-hotp-counter,
-.manual-setup__input--secret {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
-}
-
-button:focus {
-    outline: none;
+body {
+    background: var(--color-surface-primary);
 }
 
 .extension-frame {
-    position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--gap-l);
     width: var(--extension-width);
     height: var(--extension-height);
     padding: var(--extension-padding);
-    overflow: hidden;
 }

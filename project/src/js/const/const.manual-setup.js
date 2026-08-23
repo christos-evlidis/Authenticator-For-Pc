@@ -1,4 +1,4 @@
-import { HEADER_MANUAL_SETUP_BTN_SELECTOR } from "./const.header.js";
+import { HEADER_MANUAL_SETUP_BTN_SELECTOR } from "@/js/const/const.header.js";
 
 // Overlay shell selectors.
 export const MANUAL_SETUP_ROOT_SELECTOR = ".manual-setup";

@@ -7,18 +7,18 @@ const appStateStore = {
 /** Returns the current application state snapshot. */
 function appStateGet() {
   return {
-    stateAuth: appStateStore.stateAuth, // Whether the user is authenticated.
-    authKey: appStateStore.authKey, // The active account key, if any.
+    stateAuth: appStateStore.stateAuth, 
+    authKey: appStateStore.authKey,
   };
 }
 
 /** Updates the application state with the provided values. */
 function appStateSet(next) {
-  if (typeof next.stateAuth === "boolean") { // Update auth state when provided.
-    appStateStore.stateAuth = next.stateAuth; // Store whether the user is authenticated.
+  if (typeof next.stateAuth === "boolean") {
+    appStateStore.stateAuth = next.stateAuth;
   }
-  if (typeof next.authKey === "string") { // Update auth key when provided.
-    appStateStore.authKey = next.authKey; // Store the active account key.
+  if ("authKey" in next) {
+    appStateStore.authKey = next.authKey;
   }
 }
 

@@ -7,18 +7,21 @@
     <title>PC Authenticator</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../css/popup.css" />
+    <link rel="stylesheet" href="@/css/popup.css" />
+
+    <!-- Scripts -->
+    <script type="module" src="@/js/app/app.index.js"></script>
 </head>
 
-<body class="theme-white">
+<body>
     <!-- Extension Frame -->
     <div class="extension-frame">
         <!-- Header Section -->
-        <header class="app-header">
+        <header class="app-header is-hidden">
             <div class="app-header__shell">
                 <h1 class="app-header__title">PC Authenticator</h1>
                 <!-- Signed-out View -->
-                <section class="app-header__view app-header__view--signed-out is-hidden">
+                <section class="app-header__view app-header__view--signed-out">
                     <div class="app-header__actions">
                         <button type="button" class="app-header__btn app-header__btn--user-menu">
                             <i class="fas fa-user"></i>
@@ -26,7 +29,7 @@
                     </div>
                 </section>
                 <!-- Signed-in View -->
-                <section class="app-header__view app-header__view--signed-in is-hidden">
+                <section class="app-header__view app-header__view--signed-in">
                     <div class="app-header__actions">
                         <button type="button" class="app-header__btn app-header__btn--manual-setup">
                             <i class="fas fa-plus"></i>
@@ -51,10 +54,10 @@
         </section>
 
         <!-- Body Section -->
-        <section class="app-body">
+        <section class="app-body is-hidden">
             <div class="app-body__shell">
                 <!-- Signed-out View -->
-                <section class="app-body__view app-body__view--signed-out is-hidden">
+                <section class="app-body__view app-body__view--signed-out">
                     <div class="app-body__content">
                         <div class="app-body__icon" aria-hidden="true">
                             <i class="fas fa-lock"></i>
@@ -65,9 +68,9 @@
                 </section>
 
                 <!-- Signed-in View -->
-                <section class="app-body__view app-body__view--signed-in is-hidden">
+                <section class="app-body__view app-body__view--signed-in">
                     <!-- Codes No View -->
-                    <section class="app-body__view app-body__view--codes-no is-hidden">
+                    <section class="app-body__view app-body__view--codes-no">
                         <div class="app-body__content">
                             <div class="app-body__icon" aria-hidden="true">
                                 <i class="fas fa-shield-halved"></i>
@@ -78,20 +81,20 @@
                     </section>
 
                     <!-- Codes Yes View -->
-                    <section class="app-body__view app-body__view--codes-yes is-hidden">
-                        <ul class="app-body__content is-hidden" role="list"></ul>
+                    <section class="app-body__view app-body__view--codes-yes">
+                        <ul class="app-body__content" role="list"></ul>
 
                         <template class="code-card-template">
                             <li class="account-block" role="listitem">
                                 <header class="account-block__header">
                                     <div class="account-block__identity">
                                         <div class="account-name"></div>
-                                        <div class="account-email is-hidden"></div>
+                                        <div class="account-email"></div>
                                     </div>
                                     <div class="account-block__actions">
                                         <button type="button" class="edit-button" title="Edit account"
                                             aria-label="Edit account">
-                                            <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                                            <i class="fas fa-pencil" aria-hidden="true"></i>
                                         </button>
                                         <button type="button" class="delete-button" title="Delete account"
                                             aria-label="Delete account">&times;</button>
@@ -99,7 +102,7 @@
                                 </header>
                                 <div class="account-block__body">
                                     <div class="otp-code" aria-live="polite">000000</div>
-                                    <div class="account-hotp-counter is-hidden" aria-label="HOTP counter"></div>
+                                    <div class="account-hotp-counter" aria-label="HOTP counter"></div>
                                     <div class="timer-wrapper">
                                         <svg width="35" height="35" class="pie-timer-svg" viewBox="0 0 32 32"
                                             aria-hidden="true">
@@ -125,7 +128,7 @@
         </section>
 
         <!-- User Menu Section -->
-        <section class="app-user-menu is-hidden">
+        <section class="app-user-menu">
             <div class="app-user-menu__backdrop"></div>
             <div class="app-user-menu__panel">
                 <header class="app-user-menu__header">
@@ -154,7 +157,7 @@
                 <div class="app-user-menu__content">
                     <div class="app-user-menu__body">
                         <!-- Signed-out View -->
-                        <section class="app-user-menu__view app-user-menu__view--signed-out is-hidden">
+                        <section class="app-user-menu__view app-user-menu__view--signed-out">
                             <div class="app-user-menu__tabs">
                                 <section class="app-user-menu__auth-view app-user-menu__auth-view--sign-in">
                                     <div class="app-user-menu__tab-content">
@@ -189,7 +192,7 @@
                         </section>
 
                         <!-- Signed-in View -->
-                        <section class="app-user-menu__view app-user-menu__view--signed-in is-hidden">
+                        <section class="app-user-menu__view app-user-menu__view--signed-in">
                             <div class="app-user-menu__account">
                                 <div class="app-user-menu__form app-user-menu__form--account">
                                     <div class="app-user-menu__label">
@@ -235,7 +238,7 @@
         </section>
 
         <!-- Manual Setup Section -->
-        <section class="manual-setup is-hidden">
+        <section class="manual-setup">
             <div class="manual-setup__backdrop"></div>
             <div class="manual-setup__panel">
                 <header class="manual-setup__header">
@@ -250,12 +253,12 @@
                 <div class="manual-setup__content">
                     <div class="manual-setup__body">
                         <div class="manual-setup__status" aria-hidden="true">
-                            <div class="manual-setup-status manual-setup-status--loading is-hidden">
+                            <div class="manual-setup-status manual-setup-status--loading">
                                 <span class="manual-setup-status__dot"></span>
                                 <span class="manual-setup-status__dot"></span>
                                 <span class="manual-setup-status__dot"></span>
                             </div>
-                            <div class="manual-setup-status manual-setup-status--success is-hidden">
+                            <div class="manual-setup-status manual-setup-status--success">
                                 <svg class="manual-setup-status__icon" viewbox="0 0 52 52" aria-hidden="true">
                                     <circle class="manual-setup-status__icon-circle" cx="26" cy="26" r="24"
                                         fill="none" />
@@ -263,7 +266,7 @@
                                         fill="none" d="M14 27l7 7 16-16" />
                                 </svg>
                             </div>
-                            <div class="manual-setup-status manual-setup-status--error is-hidden">
+                            <div class="manual-setup-status manual-setup-status--error">
                                 <svg class="manual-setup-status__icon" viewbox="0 0 52 52" aria-hidden="true">
                                     <circle class="manual-setup-status__icon-circle" cx="26" cy="26" r="24"
                                         fill="none" />
@@ -311,7 +314,7 @@
         </section>
 
         <!-- QR Code Setup Section -->
-        <section class="qr-setup is-hidden">
+        <section class="qr-setup">
             <div class="qr-setup__backdrop"></div>
             <div class="qr-setup__panel">
                 <header class="qr-setup__header">
@@ -327,19 +330,19 @@
                 <div class="qr-setup__content">
                     <div class="qr-setup__body">
                         <div class="qr-setup__status" aria-hidden="true">
-                            <div class="qr-setup-status qr-setup-status--loading is-hidden">
+                            <div class="qr-setup-status qr-setup-status--loading">
                                 <span class="qr-setup-status__dot"></span>
                                 <span class="qr-setup-status__dot"></span>
                                 <span class="qr-setup-status__dot"></span>
                             </div>
-                            <div class="qr-setup-status qr-setup-status--success is-hidden">
+                            <div class="qr-setup-status qr-setup-status--success">
                                 <svg class="qr-setup-status__icon" viewbox="0 0 52 52" aria-hidden="true">
                                     <circle class="qr-setup-status__icon-circle" cx="26" cy="26" r="24" fill="none" />
                                     <path class="qr-setup-status__icon-mark qr-setup-status__icon-mark--check"
                                         fill="none" d="M14 27l7 7 16-16" />
                                 </svg>
                             </div>
-                            <div class="qr-setup-status qr-setup-status--error is-hidden">
+                            <div class="qr-setup-status qr-setup-status--error">
                                 <svg class="qr-setup-status__icon" viewbox="0 0 52 52" aria-hidden="true">
                                     <circle class="qr-setup-status__icon-circle" cx="26" cy="26" r="24" fill="none" />
                                     <path class="qr-setup-status__icon-mark qr-setup-status__icon-mark--x" fill="none"
@@ -365,10 +368,6 @@
             </div>
         </section>
     </div>
-
-    <!-- Scripts -->
-    <script type="module" src="../js/app/app.index.js"></script>
 </body>
 
 </html>
-<!-- trigger rebuild -->

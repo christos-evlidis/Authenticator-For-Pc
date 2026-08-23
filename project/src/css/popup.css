@@ -1,15 +1,15 @@
 /* Popup stylesheet entry — import order matters */
-@import url("base/layout.css");
-@import url("base/color.css");
+@import url("@/css/base/layout.css");
+@import url("@/css/base/typography.css");
+@import url("@/css/base/color.css");
 
-@import url("foundation/frame.css");
+@import url("@/css/foundation/frame.css");
 
-@import url("shell/header.css");
-@import url("shell/body.css");
-@import url("shell/search.css");
-@import url("shell/codes.css");
-@import url("shell/intro.css");
+@import url("@/css/shell/header.css");
+@import url("@/css/shell/body.css");
+@import url("@/css/shell/search.css");
+@import url("@/css/shell/codes.css");
 
-@import url("overlay/user-menu.css");
-@import url("overlay/manual-setup.css");
-@import url("overlay/qr-setup.css");
+@import url("@/css/overlay/user-menu.css");
+@import url("@/css/overlay/manual-setup.css");
+@import url("@/css/overlay/qr-setup.css");

@@ -10,7 +10,6 @@
 
 .app-header {
     flex-shrink: 0;
-    overflow: hidden;
     border-radius: var(--radius-l);
     background: var(--color-surface-secondary);
 }
@@ -78,6 +77,8 @@
 }
 
 .app-header__btn i {
+    display: block;
     font-size: var(--header-btn-icon-size);
     line-height: 1;
+    overflow: visible;
 }

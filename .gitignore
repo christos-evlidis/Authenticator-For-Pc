@@ -1,4 +1,2 @@
-.bun/
-.vite/
-jsconfig.json
-package.json
+.pmgr
+project/backend/

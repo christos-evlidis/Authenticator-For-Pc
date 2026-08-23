@@ -5,9 +5,6 @@
     --extension-height: 600px;
     --extension-padding: 12px;
 
-    /* Typography */
-    --font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
     /* Spacing */
     --gap-xs: 2px;
     --gap-sm: 4px;
