@@ -1,0 +1,477 @@
+/* User menu flow status */
+.user-menu-status {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.user-menu-status.is-hidden {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.user-menu-status.is-shown {
+    opacity: 1;
+    visibility: visible;
+}
+
+.user-menu-status--loading {
+    gap: var(--gap-md);
+}
+
+.user-menu-status__dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-circle);
+    background: var(--color-brand);
+}
+
+.user-menu-status__dot:nth-child(2) {
+}
+
+.user-menu-status__dot:nth-child(3) {
+}
+
+
+
+.user-menu-status__icon {
+    width: 52px;
+    height: 52px;
+}
+
+.user-menu-status__icon-circle {
+    stroke-width: 2;
+    stroke-dasharray: 151;
+    stroke-dashoffset: 151;
+}
+
+.user-menu-status__icon-mark {
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 36;
+    stroke-dashoffset: 36;
+}
+
+.user-menu-status--success .user-menu-status__icon-circle,
+.user-menu-status--success .user-menu-status__icon-mark,
+.user-menu-status--error .user-menu-status__icon-circle,
+.user-menu-status--error .user-menu-status__icon-mark {
+    stroke: var(--color-brand);
+}
+
+
+.user-menu-status--success.is-drawn .user-menu-status__icon-circle,
+.user-menu-status--error.is-drawn .user-menu-status__icon-circle,
+.user-menu-status--success.is-drawn .user-menu-status__icon-mark,
+.user-menu-status--error.is-drawn .user-menu-status__icon-mark {
+    stroke-dashoffset: 0;
+}
+
+.app-user-menu {
+    --user-menu-panel-padding: 12px;
+    --user-menu-header-padding-block: 12px;
+    --user-menu-header-padding-inline: 14px;
+    --user-menu-body-padding: 14px;
+    --user-menu-panel-height: 285.75px;
+    --user-menu-btn-size: 32px;
+    --user-menu-title-size: 16px;
+    --user-menu-control-size: 14px;
+}
+
+.app-user-menu {
+    position: absolute;
+    inset: 0;
+    z-index: 24;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: var(--gap-l);
+    padding: var(--extension-padding);
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.app-user-menu.is-hidden {
+    display: none;
+}
+
+.app-user-menu__view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xl);
+    min-height: 0;
+}
+
+.app-user-menu.is-open {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.app-user-menu.is-open .app-user-menu__panel {
+    display: flex;
+}
+
+.app-user-menu__view.is-hidden,
+.app-user-menu .is-hidden {
+    display: none;
+}
+
+.app-user-menu__backdrop {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    backdrop-filter: blur(0);
+    pointer-events: none;
+}
+
+.app-user-menu__panel {
+    position: relative;
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    gap: var(--gap-l);
+    height: var(--user-menu-panel-height);
+    min-height: var(--user-menu-panel-height);
+    max-height: var(--user-menu-panel-height);
+    flex-shrink: 0;
+    padding: var(--user-menu-panel-padding);
+    border-radius: var(--radius-l);
+    background: var(--color-surface-primary);
+    overflow: hidden;
+    transform: translateY(100%);
+}
+
+.app-user-menu__content {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    border-radius: var(--radius-l);
+    background: var(--color-surface-secondary);
+    overflow: hidden;
+}
+
+.app-user-menu__body {
+    position: relative;
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xl);
+    padding: var(--user-menu-body-padding);
+    overflow-y: auto;
+}
+
+.app-user-menu__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-l);
+    flex-shrink: 0;
+    padding: var(--user-menu-header-padding-block) var(--user-menu-header-padding-inline);
+    border-radius: var(--radius-l);
+    background: var(--color-surface-secondary);
+}
+
+.app-user-menu__auth-bar {
+    flex-shrink: 0;
+}
+
+.app-user-menu__title {
+    margin: 0;
+    font-size: var(--user-menu-title-size);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+}
+
+.app-user-menu__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-md);
+    margin-left: auto;
+}
+
+.app-user-menu__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--user-menu-btn-size);
+    height: var(--user-menu-btn-size);
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-icon-primary);
+    cursor: pointer;
+}
+
+.app-user-menu__account-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--user-menu-btn-size);
+    height: var(--user-menu-btn-size);
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-icon-primary);
+    cursor: pointer;
+}
+
+.app-user-menu__btn:hover,
+.app-user-menu__account-action-btn:hover {
+    background: var(--color-brand-hover);
+    color: var(--color-brand-active);
+}
+
+.app-user-menu__btn i {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.app-user-menu__account-action-btn i {
+    font-size: 15px;
+    line-height: 1;
+}
+
+.app-user-menu__tabs,
+.app-user-menu__account {
+    min-height: 0;
+}
+
+.app-user-menu__tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-l);
+}
+
+.app-user-menu__auth-view {
+    min-height: 0;
+}
+
+.app-user-menu__auth-switch {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    align-self: stretch;
+    flex-shrink: 0;
+}
+
+.app-user-menu__auth-switch-track {
+    --user-menu-auth-switch-inset: 4px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding: var(--user-menu-auth-switch-inset);
+    border-radius: var(--radius-l);
+    background: var(--color-surface-secondary);
+}
+
+.app-user-menu__auth-switch-thumb {
+    position: absolute;
+    top: var(--user-menu-auth-switch-inset);
+    bottom: var(--user-menu-auth-switch-inset);
+    left: var(--user-menu-auth-switch-inset);
+    width: calc((100% - 2 * var(--user-menu-auth-switch-inset)) / 2);
+    border-radius: var(--radius-md);
+    background: var(--color-brand-hover);
+    pointer-events: none;
+}
+
+.app-user-menu__auth-switch-track.is-sign-up .app-user-menu__auth-switch-thumb {
+    transform: translateX(100%);
+}
+
+.app-user-menu__auth-switch-btn {
+    position: relative;
+    z-index: 1;
+    padding: 10px 12px;
+    border: none;
+    border-radius: var(--radius-md);
+    background: transparent;
+    font-family: inherit;
+    font-size: var(--user-menu-control-size);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+}
+
+.app-user-menu__auth-switch-btn.is-active {
+    color: var(--color-brand);
+}
+
+.app-user-menu__auth-switch-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.app-user-menu__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+}
+
+.app-user-menu__label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+}
+
+.app-user-menu__label-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.app-user-menu__input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: var(--user-menu-control-size);
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    background: var(--color-surface-secondary);
+    outline: none;
+}
+
+.app-user-menu__input:focus {
+    border-color: var(--color-brand);
+    box-shadow: 0 0 0 2px var(--color-brand-focus);
+}
+
+.app-user-menu__input::placeholder {
+    color: var(--color-text-tertiary);
+}
+
+.app-user-menu__account-input {
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: none;
+}
+
+.app-user-menu__field {
+    position: relative;
+}
+
+.app-user-menu__field-actions {
+    position: absolute;
+    top: 50%;
+    right: 3px;
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+    transform: translateY(-50%);
+}
+
+.app-user-menu__text {
+    margin: 0;
+    font-size: var(--user-menu-control-size);
+    line-height: 1.53;
+    color: var(--color-text-primary);
+}
+
+.app-user-menu__submit {
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: var(--user-menu-control-size);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-text-on-brand);
+    background: var(--color-brand);
+    cursor: pointer;
+}
+
+.app-user-menu__submit:hover {
+    background: var(--color-brand-active);
+}
+
+.app-user-menu__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+
+.app-user-menu.is-open .app-user-menu__backdrop {
+    opacity: 1;
+    backdrop-filter: blur(5px);
+    pointer-events: auto;
+}
+
+.app-user-menu.is-open .app-user-menu__panel {
+    transform: translateY(0);
+    display: flex;
+}
+
+.app-header__btn--user-menu.is-user-menu-btn-active {
+    background: var(--color-brand-hover);
+    color: var(--color-brand-active);
+}
+
+.app-user-menu__status {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Copy and download button micro-animations */
+.app-user-menu__account-action-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-user-menu__btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.app-user-menu__btn-icon--check {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0) scale(0.5);
+    opacity: 0;
+    pointer-events: none;
+    color: var(--color-brand);
+    backface-visibility: hidden;
+}
+
+.app-user-menu__account-action-btn.is-success-active .app-user-menu__btn-icon--default {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.app-user-menu__account-action-btn.is-success-active .app-user-menu__btn-icon--check {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+}
+
+.app-user-menu__auth-switch-btn.is-active {
+    pointer-events: none !important;
+    cursor: default !important;
+}

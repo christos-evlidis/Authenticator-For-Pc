@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scrollbar-width: none;
+    user-select: none;
+}
+
+* {
+    overflow: hidden;
+}
+
+.fa,
+.fas,
+.fa-solid,
+.far,
+.fa-regular,
+.fab,
+.fa-brands {
+    overflow: visible;
+}
+
+body {
+    background: var(--color-surface-primary);
+}
+
+.extension-frame {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-l);
+    width: var(--extension-width);
+    height: var(--extension-height);
+    padding: var(--extension-padding);
+}

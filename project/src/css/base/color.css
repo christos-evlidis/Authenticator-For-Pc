@@ -1,0 +1,77 @@
+/* Active theme (light) */
+body {
+
+    /* Brand */
+    --color-brand: #176cca;
+    --color-brand-active: #125aa8;
+    --color-brand-hover: #176cca1a;
+    --color-brand-focus: #176cca26;
+
+    /* Text */
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f6368;
+    --color-text-tertiary: #9aa0a6;
+    --color-text-on-brand: #ffffff;
+
+    /* Icon */
+    --color-icon-primary: #176cca;
+    --color-icon-secondary: #666666;
+    --color-icon-tertiary: #9aa0a6;
+
+    /* Status */
+    --color-success: #0f9d58;
+    --color-success-hover: #0f9d581a;
+    --color-error: #d93025;
+    --color-error-hover: #d930251a;
+
+    /* Surface */
+    --color-surface-primary: #ebebeb;
+    --color-surface-secondary: #ffffff;
+    --color-surface-tertiary: #f8f9fa;
+
+    /* Border */
+    --color-border-primary: #dadce0;
+    --color-border-secondary: #ebebeb;
+}
+
+/* Dark theme — reserved for future use */
+body.theme-dark {
+    
+    /* Brand */
+    --color-brand: #176cca;
+    --color-brand-active: #125aa8;
+    --color-brand-hover: #8ab4f81f;
+    --color-brand-focus: #8ab4f826;
+
+    /* Text */
+    --color-text-primary: #e8eaed;
+    --color-text-secondary: #9aa0a6;
+    --color-text-tertiary: #80868b;
+    --color-text-on-brand: #ffffff;
+
+    /* Icon */
+    --color-icon-primary: #176cca;
+    --color-icon-secondary: #9aa0a6;
+    --color-icon-tertiary: #80868b;
+
+    /* Status */
+    --color-success: #81c995;
+    --color-success-hover: #81c9951a;
+    --color-error: #f28b82;
+    --color-error-hover: #f28b821a;
+
+    /* Surface */
+    --color-surface-primary: #121212;
+    --color-surface-secondary: #1e1e1e;
+    --color-surface-tertiary: #111111;
+
+    /* Border */
+    --color-border-primary: #3c4043;
+    --color-border-secondary: #3c4043;
+}
+
+/* overlay/scan.css — fixed palette, not theme-aware */
+:root {
+    --color-scan-backdrop: #000000b8;
+    --color-scan-text: #ffffff;
+}

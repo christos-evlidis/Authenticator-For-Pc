@@ -1,0 +1,494 @@
+/* Codes section layout */
+.app-body__view--codes-yes .app-body__content {
+    --codes-card-height: 104px;
+    --codes-card-gap: 3px;
+    --delete-poof-ms: 1000ms;
+    --delete-poof-shrink-ms: 250ms;
+
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-anchor: none;
+    scroll-behavior: smooth;
+
+    /* Override defaults from general .app-body__content */
+    align-items: stretch;
+    justify-content: flex-start;
+    text-align: left;
+    color: inherit;
+}
+
+.app-body__view--codes-yes .app-body__content.is-hidden {
+    display: none;
+}
+
+/* Legacy account card (from popup/styles.css) */
+.app-body__view--codes-yes .app-body__content .account-block {
+    position: relative;
+    box-sizing: border-box;
+    height: var(--codes-card-height);
+    min-height: var(--codes-card-height);
+    max-height: var(--codes-card-height);
+    padding: 10px 15px;
+    margin-bottom: var(--codes-card-gap);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface-tertiary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm);
+    width: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block:last-child {
+    margin-bottom: 0;
+}
+
+/* Account block layout spacers */
+.app-body__view--codes-yes .app-body__content .account-block.account-block--manual-add-spacer {
+    display: none;
+}
+
+/* Copy feedback and deletion states simplified to instant */
+.app-body__view--codes-yes .app-body__content .account-block.is-copy-feedback-active {
+    pointer-events: none;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block__copy-feedback {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 5;
+    background: var(--color-surface-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.is-copy-feedback-active .account-block__copy-feedback {
+    opacity: 1;
+    visibility: visible;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block__copy-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-body__view--codes-yes .app-body__content .copy-check__icon {
+    width: 48px;
+    height: 48px;
+}
+
+.app-body__view--codes-yes .app-body__content .copy-check__circle {
+    stroke-width: 2;
+    stroke: var(--color-brand);
+    stroke-dashoffset: 0;
+}
+
+.app-body__view--codes-yes .app-body__content .copy-check__mark {
+    stroke-width: 3;
+    stroke: var(--color-brand);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dashoffset: 0;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block--delete-pending {
+    pointer-events: none;
+    overflow: visible;
+    z-index: 2;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block--delete-pending .account-block__header,
+.app-body__view--codes-yes .app-body__content .account-block--delete-pending .account-block__body {
+    filter: blur(2px);
+}
+
+.app-body__view--codes-yes .app-body__content .account-block--delete-pending .edit-button,
+.app-body__view--codes-yes .app-body__content .account-block--delete-pending .delete-button {
+    visibility: hidden;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--gap-l);
+    min-width: 0;
+    min-height: 0;
+    flex: 0 0 auto;
+    max-height: 44px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block__identity {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm);
+    align-items: flex-start;
+    text-align: left;
+    overflow: hidden;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block__actions {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: var(--gap-sm);
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-l);
+    min-width: 0;
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.app-body__view--codes-yes .app-body__content .account-name {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.15;
+    color: var(--color-text-primary);
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app-body__view--codes-yes .app-body__content .account-email {
+    font-size: 12px;
+    line-height: 1.15;
+    color: var(--color-text-secondary);
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app-body__view--codes-yes .app-body__content .account-email.is-hidden {
+    display: none;
+}
+
+.app-body__view--codes-yes .app-body__content .account-hotp-counter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 72px;
+    font-family: monospace;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: bold;
+    color: var(--color-brand);
+    text-align: right;
+    user-select: none;
+    padding: 0;
+    padding-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.app-body__view--codes-yes .app-body__content .account-hotp-counter.is-hidden {
+    display: none;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block--hotp .timer-wrapper {
+    display: none;
+}
+
+.app-body__view--codes-yes .app-body__content .otp-code {
+    flex: 1;
+    min-width: 0;
+    font-family: monospace;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--color-brand);
+}
+
+.app-body__view--codes-yes .app-body__content .edit-button,
+.app-body__view--codes-yes .app-body__content .delete-button {
+    position: static;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    border-radius: var(--radius-circle);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.app-body__view--codes-yes .app-body__content .edit-button {
+    font-size: 12px;
+    color: var(--color-icon-secondary);
+}
+
+.app-body__view--codes-yes .app-body__content .edit-button:hover {
+    color: var(--color-icon-primary);
+    background-color: var(--color-brand-hover);
+}
+
+.app-body__view--codes-yes .app-body__content .delete-button {
+    font-size: 20px;
+    color: var(--color-icon-secondary);
+}
+
+.app-body__view--codes-yes .app-body__content .delete-button:hover {
+    color: var(--color-error);
+    background-color: var(--color-error-hover);
+}
+
+.app-body__view--codes-yes .app-body__content .edit-button.is-hidden,
+.app-body__view--codes-yes .app-body__content .delete-button.is-hidden {
+    display: none;
+}
+
+.app-body__view--codes-yes .app-body__content .edit-buttons-container {
+    display: flex;
+    gap: var(--gap-sm);
+    flex-shrink: 0;
+}
+
+.app-body__view--codes-yes .app-body__content .save-edit-button,
+.app-body__view--codes-yes .app-body__content .cancel-edit-button {
+    background: none;
+    border: none;
+    font-size: 10px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: var(--radius-circle);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.app-body__view--codes-yes .app-body__content .save-edit-button {
+    color: var(--color-success);
+}
+
+.app-body__view--codes-yes .app-body__content .save-edit-button:hover {
+    background-color: var(--color-success-hover);
+}
+
+.app-body__view--codes-yes .app-body__content .cancel-edit-button {
+    color: var(--color-error);
+}
+
+.app-body__view--codes-yes .app-body__content .cancel-edit-button:hover {
+    background-color: var(--color-error-hover);
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.editing {
+    overflow: visible;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-block__header {
+    max-height: none;
+    overflow: visible;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-block__identity {
+    gap: var(--gap-sm);
+    overflow: visible;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-name,
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-email {
+    overflow: visible;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-name[contenteditable="true"],
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-email[contenteditable="true"] {
+    overflow: hidden;
+}
+
+.app-body__view--codes-yes .app-body__content .account-name[contenteditable="true"],
+.app-body__view--codes-yes .app-body__content .account-email[contenteditable="true"],
+.app-body__view--codes-yes .app-body__content .account-hotp-counter[contenteditable="true"] {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 97%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: var(--radius-xs);
+    outline: 1px solid var(--color-border-primary);
+    outline-offset: -1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app-body__view--codes-yes .app-body__content .account-name[contenteditable="true"] {
+    line-height: 1.15;
+}
+
+.app-body__view--codes-yes .app-body__content .account-email[contenteditable="true"] {
+    line-height: 1.15;
+}
+
+.app-body__view--codes-yes .app-body__content .account-hotp-counter[contenteditable="true"] {
+    width: 72px;
+    max-width: 72px;
+    min-width: 0;
+    padding: 0 10px 0 0;
+    line-height: 1;
+    justify-content: flex-end;
+    text-align: right;
+    color: var(--color-brand);
+    caret-color: var(--color-text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.app-body__view--codes-yes .app-body__content .account-name[contenteditable="true"]:focus,
+.app-body__view--codes-yes .app-body__content .account-email[contenteditable="true"]:focus {
+    outline: 1px solid var(--color-border-primary);
+    box-shadow: none;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    text-overflow: clip;
+}
+
+.app-body__view--codes-yes .app-body__content .account-hotp-counter[contenteditable="true"]:focus {
+    outline: 1px solid var(--color-border-primary);
+    box-shadow: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app-body__view--codes-yes .app-body__content .timer-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    padding-bottom: 5px;
+}
+
+.app-body__view--codes-yes .app-body__content .pie-timer-svg {
+    width: 25px;
+    height: 25px;
+    display: block;
+    shape-rendering: geometricPrecision;
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+}
+
+/* Default: grey track, blue fill */
+.app-body__view--codes-yes .app-body__content .pie-bg {
+    fill: var(--color-border-secondary);
+    stroke: none;
+    shape-rendering: geometricPrecision;
+    position: relative;
+    z-index: 1;
+}
+
+.app-body__view--codes-yes .app-body__content .pie-fg {
+    fill: var(--color-brand);
+    stroke-width: 0;
+    shape-rendering: geometricPrecision;
+    position: relative;
+    z-index: 2;
+    stroke: none;
+    vector-effect: non-scaling-stroke;
+}
+
+.app-body__view--codes-yes .app-body__content .pie-fg.is-hidden {
+    display: none;
+}
+
+/* Swapped: blue track, grey fill */
+.app-body__view--codes-yes .app-body__content .timer-wrapper.inverted .pie-bg {
+    fill: var(--color-brand);
+}
+
+.app-body__view--codes-yes .app-body__content .timer-wrapper.inverted .pie-fg {
+    fill: var(--color-border-secondary);
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.is-filtered-out {
+    display: none;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block--delete-pending .delete-confirmation {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--color-surface-secondary);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    gap: var(--gap-md);
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.18);
+    pointer-events: auto;
+}
+
+.delete-confirmation-text {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+}
+
+.delete-confirmation-button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.delete-confirmation-button.confirm {
+    color: var(--color-error);
+}
+
+.delete-confirmation-button.cancel {
+    color: var(--color-text-secondary);
+}

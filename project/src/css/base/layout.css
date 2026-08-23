@@ -1,0 +1,22 @@
+/* Extension layout tokens */
+:root {
+    /* foundation */
+    --extension-width: 350px;
+    --extension-height: 600px;
+    --extension-padding: 12px;
+
+    /* Spacing */
+    --gap-xs: 2px;
+    --gap-sm: 4px;
+    --gap-md: 8px;
+    --gap-l: 12px;
+    --gap-xl: 14px;
+
+    /* Radius */
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-l: 12px;
+    --radius-xl: 14px;
+    --radius-circle: 50%;
+}
