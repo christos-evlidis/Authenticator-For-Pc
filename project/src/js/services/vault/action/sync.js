@@ -1,6 +1,6 @@
 import { accountStorageGet } from "@/js/services/account/storage/get.js";
-import { vaultSyncMerge } from "@/js/services/vault/sync/merge.js";
-import { vaultSyncRestore } from "@/js/services/vault/sync/restore.js";
+import { vaultStorageSyncMerge } from "@/js/services/vault/sync/merge.js";
+import { vaultStorageSyncRestore } from "@/js/services/vault/sync/restore.js";
 import { vaultRecordSanitizeList } from "@/js/services/vault/record/sanitize/list.js";
 import { vaultStorageMergedClear } from "@/js/services/vault/storage/merged.js";
 import { vaultStoragePendingClear, vaultStoragePendingGet } from "@/js/services/vault/storage/pending.js";
@@ -9,14 +9,14 @@ import { vaultStorageRestoredClear } from "@/js/services/vault/storage/restored.
 import { vaultStorageRestoredGet } from "@/js/services/vault/storage/restored.js";
 
 /** Runs the full vault sync pipeline: restore, merge pending, write ready storage. */
-async function vaultSyncRun() {
+async function vaultActionSync() {
   try {
     const authNumber = await accountStorageGet();
     if (!authNumber) {
       return [];
     }
 
-    const result = await vaultSyncRestore(authNumber);
+    const result = await vaultStorageSyncRestore(authNumber);
     if (!result || result.accounts == null) {
       const existing = vaultRecordSanitizeList(await vaultStorageReadyGet());
       await vaultStorageRestoredClear();
@@ -31,7 +31,7 @@ async function vaultSyncRun() {
 
     const pending = vaultRecordSanitizeList(await vaultStoragePendingGet());
     if (pending.length) {
-      return vaultSyncMerge();
+      return vaultStorageSyncMerge();
     }
 
     const restored = vaultRecordSanitizeList(await vaultStorageRestoredGet());
@@ -45,4 +45,4 @@ async function vaultSyncRun() {
   }
 }
 
-export { vaultSyncRun };
+export { vaultActionSync };

@@ -1,7 +1,7 @@
 import { DATA_OTP_PERIOD, DATA_OTP_TYPE_HOTP } from "@/js/const/const.otp.js";
 
 /** Returns the HOTP counter or TOTP time step for code generation. */
-function otpCounter(options) {
+function otpUtilCounter(options) {
   try {
     if (options.type === DATA_OTP_TYPE_HOTP) {
       return options.counter;
@@ -17,4 +17,4 @@ function otpCounter(options) {
   }
 }
 
-export { otpCounter };
+export { otpUtilCounter };

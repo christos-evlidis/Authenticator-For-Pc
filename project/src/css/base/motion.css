@@ -1,0 +1,27 @@
+/* Motion and animation timing tokens */
+:root {
+    --theme-transition-ms: 250ms;
+    --blur-ms: 250ms;
+    --buffer-ms: 50ms;
+    --stagger-ms: 50ms;
+
+    --slide-ms: 250ms;
+    --fade-ms: 250ms;
+    --type-ms: 750ms;
+    --expand-up-ms: 150ms;
+    --expand-full-ms: 150ms;
+    --shrink-down-ms: 150ms;
+    --shrink-full-ms: 150ms;
+
+    --dots-run-ms: 2000ms;
+    --dots-bounce-ms: 1000ms;
+    --dots-bounce-delay-2-ms: 150ms;
+    --dots-bounce-delay-3-ms: 300ms;
+    --result-main-draw-ms: 1000ms;
+    --result-copy-draw-ms: 250ms;
+    --pop-ms: 250ms;
+    --hold-ms: 500ms;
+    --hover-ms: 250ms;
+    --fill-expand-ms: 1000ms;
+    --fill-contract-ms: 500ms;
+}

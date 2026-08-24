@@ -16,8 +16,17 @@
 <body>
     <!-- Extension Frame -->
     <div class="extension-frame">
+        <!-- Intro Section -->
+        <section class="app-intro" data-section="intro" aria-hidden="false">
+            <div class="app-intro__backdrop"></div>
+            <div class="app-intro__logo" aria-hidden="true">
+                <img src="../icons/light/icon128.png" alt="" />
+            </div>
+        </section>
+
+        <div class="app-shell" data-section="shell">
         <!-- Header Section -->
-        <header class="app-header is-hidden">
+        <header class="app-header is-hidden" data-section="header">
             <div class="app-header__shell">
                 <h1 class="app-header__title">PC Authenticator</h1>
                 <!-- Signed-out View -->
@@ -29,9 +38,9 @@
                     </div>
                 </section>
                 <!-- Signed-in View -->
-                <section class="app-header__view app-header__view--signed-in">
+                <section class="app-header__view app-header__view--signed-in is-hidden">
                     <div class="app-header__actions">
-                        <button type="button" class="app-header__btn app-header__btn--manual-setup">
+                        <button type="button" class="app-header__btn app-header__btn--manual-menu">
                             <i class="fas fa-plus"></i>
                         </button>
                         <button type="button" class="app-header__btn app-header__btn--scan-qr">
@@ -45,16 +54,16 @@
             </div>
         </header>
 
-        <section class="codes-search is-hidden" aria-label="Search accounts">
-            <label class="codes-search__field">
-                <i class="fas fa-magnifying-glass codes-search__icon" aria-hidden="true"></i>
-                <input type="search" class="codes-search__input" placeholder="Search accounts" autocomplete="off"
+        <section class="app-search-bar is-hidden" data-section="search-bar" aria-label="Search accounts">
+            <label class="app-search-bar__field">
+                <i class="fas fa-magnifying-glass app-search-bar__icon" aria-hidden="true"></i>
+                <input type="search" class="app-search-bar__input" placeholder="Search accounts" autocomplete="off"
                     spellcheck="false" />
             </label>
         </section>
 
         <!-- Body Section -->
-        <section class="app-body is-hidden">
+        <section class="app-body is-hidden" data-section="body">
             <div class="app-body__shell">
                 <!-- Signed-out View -->
                 <section class="app-body__view app-body__view--signed-out">
@@ -68,7 +77,7 @@
                 </section>
 
                 <!-- Signed-in View -->
-                <section class="app-body__view app-body__view--signed-in">
+                <section class="app-body__view app-body__view--signed-in is-hidden">
                     <!-- Codes No View -->
                     <section class="app-body__view app-body__view--codes-no">
                         <div class="app-body__content">
@@ -81,7 +90,7 @@
                     </section>
 
                     <!-- Codes Yes View -->
-                    <section class="app-body__view app-body__view--codes-yes">
+                    <section class="app-body__view app-body__view--codes-yes is-hidden">
                         <ul class="app-body__content" role="list"></ul>
 
                         <template class="code-card-template">
@@ -127,8 +136,10 @@
             </div>
         </section>
 
+        </div>
+
         <!-- User Menu Section -->
-        <section class="app-user-menu">
+        <section class="app-user-menu" data-section="user-menu">
             <div class="app-user-menu__backdrop"></div>
             <div class="app-user-menu__panel">
                 <header class="app-user-menu__header">
@@ -238,75 +249,75 @@
         </section>
 
         <!-- Manual Setup Section -->
-        <section class="manual-setup">
-            <div class="manual-setup__backdrop"></div>
-            <div class="manual-setup__panel">
-                <header class="manual-setup__header">
-                    <h2 class="manual-setup__title">Manual Setup</h2>
-                    <div class="manual-setup__actions">
-                        <button type="button" class="manual-setup__btn manual-setup__close-btn">
+        <section class="app-manual-menu" data-section="manual-menu">
+            <div class="app-manual-menu__backdrop"></div>
+            <div class="app-manual-menu__panel">
+                <header class="app-manual-menu__header">
+                    <h2 class="app-manual-menu__title">Manual Setup</h2>
+                    <div class="app-manual-menu__actions">
+                        <button type="button" class="app-manual-menu__btn app-manual-menu__close-btn">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
                 </header>
 
-                <div class="manual-setup__content">
-                    <div class="manual-setup__body">
-                        <div class="manual-setup__status" aria-hidden="true">
-                            <div class="manual-setup-status manual-setup-status--loading">
-                                <span class="manual-setup-status__dot"></span>
-                                <span class="manual-setup-status__dot"></span>
-                                <span class="manual-setup-status__dot"></span>
+                <div class="app-manual-menu__content">
+                    <div class="app-manual-menu__body">
+                        <div class="app-manual-menu__status" aria-hidden="true">
+                            <div class="app-manual-menu-status app-manual-menu-status--loading">
+                                <span class="app-manual-menu-status__dot"></span>
+                                <span class="app-manual-menu-status__dot"></span>
+                                <span class="app-manual-menu-status__dot"></span>
                             </div>
-                            <div class="manual-setup-status manual-setup-status--success">
-                                <svg class="manual-setup-status__icon" viewbox="0 0 52 52" aria-hidden="true">
-                                    <circle class="manual-setup-status__icon-circle" cx="26" cy="26" r="24"
+                            <div class="app-manual-menu-status app-manual-menu-status--success">
+                                <svg class="app-manual-menu-status__icon" viewbox="0 0 52 52" aria-hidden="true">
+                                    <circle class="app-manual-menu-status__icon-circle" cx="26" cy="26" r="24"
                                         fill="none" />
-                                    <path class="manual-setup-status__icon-mark manual-setup-status__icon-mark--check"
+                                    <path class="app-manual-menu-status__icon-mark app-manual-menu-status__icon-mark--check"
                                         fill="none" d="M14 27l7 7 16-16" />
                                 </svg>
                             </div>
-                            <div class="manual-setup-status manual-setup-status--error">
-                                <svg class="manual-setup-status__icon" viewbox="0 0 52 52" aria-hidden="true">
-                                    <circle class="manual-setup-status__icon-circle" cx="26" cy="26" r="24"
+                            <div class="app-manual-menu-status app-manual-menu-status--error">
+                                <svg class="app-manual-menu-status__icon" viewbox="0 0 52 52" aria-hidden="true">
+                                    <circle class="app-manual-menu-status__icon-circle" cx="26" cy="26" r="24"
                                         fill="none" />
-                                    <path class="manual-setup-status__icon-mark manual-setup-status__icon-mark--x"
+                                    <path class="app-manual-menu-status__icon-mark app-manual-menu-status__icon-mark--x"
                                         fill="none" d="M18 18 L34 34" />
-                                    <path class="manual-setup-status__icon-mark manual-setup-status__icon-mark--x"
+                                    <path class="app-manual-menu-status__icon-mark app-manual-menu-status__icon-mark--x"
                                         fill="none" d="M34 18 L18 34" />
                                 </svg>
                             </div>
                         </div>
 
-                        <form class="manual-setup__form">
-                            <label class="manual-setup__label">
-                                <span class="manual-setup__label-text">Account Name *</span>
-                                <input type="text" class="manual-setup__input" name="name" maxlength="64"
+                        <form class="app-manual-menu__form">
+                            <label class="app-manual-menu__label">
+                                <span class="app-manual-menu__label-text">Account Name *</span>
+                                <input type="text" class="app-manual-menu__input" name="name" maxlength="64"
                                     autocomplete="off" required />
                             </label>
-                            <label class="manual-setup__label">
-                                <span class="manual-setup__label-text">Secret Key *</span>
-                                <input type="text" class="manual-setup__input manual-setup__input--secret" name="secret"
+                            <label class="app-manual-menu__label">
+                                <span class="app-manual-menu__label-text">Secret Key *</span>
+                                <input type="text" class="app-manual-menu__input app-manual-menu__input--secret" name="secret"
                                     maxlength="64" autocomplete="off" spellcheck="false" required />
                             </label>
-                            <label class="manual-setup__label">
-                                <span class="manual-setup__label-text">Email</span>
-                                <input type="email" class="manual-setup__input" name="email" maxlength="128"
+                            <label class="app-manual-menu__label">
+                                <span class="app-manual-menu__label-text">Email</span>
+                                <input type="email" class="app-manual-menu__input" name="email" maxlength="128"
                                     autocomplete="email" />
                             </label>
 
-                            <div class="manual-setup__type-selector">
-                                <div class="manual-setup__type-track">
-                                    <span class="manual-setup__type-thumb"></span>
-                                    <button type="button" class="manual-setup__type-btn is-active"
+                            <div class="app-manual-menu__type-selector">
+                                <div class="app-manual-menu__type-track">
+                                    <span class="app-manual-menu__type-thumb"></span>
+                                    <button type="button" class="app-manual-menu__type-btn is-active"
                                         data-otp-type="totp">TOTP</button>
-                                    <button type="button" class="manual-setup__type-btn"
+                                    <button type="button" class="app-manual-menu__type-btn"
                                         data-otp-type="hotp">HOTP</button>
                                 </div>
                             </div>
                             <input type="hidden" name="type" value="totp" />
 
-                            <button type="submit" class="manual-setup__submit">Add Account</button>
+                            <button type="submit" class="app-manual-menu__submit">Add Account</button>
                         </form>
                     </div>
                 </div>
@@ -314,52 +325,52 @@
         </section>
 
         <!-- QR Code Setup Section -->
-        <section class="qr-setup">
-            <div class="qr-setup__backdrop"></div>
-            <div class="qr-setup__panel">
-                <header class="qr-setup__header">
-                    <h2 class="qr-setup__title">QR Code Setup</h2>
-                    <div class="qr-setup__actions">
-                        <button type="button" class="qr-setup__btn qr-setup__close-btn"
+        <section class="app-qr-menu" data-section="qr-menu">
+            <div class="app-qr-menu__backdrop"></div>
+            <div class="app-qr-menu__panel">
+                <header class="app-qr-menu__header">
+                    <h2 class="app-qr-menu__title">QR Code Setup</h2>
+                    <div class="app-qr-menu__actions">
+                        <button type="button" class="app-qr-menu__btn app-qr-menu__close-btn"
                             aria-label="Close QR code setup">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
                 </header>
 
-                <div class="qr-setup__content">
-                    <div class="qr-setup__body">
-                        <div class="qr-setup__status" aria-hidden="true">
-                            <div class="qr-setup-status qr-setup-status--loading">
-                                <span class="qr-setup-status__dot"></span>
-                                <span class="qr-setup-status__dot"></span>
-                                <span class="qr-setup-status__dot"></span>
+                <div class="app-qr-menu__content">
+                    <div class="app-qr-menu__body">
+                        <div class="app-qr-menu__status" aria-hidden="true">
+                            <div class="app-qr-menu-status app-qr-menu-status--loading">
+                                <span class="app-qr-menu-status__dot"></span>
+                                <span class="app-qr-menu-status__dot"></span>
+                                <span class="app-qr-menu-status__dot"></span>
                             </div>
-                            <div class="qr-setup-status qr-setup-status--success">
-                                <svg class="qr-setup-status__icon" viewbox="0 0 52 52" aria-hidden="true">
-                                    <circle class="qr-setup-status__icon-circle" cx="26" cy="26" r="24" fill="none" />
-                                    <path class="qr-setup-status__icon-mark qr-setup-status__icon-mark--check"
+                            <div class="app-qr-menu-status app-qr-menu-status--success">
+                                <svg class="app-qr-menu-status__icon" viewbox="0 0 52 52" aria-hidden="true">
+                                    <circle class="app-qr-menu-status__icon-circle" cx="26" cy="26" r="24" fill="none" />
+                                    <path class="app-qr-menu-status__icon-mark app-qr-menu-status__icon-mark--check"
                                         fill="none" d="M14 27l7 7 16-16" />
                                 </svg>
                             </div>
-                            <div class="qr-setup-status qr-setup-status--error">
-                                <svg class="qr-setup-status__icon" viewbox="0 0 52 52" aria-hidden="true">
-                                    <circle class="qr-setup-status__icon-circle" cx="26" cy="26" r="24" fill="none" />
-                                    <path class="qr-setup-status__icon-mark qr-setup-status__icon-mark--x" fill="none"
+                            <div class="app-qr-menu-status app-qr-menu-status--error">
+                                <svg class="app-qr-menu-status__icon" viewbox="0 0 52 52" aria-hidden="true">
+                                    <circle class="app-qr-menu-status__icon-circle" cx="26" cy="26" r="24" fill="none" />
+                                    <path class="app-qr-menu-status__icon-mark app-qr-menu-status__icon-mark--x" fill="none"
                                         d="M18 18 L34 34" />
-                                    <path class="qr-setup-status__icon-mark qr-setup-status__icon-mark--x" fill="none"
+                                    <path class="app-qr-menu-status__icon-mark app-qr-menu-status__icon-mark--x" fill="none"
                                         d="M34 18 L18 34" />
                                 </svg>
                             </div>
                         </div>
 
-                        <div class="qr-setup__guide">
-                            <div class="qr-setup__guide-media" aria-hidden="true">
-                                <span class="qr-setup__guide-icon">
+                        <div class="app-qr-menu__guide">
+                            <div class="app-qr-menu__guide-media" aria-hidden="true">
+                                <span class="app-qr-menu__guide-icon">
                                     <i class="fas fa-qrcode"></i>
                                 </span>
                             </div>
-                            <p class="qr-setup__guide-text">
+                            <p class="app-qr-menu__guide-text">
                                 Drag your mouse over the QR code to select and scan it.
                             </p>
                         </div>

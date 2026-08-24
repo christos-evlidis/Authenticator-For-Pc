@@ -6,11 +6,13 @@ import { accountStorageSet } from "@/js/services/account/storage/set.js";
 async function accountActionSignIn(input) {
   try {
     const authKey = accountSanitizeNumber(input);
-    const result = await accountApiVerify(authKey);
-    if (result) {
+    const verifyResult = await accountApiVerify(authKey);
+
+    if (verifyResult === true) {
       await accountStorageSet(authKey);
       return true;
     }
+
     return false;
   } catch {
     return false;

@@ -1,7 +1,7 @@
 import CryptoJS from "crypto-js";
 
 /** Encrypts account data as JSON with the auth number key. */
-function cryptoEncrypt(accounts, authNumber) {
+function cryptoActionEncrypt(accounts, authNumber) {
   try {
     const accountsJson = JSON.stringify(accounts);
     return CryptoJS.AES.encrypt(accountsJson, authNumber).toString();
@@ -10,4 +10,4 @@ function cryptoEncrypt(accounts, authNumber) {
   }
 }
 
-export { cryptoEncrypt };
+export { cryptoActionEncrypt };

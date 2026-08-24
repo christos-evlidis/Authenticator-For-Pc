@@ -1,5 +1,5 @@
 /** Computes TOTP timing state for the current epoch second. */
-function otpClock(options) {
+function otpUtilClock(options) {
   try {
     const period = options.period;
     if (!period || period < 1) {
@@ -35,4 +35,4 @@ function otpClock(options) {
   }
 }
 
-export { otpClock };
+export { otpUtilClock };

@@ -1,26 +1,30 @@
 /** In-memory store for application auth state and account key. */
 const appStateStore = {
-  stateAuth: false,
+  authState: false,
   authKey: null,
 };
 
 /** Returns the current application state snapshot. */
 function appStateGet() {
   return {
-    stateAuth: appStateStore.stateAuth, 
+    authState: appStateStore.authState,
     authKey: appStateStore.authKey,
   };
 }
 
 /** Updates the application state with the provided values. */
-function appStateSet(next) {
-  if (typeof next.stateAuth === "boolean") {
-    appStateStore.stateAuth = next.stateAuth;
+function appStateSet(value) {
+  if (value.authKey === null) {
+    appStateStore.authKey = null;
   }
-  if ("authKey" in next) {
-    appStateStore.authKey = next.authKey;
+
+  if (typeof value.authState === "boolean") {
+    appStateStore.authState = value.authState;
+  }
+
+  if (typeof value.authKey === "string") {
+    appStateStore.authKey = value.authKey;
   }
 }
-
 
 export { appStateGet, appStateSet };

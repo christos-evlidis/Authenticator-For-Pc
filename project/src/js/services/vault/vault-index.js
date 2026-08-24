@@ -1,6 +1,8 @@
 export { vaultActionAddManual } from "@/js/services/vault/action/add/manual.js";
 export { vaultActionAddQr } from "@/js/services/vault/action/add/qr.js";
 export { vaultActionDelete } from "@/js/services/vault/action/delete.js";
+export { vaultActionPurge } from "@/js/services/vault/action/purge.js";
+export { vaultActionSync } from "@/js/services/vault/action/sync.js";
 export { vaultActionUpdate } from "@/js/services/vault/action/update.js";
 export { vaultParseManual } from "@/js/services/vault/parse/manual.js";
 export { vaultParseQr } from "@/js/services/vault/parse/qr.js";
@@ -12,10 +14,8 @@ export { vaultRecordSanitizeSecret } from "@/js/services/vault/record/sanitize/s
 export { vaultRecordSanitizeText } from "@/js/services/vault/record/sanitize/text.js";
 export { vaultStorageMergedClear, vaultStorageMergedGet, vaultStorageMergedSet } from "@/js/services/vault/storage/merged.js";
 export { vaultStoragePendingAppend, vaultStoragePendingClear, vaultStoragePendingGet, vaultStoragePendingSet } from "@/js/services/vault/storage/pending.js";
-export { vaultStoragePurge } from "@/js/services/vault/action/purge.js";
 export { vaultStorageReadyClear, vaultStorageReadyGet, vaultStorageReadySet } from "@/js/services/vault/storage/ready.js";
 export { vaultStorageRestoredClear, vaultStorageRestoredGet, vaultStorageRestoredSet } from "@/js/services/vault/storage/restored.js";
-export { vaultSyncBackup } from "@/js/services/vault/sync/backup.js";
-export { vaultSyncMerge } from "@/js/services/vault/sync/merge.js";
-export { vaultSyncRestore } from "@/js/services/vault/sync/restore.js";
-export { vaultSyncRun } from "@/js/services/vault/action/sync.js";
+export { vaultStorageSyncBackup } from "@/js/services/vault/sync/backup.js";
+export { vaultStorageSyncMerge } from "@/js/services/vault/sync/merge.js";
+export { vaultStorageSyncRestore } from "@/js/services/vault/sync/restore.js";

@@ -6,7 +6,7 @@ export const HEADER_SIGNED_OUT_VIEW_SELECTOR = ".app-header__view--signed-out";
 export const HEADER_SIGNED_IN_VIEW_SELECTOR = ".app-header__view--signed-in";
 export const HEADER_VIEW_SELECTOR = ".app-header__view";
 export const HEADER_BUTTON_SELECTOR = ".app-header__btn";
-export const HEADER_MANUAL_SETUP_BTN_SELECTOR = ".app-header__btn--manual-setup";
+export const HEADER_MANUAL_MENU_BTN_SELECTOR = ".app-header__btn--manual-menu";
 export const HEADER_SCAN_QR_BTN_SELECTOR = ".app-header__btn--scan-qr";
 
 // Shared state classes.

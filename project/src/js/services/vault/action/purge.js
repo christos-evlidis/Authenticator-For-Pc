@@ -5,7 +5,7 @@ import { vaultStorageRestoredClear } from "@/js/services/vault/storage/restored.
 import { DATA_KEY_LEGACY } from "@/js/const/const.data.js";
 
 /** Clears all account storage keys including legacy entries. */
-async function vaultStoragePurge() {
+async function vaultActionPurge() {
   try {
     await vaultStorageReadyClear();
     await vaultStorageRestoredClear();
@@ -17,4 +17,4 @@ async function vaultStoragePurge() {
   }
 }
 
-export { vaultStoragePurge };
+export { vaultActionPurge };

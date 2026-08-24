@@ -1,7 +1,7 @@
 import { DATA_OTP_TYPE_HOTP } from "@/js/const/const.otp.js";
 
 /** Builds OTP generation options from an account record. */
-function otpOptions(account) {
+function otpUtilOptions(account) {
   try {
     const options = {
       type: account.type,
@@ -19,4 +19,4 @@ function otpOptions(account) {
   }
 }
 
-export { otpOptions };
+export { otpUtilOptions };
