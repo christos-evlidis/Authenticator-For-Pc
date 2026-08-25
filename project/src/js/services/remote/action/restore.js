@@ -1,7 +1,7 @@
 import { AUTH_API_BASE_URL } from "@/js/const/const.auth.js";
 
 /** Fetches vault backup from the remote restore API. */
-async function remoteRestore(authNumber) {
+async function remoteActionRestore(authNumber) {
   try {
     const response = await fetch(`${AUTH_API_BASE_URL}/vault`, {
       method: "GET",
@@ -26,4 +26,4 @@ async function remoteRestore(authNumber) {
   }
 }
 
-export { remoteRestore };
+export { remoteActionRestore };

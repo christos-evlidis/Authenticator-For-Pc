@@ -1,12 +1,12 @@
 import CryptoJS from "crypto-js";
-import { otpCounter } from "@/js/services/otp/util/counter.js";
+import { otpUtilCounter } from "@/js/services/otp/util/counter.js";
 import { vaultRecordSanitizeSecret } from "@/js/services/vault/record/sanitize/secret.js";
 
 /** Generates an OTP code from a secret and options. */
-function otpGenerate(secret, options) {
+function otpActionGenerate(secret, options) {
   try {
     const sanitized = vaultRecordSanitizeSecret(secret);
-    const counterValue = otpCounter(options);
+    const counterValue = otpUtilCounter(options);
     const hmacFn = {
       SHA1: CryptoJS.HmacSHA1,
       SHA256: CryptoJS.HmacSHA256,
@@ -77,4 +77,4 @@ function otpGenerate(secret, options) {
   }
 }
 
-export { otpGenerate };
+export { otpActionGenerate };

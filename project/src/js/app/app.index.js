@@ -1,24 +1,32 @@
 import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
 import "@fortawesome/fontawesome-free/css/solid.min.css";
-import { accountApiVerify, accountStorageGet } from "@/js/services/account/account-index.js";
+import { accountApiVerify, accountStorageClear, accountStorageGet } from "@/js/services/account/account-index.js";
 import { appStateSet } from "@/js/app/app.state.js";
+import { bodyFadeIn, headerFadeIn, searchBarFadeIn, sectionsInit } from "@/js/sections/sections-index.js";
 
-async function appBoot() {
-  const authKey = await accountStorageGet();
-  const verified = await accountApiVerify(authKey);
-
-  if (!verified || !authKey) {
-    appStateSet({ stateAuth: false, authKey: null });
-    return { signedIn: false, authKey: null };
-  }
-
-  appStateSet({ stateAuth: true, authKey });
-  return { signedIn: true, authKey };
-}
-
-/** Initializes and starts the application. */
+/** Bootstraps the application: restores auth, applies shell state, and fades in shell sections. */
 async function appInit() {
-  await appBoot();
+  const authKey = await accountStorageGet();
+  if (!authKey) {
+    appStateSet({ authState: false, authKey: null });
+  } else {
+    const verifyAuth = await accountApiVerify(authKey);
+
+    if (verifyAuth === true) {
+      appStateSet({ authState: true, authKey });
+    } else if (verifyAuth === false) {
+      await accountStorageClear();
+      appStateSet({ authState: false, authKey: null });
+    } else if (verifyAuth === null) {
+      appStateSet({ authState: false, authKey });
+    }
+  }
+  sectionsInit();
+  await Promise.all([
+    headerFadeIn(),
+    searchBarFadeIn(),
+    bodyFadeIn(),
+  ]);
 }
 
 void appInit();

@@ -27,10 +27,12 @@ body {
 }
 
 .extension-frame {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--gap-l);
     width: var(--extension-width);
     height: var(--extension-height);
+    min-height: 0;
     padding: var(--extension-padding);
 }

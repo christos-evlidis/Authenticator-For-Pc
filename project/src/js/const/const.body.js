@@ -17,3 +17,7 @@ export const BODY_HIDDEN_CLASS = "is-hidden";
 export const BODY_CONTENT_HIDDEN_CLASS = "is-hidden";
 export const BODY_ACTIVE_CLASS = "is-active";
 
+// Animation (timing matches --fade-ms in motion.css).
+export const BODY_FADE_IN_CLASS = "is-body-fade-in";
+export const BODY_FADE_MS = 250;
+

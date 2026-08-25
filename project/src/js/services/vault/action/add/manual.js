@@ -1,7 +1,7 @@
 import { accountStorageGet } from "@/js/services/account/storage/get.js";
-import { vaultSyncBackup } from "@/js/services/vault/sync/backup.js";
-import { vaultSyncMerge } from "@/js/services/vault/sync/merge.js";
-import { vaultSyncRestore } from "@/js/services/vault/sync/restore.js";
+import { vaultStorageSyncBackup } from "@/js/services/vault/sync/backup.js";
+import { vaultStorageSyncMerge } from "@/js/services/vault/sync/merge.js";
+import { vaultStorageSyncRestore } from "@/js/services/vault/sync/restore.js";
 import { vaultParseManual } from "@/js/services/vault/parse/manual.js";
 import { vaultRecordBuildAccount } from "@/js/services/vault/record/build/account.js";
 import { vaultStorageMergedClear } from "@/js/services/vault/storage/merged.js";
@@ -24,9 +24,9 @@ async function vaultActionAddManual(formData) {
       return null;
     }
     await vaultStoragePendingAppend(account);
-    await vaultSyncRestore(authNumber);
-    await vaultSyncMerge();
-    await vaultSyncBackup(authNumber);
+    await vaultStorageSyncRestore(authNumber);
+    await vaultStorageSyncMerge();
+    await vaultStorageSyncBackup(authNumber);
     await vaultStorageRestoredClear();
     await vaultStoragePendingClear();
     await vaultStorageMergedClear();

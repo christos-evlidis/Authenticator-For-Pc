@@ -1,4 +1,4 @@
-.codes-search {
+.app-search-bar {
     flex-shrink: 0;
     display: block;
     padding: 8px 14px;
@@ -6,25 +6,25 @@
     background: var(--color-surface-secondary);
 }
 
-.codes-search.is-hidden {
+.app-search-bar.is-hidden {
     display: none;
 }
 
-.codes-search__field {
+.app-search-bar__field {
     display: flex;
     align-items: center;
     gap: var(--gap-md);
     min-height: 24px;
 }
 
-.codes-search__icon {
+.app-search-bar__icon {
     flex-shrink: 0;
     font-size: 14px;
     line-height: 1;
     color: var(--color-text-secondary);
 }
 
-.codes-search__input {
+.app-search-bar__input {
     flex: 1;
     min-width: 0;
     height: 24px;
@@ -39,11 +39,11 @@
     outline: none;
 }
 
-.codes-search__input::placeholder {
+.app-search-bar__input::placeholder {
     color: var(--color-text-tertiary);
 }
 
-.codes-search__input::-webkit-search-cancel-button {
+.app-search-bar__input::-webkit-search-cancel-button {
     -webkit-appearance: none;
     appearance: none;
 }

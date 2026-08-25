@@ -52,3 +52,6 @@ export const USER_MENU_PANEL_ACTIVE_CLASS = "is-active";
 // Panel / account state classes.
 export const USER_MENU_AUTH_SIGN_IN_CLASS = "is-sign-in";
 export const USER_MENU_AUTH_SIGN_UP_CLASS = "is-sign-up";
+
+// Animation (timing matches --slide-ms in motion.css).
+export const USER_MENU_OPEN_MS = 250;

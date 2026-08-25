@@ -5,7 +5,7 @@ import { vaultStorageReadyGet } from "@/js/services/vault/storage/ready.js";
 import { vaultStorageRestoredGet } from "@/js/services/vault/storage/restored.js";
 
 /** Merges restored, ready, and pending account lists by ID. */
-async function vaultSyncMerge(options = {}) {
+async function vaultStorageSyncMerge(options = {}) {
   try {
     const restored = vaultRecordSanitizeList(
       options.baseList ?? (await vaultStorageRestoredGet()),
@@ -39,4 +39,4 @@ async function vaultSyncMerge(options = {}) {
   }
 }
 
-export { vaultSyncMerge };
+export { vaultStorageSyncMerge };
