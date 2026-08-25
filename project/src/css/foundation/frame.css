@@ -33,5 +33,6 @@ body {
     gap: var(--gap-l);
     width: var(--extension-width);
     height: var(--extension-height);
+    min-height: 0;
     padding: var(--extension-padding);
 }

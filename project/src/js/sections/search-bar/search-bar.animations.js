@@ -1,19 +1,4 @@
-import { SEARCH_ROOT_SELECTOR } from "@/js/const/const.search.js";
-
-const SEARCH_BAR_FADE_IN_CLASS = "is-search-bar-fade-in";
-
-function waitAnimationEnd(element) {
-  return new Promise((resolve) => {
-    const onEnd = (event) => {
-      if (event.target !== element) {
-        return;
-      }
-      element.removeEventListener("animationend", onEnd);
-      resolve();
-    };
-    element.addEventListener("animationend", onEnd);
-  });
-}
+import { SEARCH_FADE_IN_CLASS, SEARCH_FADE_MS, SEARCH_HIDDEN_CLASS, SEARCH_ROOT_SELECTOR } from "@/js/const/const.search.js";
 
 /** Fades the search bar into view. */
 async function searchBarFadeIn() {
@@ -22,10 +7,10 @@ async function searchBarFadeIn() {
     return;
   }
 
-  element.classList.remove("is-hidden");
-  element.classList.add(SEARCH_BAR_FADE_IN_CLASS);
-  await waitAnimationEnd(element);
-  element.classList.remove(SEARCH_BAR_FADE_IN_CLASS);
+  element.classList.remove(SEARCH_HIDDEN_CLASS);
+  element.classList.add(SEARCH_FADE_IN_CLASS);
+  await new Promise((resolve) => setTimeout(resolve, SEARCH_FADE_MS));
+  element.classList.remove(SEARCH_FADE_IN_CLASS);
 }
 
 export { searchBarFadeIn };

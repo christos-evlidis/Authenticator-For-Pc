@@ -6,8 +6,6 @@
 
 @import url("@/css/foundation/frame.css");
 
-@import url("@/css/sections/intro/intro.css");
-@import url("@/css/sections/intro/animation.css");
 @import url("@/css/sections/header/header.css");
 @import url("@/css/sections/header/animation.css");
 @import url("@/css/sections/body/body.css");

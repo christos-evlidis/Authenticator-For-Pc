@@ -1,19 +1,4 @@
-import { HEADER_ROOT_SELECTOR } from "@/js/const/const.header.js";
-
-const HEADER_FADE_IN_CLASS = "is-header-fade-in";
-
-function waitAnimationEnd(element) {
-  return new Promise((resolve) => {
-    const onEnd = (event) => {
-      if (event.target !== element) {
-        return;
-      }
-      element.removeEventListener("animationend", onEnd);
-      resolve();
-    };
-    element.addEventListener("animationend", onEnd);
-  });
-}
+import { HEADER_FADE_IN_CLASS, HEADER_FADE_MS, HEADER_HIDDEN_CLASS, HEADER_ROOT_SELECTOR } from "@/js/const/const.header.js";
 
 /** Fades the header into view. */
 async function headerFadeIn() {
@@ -22,9 +7,9 @@ async function headerFadeIn() {
     return;
   }
 
-  element.classList.remove("is-hidden");
+  element.classList.remove(HEADER_HIDDEN_CLASS);
   element.classList.add(HEADER_FADE_IN_CLASS);
-  await waitAnimationEnd(element);
+  await new Promise((resolve) => setTimeout(resolve, HEADER_FADE_MS));
   element.classList.remove(HEADER_FADE_IN_CLASS);
 }
 

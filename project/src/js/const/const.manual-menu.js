@@ -22,6 +22,9 @@ export const MANUAL_MENU_SUBMITTING_CLASS = "is-submitting";
 
 export const MANUAL_MENU_HEADER_BTN_ACTIVE_CLASS = "is-manual-menu-btn-active";
 
+// Animation (timing matches --slide-ms in motion.css).
+export const MANUAL_MENU_OPEN_MS = 250;
+
 // Status selectors.
 export const MANUAL_MENU_STATUS_LOADING_SELECTOR =
   ".app-manual-menu__status .app-manual-menu-status--loading";

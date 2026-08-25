@@ -1,19 +1,4 @@
-import { BODY_ROOT_SELECTOR } from "@/js/const/const.body.js";
-
-const BODY_FADE_IN_CLASS = "is-body-fade-in";
-
-function waitAnimationEnd(element) {
-  return new Promise((resolve) => {
-    const onEnd = (event) => {
-      if (event.target !== element) {
-        return;
-      }
-      element.removeEventListener("animationend", onEnd);
-      resolve();
-    };
-    element.addEventListener("animationend", onEnd);
-  });
-}
+import { BODY_FADE_IN_CLASS, BODY_FADE_MS, BODY_HIDDEN_CLASS, BODY_ROOT_SELECTOR } from "@/js/const/const.body.js";
 
 /** Fades the body into view. */
 async function bodyFadeIn() {
@@ -22,9 +7,9 @@ async function bodyFadeIn() {
     return;
   }
 
-  element.classList.remove("is-hidden");
+  element.classList.remove(BODY_HIDDEN_CLASS);
   element.classList.add(BODY_FADE_IN_CLASS);
-  await waitAnimationEnd(element);
+  await new Promise((resolve) => setTimeout(resolve, BODY_FADE_MS));
   element.classList.remove(BODY_FADE_IN_CLASS);
 }
 

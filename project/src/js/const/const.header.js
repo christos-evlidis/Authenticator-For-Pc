@@ -12,3 +12,7 @@ export const HEADER_SCAN_QR_BTN_SELECTOR = ".app-header__btn--scan-qr";
 // Shared state classes.
 export const HEADER_HIDDEN_CLASS = "is-hidden";
 export const HEADER_DISABLED_CLASS = "is-disabled";
+
+// Animation (timing matches --fade-ms in motion.css).
+export const HEADER_FADE_IN_CLASS = "is-header-fade-in";
+export const HEADER_FADE_MS = 250;
