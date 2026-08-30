@@ -1,8 +1,4 @@
-import {
-  QR_MENU_OPEN_CLASS,
-  QR_MENU_OPEN_MS,
-  QR_MENU_ROOT_SELECTOR,
-} from "@/js/const/const.qr-menu.js";
+import { QR_MENU_OPEN_CLASS, QR_MENU_OPEN_MS, QR_MENU_ROOT_SELECTOR } from "@/js/const/const.qr-menu.js";
 
 /** Opens the QR menu panel. */
 async function qrMenuOpen() {

@@ -260,8 +260,6 @@
     background: var(--color-brand-hover);
     color: var(--color-brand-active);
 }
-@import url("@/css/base/color.css");
-@import url("@/css/base/layout.css");
 
 .pc-auth-qr-scan-host {
     position: fixed !important;

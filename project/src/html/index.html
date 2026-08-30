@@ -154,6 +154,32 @@
 
 
 
+                <div class="app-user-menu__animation-container" aria-hidden="true">
+                    <div class="app-user-menu__status">
+                        <div class="user-menu-status user-menu-status--loading is-hidden">
+                            <span class="user-menu-status__dot"></span>
+                            <span class="user-menu-status__dot"></span>
+                            <span class="user-menu-status__dot"></span>
+                        </div>
+                        <div class="user-menu-status user-menu-status--success is-hidden">
+                            <svg class="user-menu-status__icon" viewBox="0 0 52 52" aria-hidden="true">
+                                <circle class="user-menu-status__icon-circle" cx="26" cy="26" r="24" fill="none" />
+                                <path class="user-menu-status__icon-mark user-menu-status__icon-mark--check" fill="none"
+                                    d="M14 27l7 7 16-16" />
+                            </svg>
+                        </div>
+                        <div class="user-menu-status user-menu-status--error is-hidden">
+                            <svg class="user-menu-status__icon" viewBox="0 0 52 52" aria-hidden="true">
+                                <circle class="user-menu-status__icon-circle" cx="26" cy="26" r="24" fill="none" />
+                                <path class="user-menu-status__icon-mark user-menu-status__icon-mark--x" fill="none"
+                                    d="M18 18 L34 34" />
+                                <path class="user-menu-status__icon-mark user-menu-status__icon-mark--x" fill="none"
+                                    d="M34 18 L18 34" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="app-user-menu__content">
                     <div class="app-user-menu__body">
                         <!-- Signed-out View -->
@@ -162,20 +188,20 @@
                                 <section class="app-user-menu__auth-view app-user-menu__auth-view--sign-in">
                                     <div class="app-user-menu__tab-content">
                                         <form class="app-user-menu__form app-user-menu__form--sign-in">
-                                            <label class="app-user-menu__label">
+                                            <div class="app-user-menu__label">
                                                 <span class="app-user-menu__label-text">Account Number</span>
                                                 <input type="text"
                                                     class="app-user-menu__input app-user-menu__sign-in-input"
                                                     inputmode="numeric" autocomplete="off" maxlength="24"
                                                     placeholder="24-digit Account Number" />
-                                            </label>
+                                            </div>
                                             <button type="submit"
                                                 class="app-user-menu__submit app-user-menu__sign-in-submit">Sign
                                                 In</button>
                                         </form>
                                     </div>
                                 </section>
-                                <section class="app-user-menu__auth-view app-user-menu__auth-view--sign-up">
+                                <section class="app-user-menu__auth-view app-user-menu__auth-view--sign-up is-hidden">
                                     <div class="app-user-menu__tab-content">
                                         <div class="app-user-menu__form app-user-menu__form--sign-up">
                                             <p class="app-user-menu__text">
@@ -192,7 +218,7 @@
                         </section>
 
                         <!-- Signed-in View -->
-                        <section class="app-user-menu__view app-user-menu__view--signed-in">
+                        <section class="app-user-menu__view app-user-menu__view--signed-in is-hidden">
                             <div class="app-user-menu__account">
                                 <div class="app-user-menu__form app-user-menu__form--account">
                                     <div class="app-user-menu__label">

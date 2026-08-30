@@ -1,8 +1,4 @@
-import {
-  MANUAL_MENU_OPEN_CLASS,
-  MANUAL_MENU_OPEN_MS,
-  MANUAL_MENU_ROOT_SELECTOR,
-} from "@/js/const/const.manual-menu.js";
+import { MANUAL_MENU_OPEN_CLASS, MANUAL_MENU_OPEN_MS, MANUAL_MENU_ROOT_SELECTOR } from "@/js/const/const.manual-menu.js";
 
 /** Opens the manual menu panel. */
 async function manualMenuOpen() {

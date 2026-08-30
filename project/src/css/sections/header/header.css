@@ -69,6 +69,7 @@
     color: var(--color-icon-primary);
     cursor: pointer;
     transform-origin: center center;
+    transition: background-color var(--hover-ms) ease, color var(--hover-ms) ease;
 }
 
 .app-header__btn:hover {

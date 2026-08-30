@@ -8,10 +8,10 @@
     --slide-ms: 250ms;
     --fade-ms: 250ms;
     --type-ms: 750ms;
-    --expand-up-ms: 150ms;
-    --expand-full-ms: 150ms;
-    --shrink-down-ms: 150ms;
-    --shrink-full-ms: 150ms;
+    --expand-up-ms: 250ms;
+    --expand-full-ms: 250ms;
+    --shrink-down-ms: 250ms;
+    --shrink-full-ms: 250ms;
 
     --dots-run-ms: 2000ms;
     --dots-bounce-ms: 1000ms;
