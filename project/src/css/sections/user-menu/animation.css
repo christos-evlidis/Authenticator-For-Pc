@@ -1,1 +1,329 @@
-/* User menu section animations */
+@keyframes user-menu-backdrop-in {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0);
+    }
+
+    to {
+        opacity: 1;
+        backdrop-filter: blur(5px);
+    }
+}
+
+@keyframes user-menu-backdrop-out {
+    from {
+        opacity: 1;
+        backdrop-filter: blur(5px);
+    }
+
+    to {
+        opacity: 0;
+        backdrop-filter: blur(0);
+    }
+}
+
+@keyframes user-menu-panel-in {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes user-menu-panel-out {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(100%);
+    }
+}
+
+.app-user-menu.is-backdrop-visible .app-user-menu__backdrop {
+    animation: user-menu-backdrop-in var(--blur-ms) ease forwards;
+    pointer-events: auto;
+}
+
+.app-user-menu.is-backdrop-closing .app-user-menu__backdrop {
+    animation: user-menu-backdrop-out var(--blur-ms) ease forwards;
+    pointer-events: none;
+}
+
+.app-user-menu.is-panel-mounted .app-user-menu__panel {
+    display: flex;
+}
+
+.app-user-menu.is-panel-open .app-user-menu__panel {
+    animation: user-menu-panel-in var(--slide-ms) ease forwards;
+}
+
+.app-user-menu.is-panel-closing .app-user-menu__panel {
+    animation: user-menu-panel-out var(--slide-ms) ease forwards;
+}
+
+@keyframes userMenuStatusDotBounce {
+    0%,
+    80%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.45;
+    }
+
+    40% {
+        transform: translateY(-6px);
+        opacity: 1;
+    }
+}
+
+@keyframes userMenuStatusCircleDraw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes userMenuStatusMarkDraw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes userMenuStatusFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes userMenuStatusFadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes userMenuAuthRestoreFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes userMenuAuthExpandUp {
+    from {
+        top: var(--user-menu-auth-origin-top);
+        left: var(--user-menu-auth-origin-left);
+        width: var(--user-menu-auth-origin-width);
+        height: var(--user-menu-auth-origin-height);
+    }
+
+    to {
+        top: var(--user-menu-auth-expand-top);
+        left: var(--user-menu-auth-expand-left);
+        width: var(--user-menu-auth-expand-width);
+        height: var(--user-menu-auth-expand-height);
+    }
+}
+
+@keyframes userMenuAuthExpandFull {
+    from {
+        top: var(--user-menu-auth-expand-top);
+        left: var(--user-menu-auth-expand-left);
+        width: var(--user-menu-auth-expand-width);
+        height: var(--user-menu-auth-expand-height);
+    }
+
+    to {
+        top: var(--user-menu-auth-full-top);
+        left: var(--user-menu-auth-full-left);
+        width: var(--user-menu-auth-full-width);
+        height: var(--user-menu-auth-full-height);
+    }
+}
+
+@keyframes userMenuAuthExpandExtension {
+    from {
+        top: var(--user-menu-auth-full-top);
+        left: var(--user-menu-auth-full-left);
+        width: var(--user-menu-auth-full-width);
+        height: var(--user-menu-auth-full-height);
+    }
+
+    to {
+        top: var(--user-menu-auth-extension-top);
+        left: var(--user-menu-auth-extension-left);
+        width: var(--user-menu-auth-extension-width);
+        height: var(--user-menu-auth-extension-height);
+    }
+}
+
+@keyframes userMenuAuthShrinkToFull {
+    from {
+        top: var(--user-menu-auth-extension-top);
+        left: var(--user-menu-auth-extension-left);
+        width: var(--user-menu-auth-extension-width);
+        height: var(--user-menu-auth-extension-height);
+    }
+
+    to {
+        top: var(--user-menu-auth-full-top);
+        left: var(--user-menu-auth-full-left);
+        width: var(--user-menu-auth-full-width);
+        height: var(--user-menu-auth-full-height);
+    }
+}
+
+@keyframes userMenuAuthShrinkFull {
+    from {
+        top: var(--user-menu-auth-full-top);
+        left: var(--user-menu-auth-full-left);
+        width: var(--user-menu-auth-full-width);
+        height: var(--user-menu-auth-full-height);
+    }
+
+    to {
+        top: var(--user-menu-auth-expand-top);
+        left: var(--user-menu-auth-expand-left);
+        width: var(--user-menu-auth-expand-width);
+        height: var(--user-menu-auth-expand-height);
+    }
+}
+
+@keyframes userMenuAuthShrinkDown {
+    from {
+        top: var(--user-menu-auth-expand-top);
+        left: var(--user-menu-auth-expand-left);
+        width: var(--user-menu-auth-expand-width);
+        height: var(--user-menu-auth-expand-height);
+    }
+
+    to {
+        top: var(--user-menu-auth-restore-top);
+        left: var(--user-menu-auth-restore-left);
+        width: var(--user-menu-auth-restore-width);
+        height: var(--user-menu-auth-restore-height);
+    }
+}
+
+.app-user-menu__panel.is-user-menu-auth-running {
+    overflow: visible;
+}
+
+.app-user-menu__panel.is-user-menu-auth-running .app-user-menu__content {
+    overflow: visible;
+}
+
+.app-user-menu.is-user-menu-auth-locked {
+    overflow: visible;
+}
+
+.app-user-menu.is-user-menu-auth-locked .app-user-menu__backdrop {
+    pointer-events: auto;
+    cursor: default;
+}
+
+.app-user-menu__panel.is-user-menu-auth-fade .app-user-menu__header,
+.app-user-menu__panel.is-user-menu-auth-fade .app-user-menu__auth-bar,
+.app-user-menu__panel.is-user-menu-auth-fade .app-user-menu__body {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--fade-ms) ease;
+}
+
+.app-user-menu__panel.is-user-menu-auth-content-hidden:not(.is-user-menu-auth-restore-fade) .app-user-menu__header,
+.app-user-menu__panel.is-user-menu-auth-content-hidden:not(.is-user-menu-auth-restore-fade) .app-user-menu__auth-bar,
+.app-user-menu__panel.is-user-menu-auth-content-hidden:not(.is-user-menu-auth-restore-fade) .app-user-menu__body {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.app-user-menu__panel.is-user-menu-auth-restore-fade .app-user-menu__header,
+.app-user-menu__panel.is-user-menu-auth-restore-fade .app-user-menu__auth-bar,
+.app-user-menu__panel.is-user-menu-auth-restore-fade .app-user-menu__body {
+    visibility: visible;
+    pointer-events: none;
+    animation: userMenuAuthRestoreFade var(--fade-ms) ease forwards;
+}
+
+.app-user-menu__animation-container.is-user-menu-auth-absolute {
+    position: absolute;
+    top: var(--user-menu-auth-origin-top);
+    left: var(--user-menu-auth-origin-left);
+    width: var(--user-menu-auth-origin-width);
+    height: var(--user-menu-auth-origin-height);
+    z-index: 0;
+    margin: 0;
+    opacity: 1;
+    background: var(--color-surface-secondary);
+}
+
+.app-user-menu__animation-container.is-user-menu-auth-expand-up,
+.app-user-menu__animation-container.is-user-menu-auth-expand-full,
+.app-user-menu__animation-container.is-user-menu-auth-expand-extension,
+.app-user-menu__animation-container.is-user-menu-auth-shrink-to-full,
+.app-user-menu__animation-container.is-user-menu-auth-shrink-full,
+.app-user-menu__animation-container.is-user-menu-auth-shrink-down {
+    z-index: 3;
+}
+
+.app-user-menu__animation-container.is-user-menu-auth-expand-up {
+    animation: userMenuAuthExpandUp var(--expand-up-ms) ease forwards;
+}
+
+.app-user-menu__animation-container.is-user-menu-auth-expand-full {
+    animation: userMenuAuthExpandFull var(--expand-full-ms) ease forwards;
+}
+
+.app-user-menu__animation-container.is-user-menu-auth-expand-extension {
+    animation: userMenuAuthExpandExtension var(--expand-up-ms) ease forwards;
+}
+
+.app-user-menu__animation-container.is-user-menu-auth-shrink-to-full {
+    animation: userMenuAuthShrinkToFull var(--shrink-down-ms) ease forwards;
+}
+
+.app-user-menu__animation-container.is-user-menu-auth-shrink-full {
+    animation: userMenuAuthShrinkFull var(--shrink-full-ms) ease forwards;
+}
+
+.app-user-menu__animation-container.is-user-menu-auth-shrink-down {
+    animation: userMenuAuthShrinkDown var(--shrink-down-ms) ease forwards;
+}
+
+.app-user-menu__status .user-menu-status.is-user-menu-auth-dots-fade-in {
+    visibility: visible;
+    animation: userMenuStatusFadeIn var(--fade-ms) ease forwards;
+}
+
+.app-user-menu__status .user-menu-status.is-user-menu-auth-dots-fade-out {
+    visibility: visible;
+    opacity: 1;
+    animation: userMenuStatusFadeOut var(--fade-ms) ease forwards;
+}
+
+.app-user-menu__status .user-menu-status.is-user-menu-auth-dots-run {
+    visibility: visible;
+    opacity: 1;
+    overflow: visible;
+}
+
+.app-user-menu__status .user-menu-status.is-user-menu-auth-result-draw {
+    visibility: visible;
+    opacity: 1;
+}
+
+.app-user-menu__status .user-menu-status.is-user-menu-auth-result-fade-out {
+    animation: userMenuStatusFadeOut var(--fade-ms) ease forwards;
+}

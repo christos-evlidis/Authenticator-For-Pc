@@ -35,10 +35,27 @@
     background: var(--color-brand);
 }
 
-.user-menu-status__dot:nth-child(2) {
+.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot {
+    animation: userMenuStatusDotBounce var(--dots-bounce-ms) ease-in-out infinite;
 }
 
-.user-menu-status__dot:nth-child(3) {
+.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot:nth-child(2) {
+    animation-delay: var(--dots-bounce-delay-2-ms);
+}
+
+.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot:nth-child(3) {
+    animation-delay: var(--dots-bounce-delay-3-ms);
+}
+
+.user-menu-status--success.is-animating .user-menu-status__icon-circle,
+.user-menu-status--error.is-animating .user-menu-status__icon-circle {
+    animation: userMenuStatusCircleDraw calc(var(--result-main-draw-ms) * 0.45) ease forwards;
+}
+
+.user-menu-status--success.is-animating .user-menu-status__icon-mark,
+.user-menu-status--error.is-animating .user-menu-status__icon-mark {
+    animation: userMenuStatusMarkDraw calc(var(--result-main-draw-ms) * 0.55) ease forwards;
+    animation-delay: calc(var(--result-main-draw-ms) * 0.45);
 }
 
 
@@ -82,7 +99,6 @@
     --user-menu-header-padding-block: 12px;
     --user-menu-header-padding-inline: 14px;
     --user-menu-body-padding: 14px;
-    --user-menu-panel-height: 285.75px;
     --user-menu-btn-size: 32px;
     --user-menu-title-size: 16px;
     --user-menu-control-size: 14px;
@@ -117,10 +133,6 @@
     pointer-events: auto;
 }
 
-.app-user-menu.is-open .app-user-menu__panel {
-    display: flex;
-}
-
 .app-user-menu__view.is-hidden,
 .app-user-menu .is-hidden {
     display: none;
@@ -140,9 +152,9 @@
     display: none;
     flex-direction: column;
     gap: var(--gap-l);
-    height: var(--user-menu-panel-height);
-    min-height: var(--user-menu-panel-height);
-    max-height: var(--user-menu-panel-height);
+    height: auto;
+    min-height: 0;
+    max-height: 100%;
     flex-shrink: 0;
     padding: var(--user-menu-panel-padding);
     border-radius: var(--radius-l);
@@ -153,22 +165,42 @@
 
 .app-user-menu__content {
     position: relative;
-    flex: 1;
+    z-index: 1;
+    flex: 0 1 auto;
     min-height: 0;
+    border-radius: var(--radius-l);
+    background: transparent;
+    overflow: visible;
+}
+
+.app-user-menu__animation-container {
+    position: absolute;
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
     border-radius: var(--radius-l);
     background: var(--color-surface-secondary);
     overflow: hidden;
+    transition: opacity var(--fade-ms) ease;
+}
+
+.app-user-menu__animation-container.is-user-menu-auth-visible {
+    opacity: 1;
+    overflow: visible;
 }
 
 .app-user-menu__body {
     position: relative;
-    height: 100%;
+    z-index: 1;
     min-height: 0;
     display: flex;
     flex-direction: column;
     gap: var(--gap-xl);
     padding: var(--user-menu-body-padding);
     overflow-y: auto;
+    border-radius: var(--radius-l);
+    background: var(--color-surface-secondary);
+    transition: opacity var(--fade-ms) ease;
 }
 
 .app-user-menu__header {
@@ -214,6 +246,7 @@
     background: transparent;
     color: var(--color-icon-primary);
     cursor: pointer;
+    transition: background-color var(--hover-ms) ease, color var(--hover-ms) ease;
 }
 
 .app-user-menu__account-action-btn {
@@ -382,7 +415,7 @@
 .app-user-menu__text {
     margin: 0;
     font-size: var(--user-menu-control-size);
-    line-height: 1.53;
+    line-height: 1.5;
     color: var(--color-text-primary);
 }
 
@@ -409,19 +442,6 @@
     cursor: not-allowed;
 }
 
-
-
-.app-user-menu.is-open .app-user-menu__backdrop {
-    opacity: 1;
-    backdrop-filter: blur(5px);
-    pointer-events: auto;
-}
-
-.app-user-menu.is-open .app-user-menu__panel {
-    transform: translateY(0);
-    display: flex;
-}
-
 .app-header__btn--user-menu.is-user-menu-btn-active {
     background: var(--color-brand-hover);
     color: var(--color-brand-active);
@@ -446,32 +466,28 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
+    transition: opacity var(--fade-ms) ease;
 }
 
 .app-user-menu__btn-icon--check {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate3d(-50%, -50%, 0) scale(0.5);
+    transform: translate(-50%, -50%);
     opacity: 0;
     pointer-events: none;
-    color: var(--color-brand);
-    backface-visibility: hidden;
+    color: currentColor;
 }
 
 .app-user-menu__account-action-btn.is-success-active .app-user-menu__btn-icon--default {
     opacity: 0;
-    transform: scale(0.5);
 }
 
 .app-user-menu__account-action-btn.is-success-active .app-user-menu__btn-icon--check {
     opacity: 1;
-    transform: translate3d(-50%, -50%, 0) scale(1);
 }
 
 .app-user-menu__auth-switch-btn.is-active {
     pointer-events: none !important;
     cursor: default !important;
-}
+}
