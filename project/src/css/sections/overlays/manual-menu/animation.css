@@ -1,0 +1,65 @@
+@keyframes manual-menu-backdrop-in {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0);
+    }
+
+    to {
+        opacity: 1;
+        backdrop-filter: blur(5px);
+    }
+}
+
+@keyframes manual-menu-backdrop-out {
+    from {
+        opacity: 1;
+        backdrop-filter: blur(5px);
+    }
+
+    to {
+        opacity: 0;
+        backdrop-filter: blur(0);
+    }
+}
+
+@keyframes manual-menu-panel-in {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes manual-menu-panel-out {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(100%);
+    }
+}
+
+.app-manual-menu.is-backdrop-visible .app-manual-menu__backdrop {
+    animation: manual-menu-backdrop-in var(--blur-ms) ease forwards;
+    pointer-events: auto;
+}
+
+.app-manual-menu.is-backdrop-closing .app-manual-menu__backdrop {
+    animation: manual-menu-backdrop-out var(--blur-ms) ease forwards;
+    pointer-events: none;
+}
+
+.app-manual-menu.is-panel-mounted .app-manual-menu__panel {
+    display: flex;
+}
+
+.app-manual-menu.is-panel-open .app-manual-menu__panel {
+    animation: manual-menu-panel-in var(--slide-ms) ease forwards;
+}
+
+.app-manual-menu.is-panel-closing .app-manual-menu__panel {
+    animation: manual-menu-panel-out var(--slide-ms) ease forwards;
+}

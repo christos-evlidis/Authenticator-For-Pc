@@ -2,9 +2,9 @@ import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
 import "@fortawesome/fontawesome-free/css/solid.min.css";
 import { accountApiVerify, accountStorageClear, accountStorageGet } from "@/js/services/account/account-index.js";
 import { appStateSet } from "@/js/app/app.state.js";
-import { bodyFadeIn, headerFadeIn, sectionsInit } from "@/js/sections/sections-index.js";
+import { sectionsInit } from "@/js/sections/sections-index.js";
 
-/** Bootstraps the application: restores auth, applies shell state, and fades in shell sections. */
+/** Bootstraps the application: restores auth, applies shell state, and initializes sections. */
 async function appInit() {
   const authKey = await accountStorageGet();
   if (!authKey) {
@@ -22,10 +22,6 @@ async function appInit() {
     }
   }
   sectionsInit();
-  await Promise.all([
-    headerFadeIn(),
-    bodyFadeIn(),
-  ]);
 }
 
 void appInit();

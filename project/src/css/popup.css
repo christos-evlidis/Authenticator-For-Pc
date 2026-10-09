@@ -6,14 +6,15 @@
 
 @import url("@/css/foundation/frame.css");
 
-@import url("@/css/sections/header/header.css");
-@import url("@/css/sections/header/animation.css");
-@import url("@/css/sections/body/body.css");
-@import url("@/css/sections/body/animation.css");
-@import url("@/css/sections/search-bar/search-bar.css");
-@import url("@/css/sections/user-menu/user-menu.css");
-@import url("@/css/sections/user-menu/animation.css");
-@import url("@/css/sections/manual-menu/manual-menu.css");
-@import url("@/css/sections/manual-menu/animation.css");
-@import url("@/css/sections/qr-menu/qr-menu.css");
-@import url("@/css/sections/qr-menu/animation.css");
+@import url("@/css/sections/core/header/header.css");
+@import url("@/css/sections/core/header/animation.css");
+@import url("@/css/sections/core/body/body.css");
+@import url("@/css/sections/core/body/animation.css");
+@import url("@/css/sections/core/search-bar/search-bar.css");
+@import url("@/css/sections/core/search-bar/animation.css");
+@import url("@/css/sections/overlays/user-menu/user-menu.css");
+@import url("@/css/sections/overlays/user-menu/animation.css");
+@import url("@/css/sections/overlays/manual-menu/manual-menu.css");
+@import url("@/css/sections/overlays/manual-menu/animation.css");
+@import url("@/css/sections/overlays/qr-menu/qr-menu.css");
+@import url("@/css/sections/overlays/qr-menu/animation.css");

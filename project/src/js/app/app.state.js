@@ -12,19 +12,46 @@ function appStateGet() {
   };
 }
 
+/** Set of listener callbacks notified when app state changes. */
+const appStateListeners = new Set();
+
 /** Updates the application state with the provided values. */
 function appStateSet(value) {
-  if (value.authKey === null) {
+  let changed = false;
+
+  if (value.authKey === null && appStateStore.authKey !== null) {
     appStateStore.authKey = null;
+    changed = true;
   }
 
-  if (typeof value.authState === "boolean") {
+  if (typeof value.authState === "boolean" && appStateStore.authState !== value.authState) {
     appStateStore.authState = value.authState;
+    changed = true;
   }
 
-  if (typeof value.authKey === "string") {
+  if (typeof value.authKey === "string" && appStateStore.authKey !== value.authKey) {
     appStateStore.authKey = value.authKey;
+    changed = true;
+  }
+
+  if (changed) {
+    const snapshot = appStateGet();
+    appStateListeners.forEach((listener) => {
+      try {
+        listener(snapshot);
+      } catch (error) {
+        console.error("Error in appState listener:", error);
+      }
+    });
   }
 }
 
-export { appStateGet, appStateSet };
+/** Subscribes a listener to application state changes. Returns an unsubscribe function. */
+function appStateSubscribe(listener) {
+  appStateListeners.add(listener);
+  return () => {
+    appStateListeners.delete(listener);
+  };
+}
+
+export { appStateGet, appStateSet, appStateSubscribe };
