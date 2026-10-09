@@ -1,4 +1,4 @@
-import { SEARCH_FADE_IN_CLASS, SEARCH_FADE_MS, SEARCH_HIDDEN_CLASS, SEARCH_ROOT_SELECTOR } from "@/js/const/core/const.search.js";
+import { SEARCH_FADE_IN_CLASS, SEARCH_FADE_MS, SEARCH_HIDDEN_CLASS, SEARCH_ROOT_SELECTOR } from "@/js/sections/core/search-bar/search-bar.const.js";
 
 /** Fades the search bar into view. */
 async function searchBarFadeIn() {

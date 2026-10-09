@@ -1,5 +1,5 @@
 import { appStateGet, appStateSubscribe } from "@/js/app/app.state.js";
-import { SEARCH_HIDDEN_CLASS, SEARCH_ROOT_SELECTOR } from "@/js/const/core/const.search.js";
+import { SEARCH_HIDDEN_CLASS, SEARCH_ROOT_SELECTOR } from "@/js/sections/core/search-bar/search-bar.const.js";
 import { searchBarFadeIn } from "@/js/sections/core/search-bar/search-bar.animations.js";
 
 /** Updates search bar visibility from current app state. */

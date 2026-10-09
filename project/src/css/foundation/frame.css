@@ -4,12 +4,9 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow: hidden;
     scrollbar-width: none;
     user-select: none;
-}
-
-* {
-    overflow: hidden;
 }
 
 .fa,
@@ -24,6 +21,7 @@
 
 body {
     background: var(--color-surface-primary);
+    font-family: var(--font-family);
 }
 
 .extension-frame {

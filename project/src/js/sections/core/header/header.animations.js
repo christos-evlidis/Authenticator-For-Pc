@@ -1,4 +1,4 @@
-import { HEADER_FADE_IN_CLASS, HEADER_FADE_MS, HEADER_HIDDEN_CLASS, HEADER_ROOT_SELECTOR } from "@/js/const/core/const.header.js";
+import { HEADER_FADE_IN_CLASS, HEADER_FADE_MS, HEADER_HIDDEN_CLASS, HEADER_ROOT_SELECTOR } from "@/js/sections/core/header/header.const.js";
 
 /** Fades the header into view. */
 async function headerFadeIn() {

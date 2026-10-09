@@ -1,4 +1,4 @@
-import { HEADER_MANUAL_MENU_BTN_SELECTOR } from "@/js/const/core/const.header.js";
+import { HEADER_MANUAL_MENU_BTN_SELECTOR } from "@/js/sections/core/header/header.const.js";
 
 // Root selectors.
 export const MANUAL_MENU_ROOT_SELECTOR = ".app-manual-menu";

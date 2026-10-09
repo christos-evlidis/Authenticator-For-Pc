@@ -1,4 +1,4 @@
-import { HEADER_SCAN_QR_BTN_SELECTOR } from "@/js/const/core/const.header.js";
+import { HEADER_SCAN_QR_BTN_SELECTOR } from "@/js/sections/core/header/header.const.js";
 
 // Root selectors.
 export const QR_MENU_ROOT_SELECTOR = ".app-qr-menu";

@@ -1,5 +1,5 @@
 import { appStateGet, appStateSubscribe } from "@/js/app/app.state.js";
-import { HEADER_HIDDEN_CLASS, HEADER_SIGNED_IN_VIEW_SELECTOR, HEADER_SIGNED_OUT_VIEW_SELECTOR } from "@/js/const/core/const.header.js";
+import { HEADER_HIDDEN_CLASS, HEADER_SIGNED_IN_VIEW_SELECTOR, HEADER_SIGNED_OUT_VIEW_SELECTOR } from "@/js/sections/core/header/header.const.js";
 import { headerFadeIn } from "@/js/sections/core/header/header.animations.js";
 
 /** Updates header view based on current auth state and triggers fade-in animation. */

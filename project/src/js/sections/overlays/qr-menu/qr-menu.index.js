@@ -4,7 +4,7 @@ import {
   QR_MENU_OPEN_BTN_SELECTOR,
   QR_MENU_PANEL_OPEN_CLASS,
   QR_MENU_ROOT_SELECTOR,
-} from "@/js/const/overlays/const.qr-menu.js";
+} from "@/js/sections/overlays/qr-menu/qr-menu.const.js";
 import { qrMenuClose, qrMenuOpen } from "@/js/sections/overlays/qr-menu/qr-menu.animations.js";
 
 /** Initializes QR menu section behavior. */

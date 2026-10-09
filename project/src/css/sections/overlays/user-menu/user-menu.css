@@ -1,107 +1,24 @@
-/* User menu flow status */
-.user-menu-status {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.user-menu-status.is-hidden {
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.user-menu-status.is-shown {
-    opacity: 1;
-    visibility: visible;
-}
-
-.user-menu-status--loading {
-    gap: var(--gap-md);
-}
-
-.user-menu-status__dot {
-    display: block;
-    width: 10px;
-    height: 10px;
-    border-radius: var(--radius-circle);
-    background: var(--color-brand);
-}
-
-.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot {
-    animation: userMenuStatusDotBounce var(--dots-bounce-ms) ease-in-out infinite;
-}
-
-.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot:nth-child(2) {
-    animation-delay: var(--dots-bounce-delay-2-ms);
-}
-
-.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot:nth-child(3) {
-    animation-delay: var(--dots-bounce-delay-3-ms);
-}
-
-.user-menu-status--success.is-animating .user-menu-status__icon-circle,
-.user-menu-status--error.is-animating .user-menu-status__icon-circle {
-    animation: userMenuStatusCircleDraw calc(var(--result-main-draw-ms) * 0.45) ease forwards;
-}
-
-.user-menu-status--success.is-animating .user-menu-status__icon-mark,
-.user-menu-status--error.is-animating .user-menu-status__icon-mark {
-    animation: userMenuStatusMarkDraw calc(var(--result-main-draw-ms) * 0.55) ease forwards;
-    animation-delay: calc(var(--result-main-draw-ms) * 0.45);
-}
-
-
-
-.user-menu-status__icon {
-    width: 52px;
-    height: 52px;
-}
-
-.user-menu-status__icon-circle {
-    stroke-width: 2;
-    stroke-dasharray: 151;
-    stroke-dashoffset: 151;
-}
-
-.user-menu-status__icon-mark {
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 36;
-    stroke-dashoffset: 36;
-}
-
-.user-menu-status--success .user-menu-status__icon-circle,
-.user-menu-status--success .user-menu-status__icon-mark,
-.user-menu-status--error .user-menu-status__icon-circle,
-.user-menu-status--error .user-menu-status__icon-mark {
-    stroke: var(--color-brand);
-}
-
-
-.user-menu-status--success.is-drawn .user-menu-status__icon-circle,
-.user-menu-status--error.is-drawn .user-menu-status__icon-circle,
-.user-menu-status--success.is-drawn .user-menu-status__icon-mark,
-.user-menu-status--error.is-drawn .user-menu-status__icon-mark {
-    stroke-dashoffset: 0;
-}
-
 .app-user-menu {
     --user-menu-panel-padding: 12px;
     --user-menu-header-padding-block: 12px;
     --user-menu-header-padding-inline: 14px;
     --user-menu-body-padding: 14px;
-    --user-menu-btn-size: 32px;
     --user-menu-title-size: 16px;
+    --user-menu-btn-size: 32px;
+    --user-menu-btn-icon-size: 18px;
+    --user-menu-account-action-icon-size: 15px;
+    --user-menu-auth-switch-inset: 4px;
     --user-menu-control-size: 14px;
+    --user-menu-control-padding-block: 10px;
+    --user-menu-control-padding-inline: 12px;
+    --user-menu-submit-padding-inline: 14px;
+    --user-menu-label-size: 13px;
+    --user-menu-status-dot-size: 10px;
+    --user-menu-status-icon-size: 52px;
+    --user-menu-status-circle-stroke: 2;
+    --user-menu-status-mark-stroke: 3;
+    --user-menu-status-circle-dash: 151;
+    --user-menu-status-mark-dash: 36;
 }
 
 .app-user-menu {
@@ -121,21 +38,9 @@
     display: none;
 }
 
-.app-user-menu__view {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-xl);
-    min-height: 0;
-}
-
 .app-user-menu.is-open {
     visibility: visible;
     pointer-events: auto;
-}
-
-.app-user-menu__view.is-hidden,
-.app-user-menu .is-hidden {
-    display: none;
 }
 
 .app-user-menu__backdrop {
@@ -161,46 +66,6 @@
     background: var(--color-surface-primary);
     overflow: hidden;
     transform: translateY(100%);
-}
-
-.app-user-menu__content {
-    position: relative;
-    z-index: 1;
-    flex: 0 1 auto;
-    min-height: 0;
-    border-radius: var(--radius-l);
-    background: transparent;
-    overflow: visible;
-}
-
-.app-user-menu__animation-container {
-    position: absolute;
-    z-index: 0;
-    opacity: 0;
-    pointer-events: none;
-    border-radius: var(--radius-l);
-    background: var(--color-surface-secondary);
-    overflow: hidden;
-    transition: opacity var(--fade-ms) ease;
-}
-
-.app-user-menu__animation-container.is-user-menu-auth-visible {
-    opacity: 1;
-    overflow: visible;
-}
-
-.app-user-menu__body {
-    position: relative;
-    z-index: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-xl);
-    padding: var(--user-menu-body-padding);
-    overflow-y: auto;
-    border-radius: var(--radius-l);
-    background: var(--color-surface-secondary);
-    transition: opacity var(--fade-ms) ease;
 }
 
 .app-user-menu__header {
@@ -249,38 +114,72 @@
     transition: background-color var(--hover-ms) ease, color var(--hover-ms) ease;
 }
 
-.app-user-menu__account-action-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--user-menu-btn-size);
-    height: var(--user-menu-btn-size);
-    padding: 0;
-    border: none;
-    border-radius: var(--radius-sm);
-    background: transparent;
-    color: var(--color-icon-primary);
-    cursor: pointer;
-}
-
-.app-user-menu__btn:hover,
-.app-user-menu__account-action-btn:hover {
+.app-user-menu__btn:hover {
     background: var(--color-brand-hover);
     color: var(--color-brand-active);
 }
 
 .app-user-menu__btn i {
-    font-size: 18px;
+    display: block;
+    font-size: var(--user-menu-btn-icon-size);
     line-height: 1;
 }
 
-.app-user-menu__account-action-btn i {
-    font-size: 15px;
-    line-height: 1;
+.app-user-menu__content {
+    position: relative;
+    z-index: 1;
+    flex: 0 1 auto;
+    min-height: 0;
+    border-radius: var(--radius-l);
+    background: transparent;
+    overflow: visible;
+}
+
+.app-user-menu__animation-container {
+    position: absolute;
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: var(--radius-l);
+    background: var(--color-surface-secondary);
+    overflow: hidden;
+    transition: opacity var(--fade-ms) ease;
+}
+
+.app-user-menu__animation-container.is-user-menu-auth-visible {
+    opacity: 1;
+    overflow: visible;
+}
+
+.app-user-menu__body {
+    position: relative;
+    z-index: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xl);
+    padding: var(--user-menu-body-padding);
+    overflow-y: auto;
+    border-radius: var(--radius-l);
+    background: var(--color-surface-secondary);
+    transition: opacity var(--fade-ms) ease;
+}
+
+.app-user-menu__view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xl);
+    min-height: 0;
+}
+
+.app-user-menu__view.is-hidden,
+.app-user-menu .is-hidden {
+    display: none;
 }
 
 .app-user-menu__tabs,
-.app-user-menu__account {
+.app-user-menu__account,
+.app-user-menu__auth-view {
     min-height: 0;
 }
 
@@ -288,10 +187,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-l);
-}
-
-.app-user-menu__auth-view {
-    min-height: 0;
 }
 
 .app-user-menu__auth-switch {
@@ -303,7 +198,6 @@
 }
 
 .app-user-menu__auth-switch-track {
-    --user-menu-auth-switch-inset: 4px;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -332,7 +226,7 @@
 .app-user-menu__auth-switch-btn {
     position: relative;
     z-index: 1;
-    padding: 10px 12px;
+    padding: var(--user-menu-control-padding-block) var(--user-menu-control-padding-inline);
     border: none;
     border-radius: var(--radius-md);
     background: transparent;
@@ -347,6 +241,8 @@
 
 .app-user-menu__auth-switch-btn.is-active {
     color: var(--color-brand);
+    pointer-events: none;
+    cursor: default;
 }
 
 .app-user-menu__auth-switch-btn:disabled {
@@ -367,14 +263,14 @@
 }
 
 .app-user-menu__label-text {
-    font-size: 13px;
+    font-size: var(--user-menu-label-size);
     font-weight: 600;
     color: var(--color-text-secondary);
 }
 
 .app-user-menu__input {
     width: 100%;
-    padding: 10px 12px;
+    padding: var(--user-menu-control-padding-block) var(--user-menu-control-padding-inline);
     border: 1px solid var(--color-border-primary);
     border-radius: var(--radius-md);
     font-family: inherit;
@@ -414,6 +310,57 @@
     transform: translateY(-50%);
 }
 
+.app-user-menu__account-action-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--user-menu-btn-size);
+    height: var(--user-menu-btn-size);
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-icon-primary);
+    cursor: pointer;
+    transition: background-color var(--hover-ms) ease, color var(--hover-ms) ease;
+}
+
+.app-user-menu__account-action-btn:hover {
+    background: var(--color-brand-hover);
+    color: var(--color-brand-active);
+}
+
+.app-user-menu__account-action-btn i {
+    font-size: var(--user-menu-account-action-icon-size);
+    line-height: 1;
+}
+
+.app-user-menu__btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity var(--fade-ms) ease;
+}
+
+.app-user-menu__btn-icon--check {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    color: currentColor;
+}
+
+.app-user-menu__account-action-btn.is-success-active .app-user-menu__btn-icon--default {
+    opacity: 0;
+}
+
+.app-user-menu__account-action-btn.is-success-active .app-user-menu__btn-icon--check {
+    opacity: 1;
+}
+
 .app-user-menu__text {
     margin: 0;
     font-size: var(--user-menu-control-size);
@@ -423,7 +370,7 @@
 
 .app-user-menu__submit {
     width: 100%;
-    padding: 10px 14px;
+    padding: var(--user-menu-control-padding-block) var(--user-menu-submit-padding-inline);
     border: none;
     border-radius: var(--radius-md);
     font-family: inherit;
@@ -456,40 +403,90 @@
     z-index: 2;
 }
 
-/* Copy and download button micro-animations */
-.app-user-menu__account-action-btn {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.app-user-menu__btn-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity var(--fade-ms) ease;
-}
-
-.app-user-menu__btn-icon--check {
+/* User menu auth flow status indicators */
+.user-menu-status {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    color: currentColor;
 }
 
-.app-user-menu__account-action-btn.is-success-active .app-user-menu__btn-icon--default {
+.user-menu-status.is-hidden {
+    display: none;
     opacity: 0;
+    visibility: hidden;
 }
 
-.app-user-menu__account-action-btn.is-success-active .app-user-menu__btn-icon--check {
-    opacity: 1;
+.user-menu-status--loading {
+    gap: var(--gap-md);
 }
 
-.app-user-menu__auth-switch-btn.is-active {
-    pointer-events: none !important;
-    cursor: default !important;
+.user-menu-status__dot {
+    display: block;
+    width: var(--user-menu-status-dot-size);
+    height: var(--user-menu-status-dot-size);
+    border-radius: var(--radius-circle);
+    background: var(--color-brand);
+}
+
+.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot {
+    animation: userMenuStatusDotBounce var(--dots-bounce-ms) ease-in-out infinite;
+}
+
+.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot:nth-child(2) {
+    animation-delay: var(--dots-bounce-delay-2-ms);
+}
+
+.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot:nth-child(3) {
+    animation-delay: var(--dots-bounce-delay-3-ms);
+}
+
+.user-menu-status__icon {
+    width: var(--user-menu-status-icon-size);
+    height: var(--user-menu-status-icon-size);
+}
+
+.user-menu-status__icon-circle {
+    stroke-width: var(--user-menu-status-circle-stroke);
+    stroke-dasharray: var(--user-menu-status-circle-dash);
+    stroke-dashoffset: var(--user-menu-status-circle-dash);
+}
+
+.user-menu-status__icon-mark {
+    stroke-width: var(--user-menu-status-mark-stroke);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: var(--user-menu-status-mark-dash);
+    stroke-dashoffset: var(--user-menu-status-mark-dash);
+}
+
+.user-menu-status--success .user-menu-status__icon-circle,
+.user-menu-status--success .user-menu-status__icon-mark,
+.user-menu-status--error .user-menu-status__icon-circle,
+.user-menu-status--error .user-menu-status__icon-mark {
+    stroke: var(--color-brand);
+}
+
+.user-menu-status--success.is-animating .user-menu-status__icon-circle,
+.user-menu-status--error.is-animating .user-menu-status__icon-circle {
+    animation: userMenuStatusCircleDraw calc(var(--result-main-draw-ms) * 0.45) ease forwards;
+}
+
+.user-menu-status--success.is-animating .user-menu-status__icon-mark,
+.user-menu-status--error.is-animating .user-menu-status__icon-mark {
+    animation: userMenuStatusMarkDraw calc(var(--result-main-draw-ms) * 0.55) ease forwards;
+    animation-delay: calc(var(--result-main-draw-ms) * 0.45);
+}
+
+.user-menu-status--success.is-drawn .user-menu-status__icon-circle,
+.user-menu-status--error.is-drawn .user-menu-status__icon-circle,
+.user-menu-status--success.is-drawn .user-menu-status__icon-mark,
+.user-menu-status--error.is-drawn .user-menu-status__icon-mark {
+    stroke-dashoffset: 0;
 }

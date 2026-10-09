@@ -1,7 +1,15 @@
 .app-search-bar {
+    --search-bar-padding-block: 8px;
+    --search-bar-padding-inline: 14px;
+    --search-bar-icon-size: 14px;
+    --search-bar-input-height: 24px;
+    --search-bar-font-size: 14px;
+}
+
+.app-search-bar {
     flex-shrink: 0;
     display: block;
-    padding: 8px 14px;
+    padding: var(--search-bar-padding-block) var(--search-bar-padding-inline);
     border-radius: var(--radius-l);
     background: var(--color-surface-secondary);
 }
@@ -14,12 +22,12 @@
     display: flex;
     align-items: center;
     gap: var(--gap-md);
-    min-height: 24px;
+    min-height: var(--search-bar-input-height);
 }
 
 .app-search-bar__icon {
     flex-shrink: 0;
-    font-size: 14px;
+    font-size: var(--search-bar-icon-size);
     line-height: 1;
     color: var(--color-text-secondary);
 }
@@ -27,14 +35,14 @@
 .app-search-bar__input {
     flex: 1;
     min-width: 0;
-    height: 24px;
+    height: var(--search-bar-input-height);
     padding: 0;
     border: none;
     border-radius: 0;
     background: transparent;
     color: var(--color-text-primary);
     font-family: var(--font-family);
-    font-size: 14px;
+    font-size: var(--search-bar-font-size);
     line-height: 1.2;
     outline: none;
 }

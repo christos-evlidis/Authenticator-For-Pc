@@ -10,7 +10,7 @@ import {
   MANUAL_MENU_OTP_TYPE_TRACK_SELECTOR,
   MANUAL_MENU_PANEL_OPEN_CLASS,
   MANUAL_MENU_ROOT_SELECTOR,
-} from "@/js/const/overlays/const.manual-menu.js";
+} from "@/js/sections/overlays/manual-menu/manual-menu.const.js";
 import { manualMenuClose, manualMenuOpen } from "@/js/sections/overlays/manual-menu/manual-menu.animations.js";
 
 /** Initializes manual menu section behavior. */

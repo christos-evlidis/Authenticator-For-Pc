@@ -1,4 +1,4 @@
-import { BODY_FADE_IN_CLASS, BODY_FADE_MS, BODY_HIDDEN_CLASS, BODY_ROOT_SELECTOR } from "@/js/const/core/const.body.js";
+import { BODY_FADE_IN_CLASS, BODY_FADE_MS, BODY_HIDDEN_CLASS, BODY_ROOT_SELECTOR } from "@/js/sections/core/body/body.const.js";
 
 /** Fades the body into view. */
 async function bodyFadeIn() {

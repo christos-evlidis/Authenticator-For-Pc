@@ -1,88 +1,24 @@
-/* Manual setup flow status */
-.app-manual-menu-status {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.app-manual-menu-status.is-hidden {
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.app-manual-menu-status.is-shown {
-    opacity: 1;
-    visibility: visible;
-}
-
-.app-manual-menu-status--loading {
-    gap: var(--gap-md);
-}
-
-.app-manual-menu-status__dot {
-    display: block;
-    width: 10px;
-    height: 10px;
-    border-radius: var(--radius-circle);
-    background: var(--color-brand);
-}
-
-.app-manual-menu-status__dot:nth-child(2) {
-}
-
-.app-manual-menu-status__dot:nth-child(3) {
-}
-
-
-
-.app-manual-menu-status__icon {
-    width: 52px;
-    height: 52px;
-}
-
-.app-manual-menu-status__icon-circle {
-    stroke-width: 2;
-    stroke-dasharray: 151;
-    stroke-dashoffset: 151;
-}
-
-.app-manual-menu-status__icon-mark {
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 36;
-    stroke-dashoffset: 36;
-}
-
-.app-manual-menu-status--success .app-manual-menu-status__icon-circle,
-.app-manual-menu-status--success .app-manual-menu-status__icon-mark,
-.app-manual-menu-status--error .app-manual-menu-status__icon-circle,
-.app-manual-menu-status--error .app-manual-menu-status__icon-mark {
-    stroke: var(--color-brand);
-}
-
-
-.app-manual-menu-status--success.is-drawn .app-manual-menu-status__icon-circle,
-.app-manual-menu-status--error.is-drawn .app-manual-menu-status__icon-circle,
-.app-manual-menu-status--success.is-drawn .app-manual-menu-status__icon-mark,
-.app-manual-menu-status--error.is-drawn .app-manual-menu-status__icon-mark {
-    stroke-dashoffset: 0;
-}
-
 .app-manual-menu {
-    --app-manual-menu-panel-padding: 12px;
-    --app-manual-menu-body-padding: 14px;
-    --app-manual-menu-panel-height: 420px;
-    --app-manual-menu-btn-size: 32px;
-    --app-manual-menu-title-size: 16px;
+    --manual-menu-panel-height: 420px;
+    --manual-menu-panel-padding: 12px;
+    --manual-menu-header-padding-block: 12px;
+    --manual-menu-header-padding-inline: 14px;
+    --manual-menu-title-size: 16px;
+    --manual-menu-btn-size: 32px;
+    --manual-menu-btn-icon-size: 18px;
+    --manual-menu-body-padding: 14px;
+    --manual-menu-label-size: 13px;
+    --manual-menu-input-padding-block: 10px;
+    --manual-menu-input-padding-inline: 12px;
+    --manual-menu-input-size: 14px;
+    --manual-menu-secret-size: 13px;
+    --manual-menu-submit-padding-block: 10px;
+    --manual-menu-submit-padding-inline: 14px;
+    --manual-menu-submit-size: 14px;
+    --manual-menu-type-padding: 4px;
+    --manual-menu-type-btn-padding-block: 10px;
+    --manual-menu-type-btn-padding-inline: 12px;
+    --manual-menu-type-btn-size: 14px;
 }
 
 .app-manual-menu {
@@ -121,34 +57,15 @@
     display: none;
     flex-direction: column;
     gap: var(--gap-l);
-    height: var(--app-manual-menu-panel-height);
-    min-height: var(--app-manual-menu-panel-height);
-    max-height: var(--app-manual-menu-panel-height);
+    height: var(--manual-menu-panel-height);
+    min-height: var(--manual-menu-panel-height);
+    max-height: var(--manual-menu-panel-height);
     flex-shrink: 0;
-    padding: var(--app-manual-menu-panel-padding);
+    padding: var(--manual-menu-panel-padding);
     border-radius: var(--radius-l);
     background: var(--color-surface-primary);
     overflow: hidden;
     transform: translateY(100%);
-}
-
-.app-manual-menu__content {
-    position: relative;
-    flex: 1;
-    min-height: 0;
-    border-radius: var(--radius-l);
-    background: var(--color-surface-secondary);
-    overflow: hidden;
-}
-
-.app-manual-menu__body {
-    position: relative;
-    height: 100%;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    padding: var(--app-manual-menu-body-padding);
-    overflow-y: auto;
 }
 
 .app-manual-menu__header {
@@ -157,14 +74,14 @@
     justify-content: space-between;
     gap: var(--gap-l);
     flex-shrink: 0;
-    padding: 12px 14px;
+    padding: var(--manual-menu-header-padding-block) var(--manual-menu-header-padding-inline);
     border-radius: var(--radius-l);
     background: var(--color-surface-secondary);
 }
 
 .app-manual-menu__title {
     margin: 0;
-    font-size: var(--app-manual-menu-title-size);
+    font-size: var(--manual-menu-title-size);
     font-weight: 700;
     line-height: 1.2;
     color: var(--color-text-primary);
@@ -182,8 +99,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: var(--app-manual-menu-btn-size);
-    height: var(--app-manual-menu-btn-size);
+    width: var(--manual-menu-btn-size);
+    height: var(--manual-menu-btn-size);
     padding: 0;
     border: none;
     border-radius: var(--radius-md);
@@ -199,15 +116,28 @@
 }
 
 .app-manual-menu__btn i {
-    font-size: 18px;
+    display: block;
+    font-size: var(--manual-menu-btn-icon-size);
     line-height: 1;
 }
 
-.app-manual-menu__status {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
+.app-manual-menu__content {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    border-radius: var(--radius-l);
+    background: var(--color-surface-secondary);
+    overflow: hidden;
+}
+
+.app-manual-menu__body {
+    position: relative;
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    padding: var(--manual-menu-body-padding);
+    overflow-y: auto;
 }
 
 .app-manual-menu__form {
@@ -227,18 +157,18 @@
 }
 
 .app-manual-menu__label-text {
-    font-size: 13px;
+    font-size: var(--manual-menu-label-size);
     font-weight: 600;
     color: var(--color-text-secondary);
 }
 
 .app-manual-menu__input {
     width: 100%;
-    padding: 10px 12px;
+    padding: var(--manual-menu-input-padding-block) var(--manual-menu-input-padding-inline);
     border: 1px solid var(--color-border-primary);
     border-radius: var(--radius-md);
     font-family: inherit;
-    font-size: 14px;
+    font-size: var(--manual-menu-input-size);
     line-height: 1.2;
     color: var(--color-text-primary);
     background: var(--color-surface-secondary);
@@ -247,7 +177,7 @@
 
 .app-manual-menu__input--secret {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 13px;
+    font-size: var(--manual-menu-secret-size);
     letter-spacing: 0.02em;
 }
 
@@ -263,7 +193,6 @@
 .app-manual-menu__type-selector {
     display: block;
     width: 100%;
-    max-width: 100%;
     align-self: stretch;
     flex-shrink: 0;
 }
@@ -274,17 +203,17 @@
     grid-template-columns: 1fr 1fr;
     width: 100%;
     box-sizing: border-box;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: var(--manual-menu-type-padding);
+    padding-bottom: var(--manual-menu-type-padding);
     border-radius: var(--radius-l);
     background: var(--color-surface-secondary);
 }
 
 .app-manual-menu__type-thumb {
     position: absolute;
-    top: 4px;
-    width: calc(50%);
-    height: calc(100% - 8px);
+    top: var(--manual-menu-type-padding);
+    width: 50%;
+    height: calc(100% - (var(--manual-menu-type-padding) * 2));
     border-radius: var(--radius-md);
     background: var(--color-brand-hover);
     pointer-events: none;
@@ -298,12 +227,12 @@
 .app-manual-menu__type-btn {
     position: relative;
     z-index: 1;
-    padding: 10px 12px;
+    padding: var(--manual-menu-type-btn-padding-block) var(--manual-menu-type-btn-padding-inline);
     border: none;
     border-radius: var(--radius-md);
     background: transparent;
     font-family: inherit;
-    font-size: 14px;
+    font-size: var(--manual-menu-type-btn-size);
     font-weight: 600;
     line-height: 1.2;
     color: var(--color-text-secondary);
@@ -323,11 +252,11 @@
 .app-manual-menu__submit {
     margin-top: auto;
     width: 100%;
-    padding: 10px 14px;
+    padding: var(--manual-menu-submit-padding-block) var(--manual-menu-submit-padding-inline);
     border: none;
     border-radius: var(--radius-md);
     font-family: inherit;
-    font-size: 14px;
+    font-size: var(--manual-menu-submit-size);
     font-weight: 600;
     line-height: 1.2;
     color: var(--color-text-on-brand);
@@ -347,4 +276,4 @@
 .app-header__btn--manual-menu.is-manual-menu-btn-active {
     background: var(--color-brand-hover);
     color: var(--color-brand-active);
-}
+}
