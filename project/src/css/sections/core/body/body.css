@@ -40,13 +40,24 @@
 }
 
 /* Inner views should act as complete body views */
-.app-body__view--codes-yes,
-.app-body__view--codes-no {
+.app-body__view--codes-yes {
     flex: 1;
     min-height: 0;
     display: flex;
     flex-direction: column;
 }
+
+.app-body__view--codes-no {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    padding: var(--body-padding-block) var(--body-padding-inline);
+    border-radius: var(--radius-l);
+    background: var(--color-surface-secondary);
+    overflow: hidden;
+}
+
 
 .app-body.is-hidden,
 .app-body__shell.is-hidden,

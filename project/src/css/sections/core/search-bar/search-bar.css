@@ -18,6 +18,27 @@
     display: none;
 }
 
+.app-search-bar.is-search-bar-collapsing {
+    pointer-events: none;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    transition:
+        max-height var(--fade-ms) ease,
+        min-height var(--fade-ms) ease,
+        padding-top var(--fade-ms) ease,
+        padding-bottom var(--fade-ms) ease,
+        margin-bottom var(--fade-ms) ease !important;
+}
+
+.app-search-bar.is-search-bar-collapsed {
+    opacity: 0 !important;
+    max-height: 0 !important;
+    min-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: calc(-1 * var(--gap-l)) !important;
+}
+
 .app-search-bar__field {
     display: flex;
     align-items: center;

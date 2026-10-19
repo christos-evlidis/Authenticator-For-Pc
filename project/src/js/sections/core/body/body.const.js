@@ -19,5 +19,7 @@ export const BODY_ACTIVE_CLASS = "is-active";
 
 // Animation (timing matches --fade-ms in motion.css).
 export const BODY_FADE_IN_CLASS = "is-body-fade-in";
+export const BODY_CONTENT_FADE_IN_CLASS = "is-content-fade-in";
+export const BODY_CONTENT_FADE_OUT_CLASS = "is-content-fade-out";
 export const BODY_FADE_MS = 250;
 

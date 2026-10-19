@@ -8,7 +8,7 @@ function vaultRecordBuildIssuer(issuer) {
       return "";
     }
     return sanitized
-      .split(/\u+/)
+      .split(/\s+/)
       .map((word) => {
         const chars = Array.from(word);
         if (!chars.length) {

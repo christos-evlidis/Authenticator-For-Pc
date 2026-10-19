@@ -1,0 +1,451 @@
+/* Codes view & account blocks */
+.app-body__view--codes-yes .app-body__content {
+    --codes-card-gap: 10px;
+    --codes-card-padding-block: 10px;
+    --codes-card-padding-inline: 15px;
+    --codes-card-name-size: 18px;
+    --codes-card-email-size: 12px;
+    --codes-card-code-size: 30px;
+    --codes-card-code-letter-spacing: 2px;
+    --codes-card-action-btn-size: 28px;
+    --codes-card-edit-icon-size: 12px;
+    --codes-card-delete-icon-size: 20px;
+    --codes-card-hotp-counter-max-width: 72px;
+
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--codes-card-gap);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-anchor: none;
+    scroll-behavior: smooth;
+    align-items: stretch;
+    justify-content: flex-start;
+    text-align: left;
+    color: inherit;
+}
+
+
+.app-body__view--codes-yes .app-body__content.is-hidden {
+    display: none;
+}
+
+/* Individual code block card - fits 4 cards with 10px gap */
+.app-body__view--codes-yes .app-body__content .account-block {
+    position: relative;
+    box-sizing: border-box;
+    flex: 1 1 calc((100% - (var(--codes-card-gap) * 3)) / 4);
+    min-height: calc((100% - (var(--codes-card-gap) * 3)) / 4);
+    max-height: calc((100% - (var(--codes-card-gap) * 3)) / 4);
+    padding: var(--codes-card-padding-block) var(--codes-card-padding-inline);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface-tertiary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+    cursor: default;
+}
+
+
+/* Header: Account identity */
+.app-body__view--codes-yes .app-body__content .account-block__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--gap-l);
+    min-width: 0;
+    min-height: 0;
+    flex: 0 0 auto;
+    max-height: 44px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block__identity {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+    align-items: flex-start;
+    text-align: left;
+    overflow: hidden;
+}
+
+.app-body__view--codes-yes .app-body__content .account-name {
+    font-weight: 600;
+    font-size: var(--codes-card-name-size);
+    line-height: 1.15;
+    color: var(--color-text-primary);
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app-body__view--codes-yes .app-body__content .account-email {
+    font-size: var(--codes-card-email-size);
+    line-height: 1.15;
+    color: var(--color-text-secondary);
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app-body__view--codes-yes .app-body__content .account-email.is-hidden {
+    display: none;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block__actions {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: var(--gap-sm);
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+/* Edit / Close (Delete) Buttons */
+.app-body__view--codes-yes .app-body__content .edit-button,
+.app-body__view--codes-yes .app-body__content .delete-button {
+    position: static;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    border-radius: var(--radius-circle);
+    width: var(--codes-card-action-btn-size);
+    height: var(--codes-card-action-btn-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--hover-ms) ease, background-color var(--hover-ms) ease;
+    flex-shrink: 0;
+}
+
+.app-body__view--codes-yes .app-body__content .edit-button {
+    font-size: var(--codes-card-edit-icon-size);
+    color: var(--color-icon-secondary);
+}
+
+.app-body__view--codes-yes .app-body__content .edit-button:hover {
+    color: var(--color-icon-primary);
+    background-color: var(--color-brand-hover);
+}
+
+.app-body__view--codes-yes .app-body__content .delete-button {
+    font-size: var(--codes-card-delete-icon-size);
+    color: var(--color-icon-secondary);
+}
+
+.app-body__view--codes-yes .app-body__content .delete-button:hover {
+    color: var(--color-error);
+    background-color: var(--color-error-hover);
+}
+
+.app-body__view--codes-yes .app-body__content .edit-button.is-hidden,
+.app-body__view--codes-yes .app-body__content .delete-button.is-hidden {
+    display: none;
+}
+
+/* Edit Mode styling */
+.app-body__view--codes-yes .app-body__content .edit-buttons-container {
+    display: flex;
+    gap: var(--gap-sm);
+    flex-shrink: 0;
+}
+
+.app-body__view--codes-yes .app-body__content .save-edit-button,
+.app-body__view--codes-yes .app-body__content .cancel-edit-button {
+    background: none;
+    border: none;
+    font-size: 10px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: var(--radius-circle);
+    width: var(--codes-card-action-btn-size);
+    height: var(--codes-card-action-btn-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background-color var(--hover-ms) ease, color var(--hover-ms) ease;
+}
+
+.app-body__view--codes-yes .app-body__content .save-edit-button {
+    color: var(--color-success);
+}
+
+.app-body__view--codes-yes .app-body__content .save-edit-button:hover {
+    background-color: var(--color-success-hover);
+}
+
+.app-body__view--codes-yes .app-body__content .cancel-edit-button {
+    color: var(--color-error);
+}
+
+.app-body__view--codes-yes .app-body__content .cancel-edit-button:hover {
+    background-color: var(--color-error-hover);
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.editing {
+    overflow: visible;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-block__header {
+    max-height: none;
+    overflow: visible;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-block__identity {
+    gap: var(--gap-sm);
+    overflow: visible;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-name,
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-email {
+    overflow: visible;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-name[contenteditable="true"],
+.app-body__view--codes-yes .app-body__content .account-block.editing .account-email[contenteditable="true"] {
+    overflow: hidden;
+}
+
+.app-body__view--codes-yes .app-body__content .account-name[contenteditable="true"],
+.app-body__view--codes-yes .app-body__content .account-email[contenteditable="true"],
+.app-body__view--codes-yes .app-body__content .account-hotp-counter[contenteditable="true"] {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 97%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: var(--radius-xs);
+    outline: 1px solid var(--color-border-primary);
+    outline-offset: -1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app-body__view--codes-yes .app-body__content .account-name[contenteditable="true"] {
+    line-height: 1.15;
+}
+
+.app-body__view--codes-yes .app-body__content .account-email[contenteditable="true"] {
+    line-height: 1.15;
+}
+
+.app-body__view--codes-yes .app-body__content .account-name[contenteditable="true"]:focus,
+.app-body__view--codes-yes .app-body__content .account-email[contenteditable="true"]:focus {
+    outline: 1px solid var(--color-border-primary);
+    box-shadow: none;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    text-overflow: clip;
+}
+
+.app-body__view--codes-yes .app-body__content .account-hotp-counter[contenteditable="true"] {
+    width: 72px;
+    max-width: 72px;
+    min-width: 0;
+    padding: 0 10px 0 0;
+    line-height: 1;
+    justify-content: flex-end;
+    text-align: right;
+    color: var(--color-brand);
+    caret-color: var(--color-text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.app-body__view--codes-yes .app-body__content .account-hotp-counter[contenteditable="true"]:focus {
+    outline: 1px solid var(--color-border-primary);
+    box-shadow: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Body: Code display + counter */
+.app-body__view--codes-yes .app-body__content .account-block__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-l);
+    min-width: 0;
+    min-height: 0;
+    flex: 0 0 auto;
+    overflow: hidden;
+}
+
+.app-body__view--codes-yes .app-body__content .otp-code {
+    flex: 1;
+    min-width: 0;
+    font-family: monospace;
+    font-size: var(--codes-card-code-size);
+    line-height: 1;
+    font-weight: bold;
+    letter-spacing: var(--codes-card-code-letter-spacing);
+    color: var(--color-brand);
+}
+
+.app-body__view--codes-yes .app-body__content .account-hotp-counter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: var(--codes-card-hotp-counter-max-width);
+    font-family: monospace;
+    font-size: var(--codes-card-code-size);
+    line-height: 1;
+    font-weight: bold;
+    color: var(--color-brand);
+    text-align: right;
+    user-select: none;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.app-body__view--codes-yes .app-body__content .account-hotp-counter.is-hidden {
+    display: none;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.is-filtered-out {
+    display: none;
+}
+
+/* Poof delete animation & particle styling */
+.app-body__view--codes-yes .app-body__content .account-block--poof-exit {
+    transform-origin: center center;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.account-block__poof {
+    position: fixed;
+    z-index: 100;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.account-block__poof span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    will-change: transform, opacity;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block--exit-spacer,
+.app-body__view--codes-yes .app-body__content .account-block--exit-spacer:hover {
+    position: relative;
+    background: transparent !important;
+    padding: 0;
+    overflow: hidden;
+    flex: 0 0 auto;
+    transition: none !important;
+    transform: none !important;
+    cursor: default;
+    pointer-events: none;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.account-block--exit-spacer.is-collapsing {
+    transition:
+        height var(--slide-ms) ease-out,
+        min-height var(--slide-ms) ease-out,
+        max-height var(--slide-ms) ease-out,
+        margin-top var(--slide-ms) ease-out,
+        margin-bottom var(--slide-ms) ease-out !important;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.account-block--exit-spacer.is-collapsing.is-collapsed {
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    margin-top: calc(-1 * var(--codes-card-gap)) !important;
+    margin-bottom: 0 !important;
+}
+
+
+
+/* Manual add top-slide animation & spacer */
+.app-body__view--codes-yes .app-body__content .account-block.account-block--manual-add-spacer {
+    visibility: hidden;
+    pointer-events: none;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: default;
+    overflow: hidden;
+    flex: 0 0 auto;
+    height: 0;
+    min-height: 0;
+    max-height: 0;
+    transform: none;
+    transition:
+        height var(--slide-ms) ease-out,
+        min-height var(--slide-ms) ease-out,
+        max-height var(--slide-ms) ease-out;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.account-block--manual-add-spacer.is-expanding {
+    height: var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4));
+    min-height: var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4));
+    max-height: var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4));
+}
+
+
+.app-body__view--codes-yes .app-body__content .account-block.is-manual-add-slide {
+    flex: 0 0 auto;
+    height: var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4));
+    min-height: var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4));
+    max-height: var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4));
+    overflow: hidden;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.is-manual-add-slide.is-manual-add-slide-pending {
+    opacity: 0;
+    transform: translateY(calc(-1 * (var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4)) + var(--codes-card-gap))));
+    pointer-events: none;
+    transition: none;
+}
+
+.app-body__view--codes-yes .app-body__content .account-block.is-manual-add-slide.is-manual-add-slide-active {
+    animation: account-block-slide-in-from-top var(--slide-ms) ease-out forwards;
+    pointer-events: auto;
+    transition: none;
+}
+
+@keyframes account-block-slide-in-from-top {
+    from {
+        opacity: 0;
+        transform: translateY(calc(-1 * (var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4)) + var(--codes-card-gap))));
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

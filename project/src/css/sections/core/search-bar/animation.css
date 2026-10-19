@@ -8,7 +8,21 @@
     }
 }
 
+@keyframes search-bar-fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
 .app-search-bar.is-search-bar-fade-in {
     opacity: 0;
     animation: search-bar-fade-in var(--fade-ms) ease forwards;
+}
+
+.app-search-bar.is-search-bar-fade-out {
+    animation: search-bar-fade-out var(--fade-ms) ease forwards;
 }

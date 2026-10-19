@@ -14,16 +14,45 @@
     }
   },
   "permissions": [
-    "storage"
+    "storage",
+    "scripting",
+    "activeTab",
+    "tabs",
+    "windows"
   ],
   "host_permissions": [
-    "http://178.105.64.91:5000/*"
+    "http://178.105.64.91/*",
+    "https://*/*",
+    "http://*/*"
   ],
+  "background": {
+    "service_worker": "js/services/scan/worker/worker-index.js",
+    "type": "module"
+  },
   "icons": {
     "16": "icons/light/icon16.png",
     "48": "icons/light/icon48.png",
     "128": "icons/light/icon128.png"
   },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "css/overlay/scan.css",
+        "css/base/color.css",
+        "css/base/layout.css",
+        "js/const/const.scan.js",
+        "js/services/scan/content/content-index.js",
+        "js/services/scan/content/overlay/create.js",
+        "js/services/scan/content/overlay/remove.js",
+        "js/services/scan/content/overlay/start.js",
+        "js/services/scan/content/overlay/state/store.js",
+        "js/services/scan/content/screenshot/load.js",
+        "js/services/scan/content/screenshot/capture.js",
+        "js/services/scan/content/screenshot/crop.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self'; font-src 'self' data:"
   }

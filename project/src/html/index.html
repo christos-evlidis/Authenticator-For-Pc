@@ -83,10 +83,6 @@
                     <!-- Codes Yes View -->
                     <section class="app-body__view app-body__view--codes-yes is-hidden">
                         <ul class="app-body__content" role="list">
-                            <li class="account-block" role="listitem"></li>
-                            <li class="account-block" role="listitem"></li>
-                            <li class="account-block" role="listitem"></li>
-                            <li class="account-block" role="listitem"></li>
                         </ul>
 
                         <template class="code-card-template">
@@ -108,22 +104,6 @@
                                 <div class="account-block__body">
                                     <div class="otp-code" aria-live="polite">000000</div>
                                     <div class="account-hotp-counter" aria-label="HOTP counter"></div>
-                                    <div class="timer-wrapper">
-                                        <svg width="35" height="35" class="pie-timer-svg" viewBox="0 0 32 32"
-                                            aria-hidden="true">
-                                            <circle class="pie-bg" cx="16" cy="16" r="14.5" />
-                                            <path class="pie-fg" d="" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="account-block__copy-feedback" aria-hidden="true">
-                                    <span class="account-block__copy-fill"></span>
-                                    <div class="account-block__copy-check">
-                                        <svg class="copy-check__icon" viewBox="0 0 52 52" aria-hidden="true">
-                                            <circle class="copy-check__circle" cx="26" cy="26" r="24" fill="none" />
-                                            <path class="copy-check__mark" fill="none" d="M14 27l7 7 16-16" />
-                                        </svg>
-                                    </div>
                                 </div>
                             </li>
                         </template>
@@ -284,12 +264,12 @@
                 <div class="app-manual-menu__content">
                     <div class="app-manual-menu__body">
                         <div class="app-manual-menu__status" aria-hidden="true">
-                            <div class="app-manual-menu-status app-manual-menu-status--loading">
+                            <div class="app-manual-menu-status app-manual-menu-status--loading is-hidden">
                                 <span class="app-manual-menu-status__dot"></span>
                                 <span class="app-manual-menu-status__dot"></span>
                                 <span class="app-manual-menu-status__dot"></span>
                             </div>
-                            <div class="app-manual-menu-status app-manual-menu-status--success">
+                            <div class="app-manual-menu-status app-manual-menu-status--success is-hidden">
                                 <svg class="app-manual-menu-status__icon" viewbox="0 0 52 52" aria-hidden="true">
                                     <circle class="app-manual-menu-status__icon-circle" cx="26" cy="26" r="24"
                                         fill="none" />
@@ -297,7 +277,7 @@
                                         fill="none" d="M14 27l7 7 16-16" />
                                 </svg>
                             </div>
-                            <div class="app-manual-menu-status app-manual-menu-status--error">
+                            <div class="app-manual-menu-status app-manual-menu-status--error is-hidden">
                                 <svg class="app-manual-menu-status__icon" viewbox="0 0 52 52" aria-hidden="true">
                                     <circle class="app-manual-menu-status__icon-circle" cx="26" cy="26" r="24"
                                         fill="none" />

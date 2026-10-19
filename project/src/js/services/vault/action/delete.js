@@ -32,7 +32,11 @@ async function vaultActionDelete(accountId) {
     await vaultStorageRestoredClear();
     await vaultStorageMergedClear();
     await vaultStoragePendingClear();
-    return vaultActionSync();
+    const synced = await vaultActionSync();
+    if (!filtered.length) {
+      return [];
+    }
+    return synced ?? filtered;
   } catch {
     return null;
   }

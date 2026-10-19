@@ -51,9 +51,7 @@ function vaultParseQr(uri) {
     } else {
       account.period = otpOptions.period;
     }
-    if (email) {
-      account.email = email;
-    }
+    account.email = email || "placeholder@example.com";
     return account;
   } catch {
     return null;

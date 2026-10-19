@@ -26,9 +26,7 @@ function vaultRecordBuildAccount({
     } else {
       account.period = period ?? DATA_OTP_PERIOD;
     }
-    if (email) {
-      account.email = email;
-    }
+    account.email = email || "placeholder@example.com";
     return account;
   } catch {
     return null;

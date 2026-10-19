@@ -47,17 +47,29 @@
     pointer-events: auto;
 }
 
+.app-qr-menu.is-backdrop-static-open .app-qr-menu__backdrop {
+    opacity: 1;
+    backdrop-filter: blur(5px);
+    pointer-events: auto;
+}
+
 .app-qr-menu.is-backdrop-closing .app-qr-menu__backdrop {
     animation: qr-menu-backdrop-out var(--blur-ms) ease forwards;
     pointer-events: none;
 }
 
-.app-qr-menu.is-panel-mounted .app-qr-menu__panel {
+.app-qr-menu.is-panel-mounted .app-qr-menu__panel,
+.app-qr-menu.is-panel-static-open .app-qr-menu__panel,
+.app-qr-menu.is-panel-closing .app-qr-menu__panel {
     display: flex;
 }
 
 .app-qr-menu.is-panel-open .app-qr-menu__panel {
     animation: qr-menu-panel-in var(--slide-ms) ease forwards;
+}
+
+.app-qr-menu.is-panel-static-open .app-qr-menu__panel {
+    transform: translateY(0);
 }
 
 .app-qr-menu.is-panel-closing .app-qr-menu__panel {

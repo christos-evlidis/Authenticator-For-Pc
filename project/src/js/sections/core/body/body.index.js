@@ -12,11 +12,11 @@ function bodyRender(state = appStateGet()) {
   if (state.authState) {
     bodySignedOut?.classList.add(BODY_HIDDEN_CLASS);
     bodySignedIn?.classList.remove(BODY_HIDDEN_CLASS);
-    codesNo?.classList.add(BODY_HIDDEN_CLASS);
-    codesYes?.classList.remove(BODY_HIDDEN_CLASS);
   } else {
     bodySignedIn?.classList.add(BODY_HIDDEN_CLASS);
     bodySignedOut?.classList.remove(BODY_HIDDEN_CLASS);
+    codesYes?.classList.add(BODY_HIDDEN_CLASS);
+    codesNo?.classList.remove(BODY_HIDDEN_CLASS);
   }
 
   void bodyFadeIn();

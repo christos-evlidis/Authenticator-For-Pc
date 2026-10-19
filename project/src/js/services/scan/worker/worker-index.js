@@ -1,4 +1,5 @@
-import { extensionWindowInit, extensionWindowOpen } from "../../shell/extension-window.js";import { workerHandleAbort } from "./handle/abort.js";
+import { extensionWindowInit, extensionWindowOpen } from "../../shell/extension-window.js";
+import { workerHandleAbort } from "./handle/abort.js";
 import { workerHandleCapture } from "./handle/capture.js";
 import { workerHandleSelection } from "./handle/selection.js";
 import { workerHandleStart } from "./handle/start.js";
@@ -11,7 +12,8 @@ import { MESSAGES, UNSUPPORTED_PAGE_ERROR } from "../../../const/const.scan.js";
 /** Registers service-worker listeners for scan messages. */
 function workerScriptInit() {
   extensionWindowInit();
-  chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {    const { action } = message;
+  chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+    const { action } = message;
     if (action === MESSAGES.CANCELLED_EVENT) {
       void workerHandleAbort({ removeTabOverlay: true, broadcast: false }).then(() => {
         if (message.reopenPopup) {

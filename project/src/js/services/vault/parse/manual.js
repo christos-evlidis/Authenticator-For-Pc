@@ -19,7 +19,7 @@ function vaultParseManual({ name, secret, email, type }) {
     } else {
       otpOptions.period = DATA_OTP_PERIOD;
     }
-    const emailRaw = String(email).trim();
+    const emailRaw = String(email ?? "").trim();
     const account = {
       name: sanitizedName,
       secret: sanitizedSecret,
@@ -32,10 +32,9 @@ function vaultParseManual({ name, secret, email, type }) {
     } else {
       account.period = otpOptions.period;
     }
-    if (emailRaw) {
-      account.email = emailRaw;
-    }
+    account.email = emailRaw || "placeholder@example.com";
     return account;
+
   } catch {
     return null;
   }

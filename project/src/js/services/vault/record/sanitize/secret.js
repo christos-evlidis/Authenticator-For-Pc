@@ -3,7 +3,7 @@ function vaultRecordSanitizeSecret(raw) {
   try {
     return String(raw)
       .trim()
-      .replace(/\u+/g, "")
+      .replace(/\s+/g, "")
       .replace(/=+$/, "")
       .toUpperCase();
   } catch {
