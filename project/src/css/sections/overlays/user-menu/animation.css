@@ -1,3 +1,6 @@
+/* ==========================================================================
+   User Menu Keyframe Animations
+   ========================================================================== */
 @keyframes user-menu-backdrop-in {
     from {
         opacity: 0;
@@ -40,28 +43,6 @@
     to {
         transform: translateY(100%);
     }
-}
-
-.app-user-menu.is-backdrop-visible .app-user-menu__backdrop {
-    animation: user-menu-backdrop-in var(--blur-ms) ease forwards;
-    pointer-events: auto;
-}
-
-.app-user-menu.is-backdrop-closing .app-user-menu__backdrop {
-    animation: user-menu-backdrop-out var(--blur-ms) ease forwards;
-    pointer-events: none;
-}
-
-.app-user-menu.is-panel-mounted .app-user-menu__panel {
-    display: flex;
-}
-
-.app-user-menu.is-panel-open .app-user-menu__panel {
-    animation: user-menu-panel-in var(--slide-ms) ease forwards;
-}
-
-.app-user-menu.is-panel-closing .app-user-menu__panel {
-    animation: user-menu-panel-out var(--slide-ms) ease forwards;
 }
 
 @keyframes userMenuStatusDotBounce {
@@ -120,100 +101,41 @@
     }
 }
 
-@keyframes userMenuAuthExpandUp {
-    from {
-        top: var(--user-menu-auth-origin-top);
-        left: var(--user-menu-auth-origin-left);
-        width: var(--user-menu-auth-origin-width);
-        height: var(--user-menu-auth-origin-height);
-    }
-
-    to {
-        top: var(--user-menu-auth-expand-top);
-        left: var(--user-menu-auth-expand-left);
-        width: var(--user-menu-auth-expand-width);
-        height: var(--user-menu-auth-expand-height);
-    }
+/* ==========================================================================
+   User Menu Backdrop & Panel Animations
+   ========================================================================== */
+.app-user-menu.is-backdrop-visible .app-user-menu__backdrop {
+    animation: user-menu-backdrop-in var(--blur-ms) ease forwards;
+    pointer-events: auto;
 }
 
-@keyframes userMenuAuthExpandFull {
-    from {
-        top: var(--user-menu-auth-expand-top);
-        left: var(--user-menu-auth-expand-left);
-        width: var(--user-menu-auth-expand-width);
-        height: var(--user-menu-auth-expand-height);
-    }
-
-    to {
-        top: var(--user-menu-auth-full-top);
-        left: var(--user-menu-auth-full-left);
-        width: var(--user-menu-auth-full-width);
-        height: var(--user-menu-auth-full-height);
-    }
+.app-user-menu.is-backdrop-closing .app-user-menu__backdrop {
+    animation: user-menu-backdrop-out var(--blur-ms) ease forwards;
+    pointer-events: none;
 }
 
-@keyframes userMenuAuthExpandExtension {
-    from {
-        top: var(--user-menu-auth-full-top);
-        left: var(--user-menu-auth-full-left);
-        width: var(--user-menu-auth-full-width);
-        height: var(--user-menu-auth-full-height);
-    }
-
-    to {
-        top: var(--user-menu-auth-extension-top);
-        left: var(--user-menu-auth-extension-left);
-        width: var(--user-menu-auth-extension-width);
-        height: var(--user-menu-auth-extension-height);
-    }
+.app-user-menu.is-panel-mounted .app-user-menu__panel {
+    display: flex;
 }
 
-@keyframes userMenuAuthShrinkToFull {
-    from {
-        top: var(--user-menu-auth-extension-top);
-        left: var(--user-menu-auth-extension-left);
-        width: var(--user-menu-auth-extension-width);
-        height: var(--user-menu-auth-extension-height);
-    }
-
-    to {
-        top: var(--user-menu-auth-full-top);
-        left: var(--user-menu-auth-full-left);
-        width: var(--user-menu-auth-full-width);
-        height: var(--user-menu-auth-full-height);
-    }
+.app-user-menu.is-panel-open .app-user-menu__panel {
+    animation: user-menu-panel-in var(--slide-ms) ease forwards;
 }
 
-@keyframes userMenuAuthShrinkFull {
-    from {
-        top: var(--user-menu-auth-full-top);
-        left: var(--user-menu-auth-full-left);
-        width: var(--user-menu-auth-full-width);
-        height: var(--user-menu-auth-full-height);
-    }
-
-    to {
-        top: var(--user-menu-auth-expand-top);
-        left: var(--user-menu-auth-expand-left);
-        width: var(--user-menu-auth-expand-width);
-        height: var(--user-menu-auth-expand-height);
-    }
+.app-user-menu.is-panel-closing .app-user-menu__panel {
+    animation: user-menu-panel-out var(--slide-ms) ease forwards;
 }
 
-@keyframes userMenuAuthShrinkDown {
-    from {
-        top: var(--user-menu-auth-expand-top);
-        left: var(--user-menu-auth-expand-left);
-        width: var(--user-menu-auth-expand-width);
-        height: var(--user-menu-auth-expand-height);
-    }
+/* ==========================================================================
+   User Menu Auth Flow Lock & Content Visibility
+   ========================================================================== */
+.app-user-menu.is-user-menu-auth-locked {
+    overflow: visible;
+}
 
-    to {
-        top: var(--user-menu-auth-restore-top);
-        left: var(--user-menu-auth-restore-left);
-        width: var(--user-menu-auth-restore-width);
-        height: var(--user-menu-auth-restore-height);
-    }
+.app-user-menu.is-user-menu-auth-locked .app-user-menu__backdrop {
+    pointer-events: auto;
+    cursor: default;
 }
 
 .app-user-menu__panel.is-user-menu-auth-running {
@@ -222,15 +144,6 @@
 
 .app-user-menu__panel.is-user-menu-auth-running .app-user-menu__content {
     overflow: visible;
-}
-
-.app-user-menu.is-user-menu-auth-locked {
-    overflow: visible;
-}
-
-.app-user-menu.is-user-menu-auth-locked .app-user-menu__backdrop {
-    pointer-events: auto;
-    cursor: default;
 }
 
 .app-user-menu__panel.is-user-menu-auth-fade .app-user-menu__header,
@@ -257,49 +170,100 @@
     animation: userMenuAuthRestoreFade var(--fade-ms) ease forwards;
 }
 
-.app-user-menu__animation-container.is-user-menu-auth-absolute {
+.app-user-menu__panel.is-user-menu-auth-restore-fade .app-user-menu__animation-container {
+    opacity: 0;
+    transition: opacity var(--fade-ms) ease;
+}
+
+/* ==========================================================================
+   User Menu Auth Card Morph States
+   ========================================================================== */
+.app-user-menu__animation-container {
     position: absolute;
-    top: var(--user-menu-auth-origin-top);
-    left: var(--user-menu-auth-origin-left);
-    width: var(--user-menu-auth-origin-width);
-    height: var(--user-menu-auth-origin-height);
-    z-index: 0;
-    margin: 0;
-    opacity: 1;
+    box-sizing: border-box;
+    border-radius: var(--radius-l);
     background: var(--color-surface-secondary);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+        top var(--shrink-down-ms) ease,
+        left var(--shrink-down-ms) ease,
+        right var(--shrink-down-ms) ease,
+        bottom var(--shrink-down-ms) ease,
+        border-radius var(--shrink-down-ms) ease,
+        opacity var(--fade-ms) ease;
 }
 
-.app-user-menu__animation-container.is-user-menu-auth-expand-up,
-.app-user-menu__animation-container.is-user-menu-auth-expand-full,
-.app-user-menu__animation-container.is-user-menu-auth-expand-extension,
-.app-user-menu__animation-container.is-user-menu-auth-shrink-to-full,
-.app-user-menu__animation-container.is-user-menu-auth-shrink-full,
-.app-user-menu__animation-container.is-user-menu-auth-shrink-down {
-    z-index: 3;
+.app-user-menu__animation-container.is-user-menu-auth-visible {
+    opacity: 1;
+    overflow: visible;
 }
 
-.app-user-menu__animation-container.is-user-menu-auth-expand-up {
-    animation: userMenuAuthExpandUp var(--expand-up-ms) ease forwards;
+/* State 1: Minimized over signed-out form */
+.app-user-menu__animation-container.is-card-signed-out {
+    top: var(--user-menu-card-signed-out-top);
+    left: var(--user-menu-card-inset-inline);
+    right: var(--user-menu-card-inset-inline);
+    bottom: var(--user-menu-card-bottom);
+    border-radius: var(--radius-l);
+    opacity: 1;
 }
 
-.app-user-menu__animation-container.is-user-menu-auth-expand-full {
-    animation: userMenuAuthExpandFull var(--expand-full-ms) ease forwards;
+/* State 2: Minimized over signed-in account view */
+.app-user-menu__animation-container.is-card-signed-in {
+    top: var(--user-menu-card-signed-in-top);
+    left: var(--user-menu-card-inset-inline);
+    right: var(--user-menu-card-inset-inline);
+    bottom: var(--user-menu-card-bottom);
+    border-radius: var(--radius-l);
+    opacity: 1;
 }
 
-.app-user-menu__animation-container.is-user-menu-auth-expand-extension {
-    animation: userMenuAuthExpandExtension var(--expand-up-ms) ease forwards;
+/* State 3: Expand Up to top padding of panel */
+.app-user-menu__animation-container.is-card-panel-up {
+    top: var(--user-menu-panel-padding);
+    left: var(--user-menu-card-inset-inline);
+    right: var(--user-menu-card-inset-inline);
+    bottom: var(--user-menu-card-bottom);
+    border-radius: var(--radius-l);
+    opacity: 1;
 }
 
-.app-user-menu__animation-container.is-user-menu-auth-shrink-to-full {
-    animation: userMenuAuthShrinkToFull var(--shrink-down-ms) ease forwards;
+/* State 4: Expand Full to panel edges */
+.app-user-menu__animation-container.is-card-panel-full {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-l);
+    opacity: 1;
 }
 
-.app-user-menu__animation-container.is-user-menu-auth-shrink-full {
-    animation: userMenuAuthShrinkFull var(--shrink-full-ms) ease forwards;
+/* State 5: Expand to full extension frame */
+.app-user-menu__animation-container.is-card-extension {
+    top: calc(-1 * (var(--extension-height) - 100% - var(--extension-padding) * 2));
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-l);
+    opacity: 1;
 }
 
-.app-user-menu__animation-container.is-user-menu-auth-shrink-down {
-    animation: userMenuAuthShrinkDown var(--shrink-down-ms) ease forwards;
+/* ==========================================================================
+   User Menu Status Animation States
+   ========================================================================== */
+.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot {
+    animation: userMenuStatusDotBounce var(--dots-bounce-ms) ease-in-out infinite;
+}
+
+.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot:nth-child(2) {
+    animation-delay: var(--dots-bounce-delay-2-ms);
+}
+
+.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot:nth-child(3) {
+    animation-delay: var(--dots-bounce-delay-3-ms);
 }
 
 .app-user-menu__status .user-menu-status.is-user-menu-auth-dots-fade-in {
@@ -322,6 +286,17 @@
 .app-user-menu__status .user-menu-status.is-user-menu-auth-result-draw {
     visibility: visible;
     opacity: 1;
+}
+
+.user-menu-status--success.is-animating .user-menu-status__icon-circle,
+.user-menu-status--error.is-animating .user-menu-status__icon-circle {
+    animation: userMenuStatusCircleDraw calc(var(--result-main-draw-ms) * 0.45) ease forwards;
+}
+
+.user-menu-status--success.is-animating .user-menu-status__icon-mark,
+.user-menu-status--error.is-animating .user-menu-status__icon-mark {
+    animation: userMenuStatusMarkDraw calc(var(--result-main-draw-ms) * 0.55) ease forwards;
+    animation-delay: calc(var(--result-main-draw-ms) * 0.45);
 }
 
 .app-user-menu__status .user-menu-status.is-user-menu-auth-result-fade-out {

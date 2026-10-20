@@ -19,6 +19,7 @@ import {
   BODY_CODES_YES_VIEW_SELECTOR,
   BODY_CONTENT_FADE_IN_CLASS,
   BODY_CONTENT_FADE_OUT_CLASS,
+  BODY_CONTENT_PENDING_CLASS,
   BODY_FADE_MS,
   BODY_HIDDEN_CLASS,
 } from "@/js/sections/core/body/body.const.js";
@@ -284,10 +285,7 @@ async function codesHandleDelete(account, card) {
       const codesYesView = document.querySelector(BODY_CODES_YES_VIEW_SELECTOR);
 
       // 1. Switch to the empty container view, but keep its inner icon & text invisible during expansion
-      const emptyContent = codesNoView?.querySelector(".app-body__content");
-      if (emptyContent) {
-        emptyContent.style.opacity = "0";
-      }
+      codesNoView?.classList.add(BODY_CONTENT_PENDING_CLASS);
       codesYesView?.classList.add(BODY_HIDDEN_CLASS);
       codesNoView?.classList.remove(BODY_HIDDEN_CLASS);
 
@@ -298,9 +296,7 @@ async function codesHandleDelete(account, card) {
       await searchBarCollapse();
 
       // 4. Now that expansion is completely finished, smoothly fade in the icon and text
-      if (emptyContent) {
-        emptyContent.style.opacity = "";
-      }
+      codesNoView?.classList.remove(BODY_CONTENT_PENDING_CLASS);
       codesNoView?.classList.add(BODY_CONTENT_FADE_IN_CLASS);
       await new Promise((resolve) => setTimeout(resolve, BODY_FADE_MS));
       codesNoView?.classList.remove(BODY_CONTENT_FADE_IN_CLASS);
@@ -481,21 +477,15 @@ async function codesActionAdd(account) {
   container.scrollTop = 0;
 
   if (existingCards.length) {
-    const sampleCard = existingCards[0];
-    const cardHeight = sampleCard.getBoundingClientRect().height || sampleCard.offsetHeight;
-
     const spacer = document.createElement("li");
     spacer.className = "account-block account-block--manual-add-spacer";
     spacer.setAttribute("aria-hidden", "true");
     container.prepend(spacer);
 
-    await codesAnimationAddSpacerExpand(spacer, cardHeight);
+    await codesAnimationAddSpacerExpand(spacer);
 
-    // Apply the exact measured card height so there's zero layout shift
-    card.style.setProperty("--spacer-height", `${cardHeight}px`);
     spacer.replaceWith(card);
     await codesAnimationAddSlide(card);
-    card.style.removeProperty("--spacer-height");
     container.scrollTop = 0;
     return;
   }

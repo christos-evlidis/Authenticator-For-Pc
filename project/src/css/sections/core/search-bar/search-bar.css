@@ -1,44 +1,37 @@
+/* ==========================================================================
+   Search Bar Component Tokens
+   ========================================================================== */
 .app-search-bar {
     --search-bar-padding-block: 8px;
     --search-bar-padding-inline: 14px;
     --search-bar-icon-size: 14px;
     --search-bar-input-height: 24px;
     --search-bar-font-size: 14px;
+    --search-bar-height: calc(var(--search-bar-input-height) + (var(--search-bar-padding-block) * 2));
 }
 
+/* ==========================================================================
+   Search Bar Shell & Layout
+   ========================================================================== */
 .app-search-bar {
     flex-shrink: 0;
     display: block;
+    height: var(--search-bar-height);
+    max-height: var(--search-bar-height);
+    min-height: var(--search-bar-height);
     padding: var(--search-bar-padding-block) var(--search-bar-padding-inline);
     border-radius: var(--radius-l);
     background: var(--color-surface-secondary);
+    box-sizing: border-box;
 }
 
 .app-search-bar.is-hidden {
     display: none;
 }
 
-.app-search-bar.is-search-bar-collapsing {
-    pointer-events: none;
-    overflow: hidden !important;
-    opacity: 0 !important;
-    transition:
-        max-height var(--fade-ms) ease,
-        min-height var(--fade-ms) ease,
-        padding-top var(--fade-ms) ease,
-        padding-bottom var(--fade-ms) ease,
-        margin-bottom var(--fade-ms) ease !important;
-}
-
-.app-search-bar.is-search-bar-collapsed {
-    opacity: 0 !important;
-    max-height: 0 !important;
-    min-height: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    margin-bottom: calc(-1 * var(--gap-l)) !important;
-}
-
+/* ==========================================================================
+   Search Bar Field & Input Controls
+   ========================================================================== */
 .app-search-bar__field {
     display: flex;
     align-items: center;
@@ -75,4 +68,28 @@
 .app-search-bar__input::-webkit-search-cancel-button {
     -webkit-appearance: none;
     appearance: none;
+}
+
+/* ==========================================================================
+   Search Bar Dynamic Collapse States
+   ========================================================================== */
+.app-search-bar.is-search-bar-collapsing {
+    pointer-events: none;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    transition:
+        max-height var(--fade-ms) ease,
+        min-height var(--fade-ms) ease,
+        padding-top var(--fade-ms) ease,
+        padding-bottom var(--fade-ms) ease,
+        margin-bottom var(--fade-ms) ease !important;
+}
+
+.app-search-bar.is-search-bar-collapsed {
+    opacity: 0 !important;
+    max-height: 0 !important;
+    min-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: calc(-1 * var(--gap-l)) !important;
 }

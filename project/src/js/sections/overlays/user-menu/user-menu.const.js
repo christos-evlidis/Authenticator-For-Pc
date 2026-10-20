@@ -87,72 +87,26 @@ export const USER_MENU_AUTH_FADE_CLASS = "is-user-menu-auth-fade";
 export const USER_MENU_AUTH_CONTENT_HIDDEN_CLASS = "is-user-menu-auth-content-hidden";
 export const USER_MENU_AUTH_RESTORE_FADE_CLASS = "is-user-menu-auth-restore-fade";
 export const USER_MENU_AUTH_VISIBLE_CLASS = "is-user-menu-auth-visible";
-export const USER_MENU_AUTH_ABSOLUTE_CLASS = "is-user-menu-auth-absolute";
-export const USER_MENU_AUTH_EXPAND_UP_CLASS = "is-user-menu-auth-expand-up";
-export const USER_MENU_AUTH_EXPAND_FULL_CLASS = "is-user-menu-auth-expand-full";
-export const USER_MENU_AUTH_EXPAND_EXTENSION_CLASS = "is-user-menu-auth-expand-extension";
+
+// Card state classes (pure CSS transitions)
+export const USER_MENU_AUTH_CARD_SIGNED_OUT_CLASS = "is-card-signed-out";
+export const USER_MENU_AUTH_CARD_SIGNED_IN_CLASS = "is-card-signed-in";
+export const USER_MENU_AUTH_CARD_PANEL_UP_CLASS = "is-card-panel-up";
+export const USER_MENU_AUTH_CARD_PANEL_FULL_CLASS = "is-card-panel-full";
+export const USER_MENU_AUTH_CARD_EXTENSION_CLASS = "is-card-extension";
+
 export const USER_MENU_AUTH_DOTS_FADE_IN_CLASS = "is-user-menu-auth-dots-fade-in";
 export const USER_MENU_AUTH_DOTS_RUN_CLASS = "is-user-menu-auth-dots-run";
 export const USER_MENU_AUTH_DOTS_FADE_OUT_CLASS = "is-user-menu-auth-dots-fade-out";
 export const USER_MENU_AUTH_RESULT_DRAW_CLASS = "is-user-menu-auth-result-draw";
 export const USER_MENU_AUTH_RESULT_FADE_OUT_CLASS = "is-user-menu-auth-result-fade-out";
-export const USER_MENU_AUTH_SHRINK_TO_FULL_CLASS = "is-user-menu-auth-shrink-to-full";
-export const USER_MENU_AUTH_SHRINK_FULL_CLASS = "is-user-menu-auth-shrink-full";
-export const USER_MENU_AUTH_SHRINK_DOWN_CLASS = "is-user-menu-auth-shrink-down";
-
-// Auth flow layout vars.
-export const USER_MENU_AUTH_VAR_ORIGIN_TOP = "--user-menu-auth-origin-top";
-export const USER_MENU_AUTH_VAR_ORIGIN_LEFT = "--user-menu-auth-origin-left";
-export const USER_MENU_AUTH_VAR_ORIGIN_WIDTH = "--user-menu-auth-origin-width";
-export const USER_MENU_AUTH_VAR_ORIGIN_HEIGHT = "--user-menu-auth-origin-height";
-export const USER_MENU_AUTH_VAR_EXPAND_TOP = "--user-menu-auth-expand-top";
-export const USER_MENU_AUTH_VAR_EXPAND_LEFT = "--user-menu-auth-expand-left";
-export const USER_MENU_AUTH_VAR_EXPAND_WIDTH = "--user-menu-auth-expand-width";
-export const USER_MENU_AUTH_VAR_EXPAND_HEIGHT = "--user-menu-auth-expand-height";
-export const USER_MENU_AUTH_VAR_FULL_TOP = "--user-menu-auth-full-top";
-export const USER_MENU_AUTH_VAR_FULL_LEFT = "--user-menu-auth-full-left";
-export const USER_MENU_AUTH_VAR_FULL_WIDTH = "--user-menu-auth-full-width";
-export const USER_MENU_AUTH_VAR_FULL_HEIGHT = "--user-menu-auth-full-height";
-export const USER_MENU_AUTH_VAR_EXTENSION_TOP = "--user-menu-auth-extension-top";
-export const USER_MENU_AUTH_VAR_EXTENSION_LEFT = "--user-menu-auth-extension-left";
-export const USER_MENU_AUTH_VAR_EXTENSION_WIDTH = "--user-menu-auth-extension-width";
-export const USER_MENU_AUTH_VAR_EXTENSION_HEIGHT = "--user-menu-auth-extension-height";
-export const USER_MENU_AUTH_VAR_RESTORE_TOP = "--user-menu-auth-restore-top";
-export const USER_MENU_AUTH_VAR_RESTORE_LEFT = "--user-menu-auth-restore-left";
-export const USER_MENU_AUTH_VAR_RESTORE_WIDTH = "--user-menu-auth-restore-width";
-export const USER_MENU_AUTH_VAR_RESTORE_HEIGHT = "--user-menu-auth-restore-height";
-
-export const USER_MENU_AUTH_LAYOUT_VARS = [
-  USER_MENU_AUTH_VAR_ORIGIN_TOP,
-  USER_MENU_AUTH_VAR_ORIGIN_LEFT,
-  USER_MENU_AUTH_VAR_ORIGIN_WIDTH,
-  USER_MENU_AUTH_VAR_ORIGIN_HEIGHT,
-  USER_MENU_AUTH_VAR_EXPAND_TOP,
-  USER_MENU_AUTH_VAR_EXPAND_LEFT,
-  USER_MENU_AUTH_VAR_EXPAND_WIDTH,
-  USER_MENU_AUTH_VAR_EXPAND_HEIGHT,
-  USER_MENU_AUTH_VAR_FULL_TOP,
-  USER_MENU_AUTH_VAR_FULL_LEFT,
-  USER_MENU_AUTH_VAR_FULL_WIDTH,
-  USER_MENU_AUTH_VAR_FULL_HEIGHT,
-  USER_MENU_AUTH_VAR_EXTENSION_TOP,
-  USER_MENU_AUTH_VAR_EXTENSION_LEFT,
-  USER_MENU_AUTH_VAR_EXTENSION_WIDTH,
-  USER_MENU_AUTH_VAR_EXTENSION_HEIGHT,
-  USER_MENU_AUTH_VAR_RESTORE_TOP,
-  USER_MENU_AUTH_VAR_RESTORE_LEFT,
-  USER_MENU_AUTH_VAR_RESTORE_WIDTH,
-  USER_MENU_AUTH_VAR_RESTORE_HEIGHT,
-];
 
 export const USER_MENU_AUTH_PHASE_CLASSES = [
-  USER_MENU_AUTH_ABSOLUTE_CLASS,
-  USER_MENU_AUTH_EXPAND_UP_CLASS,
-  USER_MENU_AUTH_EXPAND_FULL_CLASS,
-  USER_MENU_AUTH_EXPAND_EXTENSION_CLASS,
-  USER_MENU_AUTH_SHRINK_TO_FULL_CLASS,
-  USER_MENU_AUTH_SHRINK_FULL_CLASS,
-  USER_MENU_AUTH_SHRINK_DOWN_CLASS,
+  USER_MENU_AUTH_CARD_SIGNED_OUT_CLASS,
+  USER_MENU_AUTH_CARD_SIGNED_IN_CLASS,
+  USER_MENU_AUTH_CARD_PANEL_UP_CLASS,
+  USER_MENU_AUTH_CARD_PANEL_FULL_CLASS,
+  USER_MENU_AUTH_CARD_EXTENSION_CLASS,
 ];
 
 // Auth flow animation timing (matches motion.css tokens).

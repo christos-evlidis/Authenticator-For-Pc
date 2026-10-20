@@ -1,3 +1,6 @@
+/* ==========================================================================
+   User Menu Component Tokens
+   ========================================================================== */
 .app-user-menu {
     --user-menu-panel-padding: 12px;
     --user-menu-header-padding-block: 12px;
@@ -19,8 +22,21 @@
     --user-menu-status-mark-stroke: 3;
     --user-menu-status-circle-dash: 151;
     --user-menu-status-mark-dash: 36;
+
+    /* Element heights for auth card animation states */
+    --user-menu-header-height: calc(var(--user-menu-header-padding-block) * 2 + var(--user-menu-btn-size));
+    --user-menu-auth-switch-height: calc(var(--user-menu-control-padding-block) * 2 + var(--user-menu-control-size) * 1.2 + var(--user-menu-auth-switch-inset) * 2);
+
+    /* Auth card animation dimensions */
+    --user-menu-card-inset-inline: var(--user-menu-panel-padding);
+    --user-menu-card-bottom: var(--user-menu-panel-padding);
+    --user-menu-card-signed-in-top: calc(var(--user-menu-panel-padding) + var(--user-menu-header-height) + var(--gap-l));
+    --user-menu-card-signed-out-top: calc(var(--user-menu-panel-padding) + var(--user-menu-header-height) + var(--gap-l) + var(--user-menu-auth-switch-height) + var(--gap-l));
 }
 
+/* ==========================================================================
+   User Menu Shell & Overlay
+   ========================================================================== */
 .app-user-menu {
     position: absolute;
     inset: 0;
@@ -51,6 +67,9 @@
     pointer-events: none;
 }
 
+/* ==========================================================================
+   User Menu Panel & Header
+   ========================================================================== */
 .app-user-menu__panel {
     position: relative;
     z-index: 1;
@@ -77,10 +96,6 @@
     padding: var(--user-menu-header-padding-block) var(--user-menu-header-padding-inline);
     border-radius: var(--radius-l);
     background: var(--color-surface-secondary);
-}
-
-.app-user-menu__auth-bar {
-    flex-shrink: 0;
 }
 
 .app-user-menu__title {
@@ -125,68 +140,16 @@
     line-height: 1;
 }
 
-.app-user-menu__content {
-    position: relative;
-    z-index: 1;
-    flex: 0 1 auto;
-    min-height: 0;
-    border-radius: var(--radius-l);
-    background: transparent;
-    overflow: visible;
+.app-header__btn--user-menu.is-user-menu-btn-active {
+    background: var(--color-brand-hover);
+    color: var(--color-brand-active);
 }
 
-.app-user-menu__animation-container {
-    position: absolute;
-    z-index: 0;
-    opacity: 0;
-    pointer-events: none;
-    border-radius: var(--radius-l);
-    background: var(--color-surface-secondary);
-    overflow: hidden;
-    transition: opacity var(--fade-ms) ease;
-}
-
-.app-user-menu__animation-container.is-user-menu-auth-visible {
-    opacity: 1;
-    overflow: visible;
-}
-
-.app-user-menu__body {
-    position: relative;
-    z-index: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-xl);
-    padding: var(--user-menu-body-padding);
-    overflow-y: auto;
-    border-radius: var(--radius-l);
-    background: var(--color-surface-secondary);
-    transition: opacity var(--fade-ms) ease;
-}
-
-.app-user-menu__view {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-xl);
-    min-height: 0;
-}
-
-.app-user-menu__view.is-hidden,
-.app-user-menu .is-hidden {
-    display: none;
-}
-
-.app-user-menu__tabs,
-.app-user-menu__account,
-.app-user-menu__auth-view {
-    min-height: 0;
-}
-
-.app-user-menu__tab-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-l);
+/* ==========================================================================
+   User Menu Auth Bar & Switcher
+   ========================================================================== */
+.app-user-menu__auth-bar {
+    flex-shrink: 0;
 }
 
 .app-user-menu__auth-switch {
@@ -250,6 +213,60 @@
     cursor: not-allowed;
 }
 
+/* ==========================================================================
+   User Menu Content & Body
+   ========================================================================== */
+.app-user-menu__content {
+    position: relative;
+    z-index: 1;
+    flex: 0 1 auto;
+    min-height: 0;
+    border-radius: var(--radius-l);
+    background: transparent;
+    overflow: visible;
+}
+
+.app-user-menu__body {
+    position: relative;
+    z-index: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xl);
+    padding: var(--user-menu-body-padding);
+    overflow-y: auto;
+    border-radius: var(--radius-l);
+    background: var(--color-surface-secondary);
+    transition: opacity var(--fade-ms) ease;
+}
+
+.app-user-menu__view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xl);
+    min-height: 0;
+}
+
+.app-user-menu__view.is-hidden,
+.app-user-menu .is-hidden {
+    display: none;
+}
+
+.app-user-menu__tabs,
+.app-user-menu__account,
+.app-user-menu__auth-view {
+    min-height: 0;
+}
+
+.app-user-menu__tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-l);
+}
+
+/* ==========================================================================
+   User Menu Forms & Controls
+   ========================================================================== */
 .app-user-menu__form {
     display: flex;
     flex-direction: column;
@@ -391,11 +408,9 @@
     cursor: not-allowed;
 }
 
-.app-header__btn--user-menu.is-user-menu-btn-active {
-    background: var(--color-brand-hover);
-    color: var(--color-brand-active);
-}
-
+/* ==========================================================================
+   User Menu Status Elements Base
+   ========================================================================== */
 .app-user-menu__status {
     position: absolute;
     inset: 0;
@@ -403,7 +418,6 @@
     z-index: 2;
 }
 
-/* User menu auth flow status indicators */
 .user-menu-status {
     position: absolute;
     top: 50%;
@@ -435,18 +449,6 @@
     background: var(--color-brand);
 }
 
-.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot {
-    animation: userMenuStatusDotBounce var(--dots-bounce-ms) ease-in-out infinite;
-}
-
-.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot:nth-child(2) {
-    animation-delay: var(--dots-bounce-delay-2-ms);
-}
-
-.user-menu-status--loading.is-user-menu-auth-dots-run .user-menu-status__dot:nth-child(3) {
-    animation-delay: var(--dots-bounce-delay-3-ms);
-}
-
 .user-menu-status__icon {
     width: var(--user-menu-status-icon-size);
     height: var(--user-menu-status-icon-size);
@@ -471,17 +473,6 @@
 .user-menu-status--error .user-menu-status__icon-circle,
 .user-menu-status--error .user-menu-status__icon-mark {
     stroke: var(--color-brand);
-}
-
-.user-menu-status--success.is-animating .user-menu-status__icon-circle,
-.user-menu-status--error.is-animating .user-menu-status__icon-circle {
-    animation: userMenuStatusCircleDraw calc(var(--result-main-draw-ms) * 0.45) ease forwards;
-}
-
-.user-menu-status--success.is-animating .user-menu-status__icon-mark,
-.user-menu-status--error.is-animating .user-menu-status__icon-mark {
-    animation: userMenuStatusMarkDraw calc(var(--result-main-draw-ms) * 0.55) ease forwards;
-    animation-delay: calc(var(--result-main-draw-ms) * 0.45);
 }
 
 .user-menu-status--success.is-drawn .user-menu-status__icon-circle,

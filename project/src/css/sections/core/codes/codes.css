@@ -1,4 +1,6 @@
-/* Codes view & account blocks */
+/* ==========================================================================
+   Codes Component Tokens
+   ========================================================================== */
 .app-body__view--codes-yes .app-body__content {
     --codes-card-gap: 10px;
     --codes-card-padding-block: 10px;
@@ -11,7 +13,13 @@
     --codes-card-edit-icon-size: 12px;
     --codes-card-delete-icon-size: 20px;
     --codes-card-hotp-counter-max-width: 72px;
+    --codes-card-height: calc((100% - (var(--codes-card-gap) * 3)) / 4);
+}
 
+/* ==========================================================================
+   Codes Container Layout
+   ========================================================================== */
+.app-body__view--codes-yes .app-body__content {
     position: relative;
     flex: 1;
     min-height: 0;
@@ -31,18 +39,19 @@
     color: inherit;
 }
 
-
 .app-body__view--codes-yes .app-body__content.is-hidden {
     display: none;
 }
 
-/* Individual code block card - fits 4 cards with 10px gap */
+/* ==========================================================================
+   Account Card Block Base
+   ========================================================================== */
 .app-body__view--codes-yes .app-body__content .account-block {
     position: relative;
     box-sizing: border-box;
-    flex: 1 1 calc((100% - (var(--codes-card-gap) * 3)) / 4);
-    min-height: calc((100% - (var(--codes-card-gap) * 3)) / 4);
-    max-height: calc((100% - (var(--codes-card-gap) * 3)) / 4);
+    flex: 1 1 var(--codes-card-height);
+    min-height: var(--codes-card-height);
+    max-height: var(--codes-card-height);
     padding: var(--codes-card-padding-block) var(--codes-card-padding-inline);
     border-radius: var(--radius-md);
     background-color: var(--color-surface-tertiary);
@@ -55,8 +64,13 @@
     cursor: default;
 }
 
+.app-body__view--codes-yes .app-body__content .account-block.is-filtered-out {
+    display: none;
+}
 
-/* Header: Account identity */
+/* ==========================================================================
+   Account Card Header & Identity
+   ========================================================================== */
 .app-body__view--codes-yes .app-body__content .account-block__header {
     display: flex;
     align-items: flex-start;
@@ -109,6 +123,9 @@
     display: none;
 }
 
+/* ==========================================================================
+   Account Card Action Buttons (Edit / Delete)
+   ========================================================================== */
 .app-body__view--codes-yes .app-body__content .account-block__actions {
     position: relative;
     display: flex;
@@ -119,7 +136,6 @@
     align-self: flex-start;
 }
 
-/* Edit / Close (Delete) Buttons */
 .app-body__view--codes-yes .app-body__content .edit-button,
 .app-body__view--codes-yes .app-body__content .delete-button {
     position: static;
@@ -163,7 +179,9 @@
     display: none;
 }
 
-/* Edit Mode styling */
+/* ==========================================================================
+   Account Card Edit Mode
+   ========================================================================== */
 .app-body__view--codes-yes .app-body__content .edit-buttons-container {
     display: flex;
     gap: var(--gap-sm);
@@ -285,7 +303,9 @@
     text-overflow: ellipsis;
 }
 
-/* Body: Code display + counter */
+/* ==========================================================================
+   Account Card Body (Code display + counter)
+   ========================================================================== */
 .app-body__view--codes-yes .app-body__content .account-block__body {
     display: flex;
     align-items: center;
@@ -332,30 +352,25 @@
     display: none;
 }
 
-.app-body__view--codes-yes .app-body__content .account-block.is-filtered-out {
-    display: none;
+/* ==========================================================================
+   Account Card Delete Exit & Collapse Spacer
+   ========================================================================== */
+@keyframes account-block-delete-exit {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.85);
+    }
 }
 
-/* Poof delete animation & particle styling */
-.app-body__view--codes-yes .app-body__content .account-block--poof-exit {
+.app-body__view--codes-yes .app-body__content .account-block.account-block--poof-exit {
     transform-origin: center center;
     pointer-events: none;
     z-index: 1;
-}
-
-.account-block__poof {
-    position: fixed;
-    z-index: 100;
-    pointer-events: none;
-    overflow: visible;
-}
-
-.account-block__poof span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    will-change: transform, opacity;
+    animation: account-block-delete-exit var(--fade-ms) ease-out forwards;
 }
 
 .app-body__view--codes-yes .app-body__content .account-block--exit-spacer,
@@ -365,6 +380,9 @@
     padding: 0;
     overflow: hidden;
     flex: 0 0 auto;
+    height: var(--codes-card-height);
+    min-height: var(--codes-card-height);
+    max-height: var(--codes-card-height);
     transition: none !important;
     transform: none !important;
     cursor: default;
@@ -388,9 +406,21 @@
     margin-bottom: 0 !important;
 }
 
+/* ==========================================================================
+   Account Card Manual Add Spacer & Top Slide In
+   ========================================================================== */
+@keyframes account-block-slide-in-from-top {
+    from {
+        opacity: 0;
+        transform: translateY(calc(-1 * (var(--codes-card-height) + var(--codes-card-gap))));
+    }
 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-/* Manual add top-slide animation & spacer */
 .app-body__view--codes-yes .app-body__content .account-block.account-block--manual-add-spacer {
     visibility: hidden;
     pointer-events: none;
@@ -411,23 +441,22 @@
 }
 
 .app-body__view--codes-yes .app-body__content .account-block.account-block--manual-add-spacer.is-expanding {
-    height: var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4));
-    min-height: var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4));
-    max-height: var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4));
+    height: var(--codes-card-height);
+    min-height: var(--codes-card-height);
+    max-height: var(--codes-card-height);
 }
-
 
 .app-body__view--codes-yes .app-body__content .account-block.is-manual-add-slide {
     flex: 0 0 auto;
-    height: var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4));
-    min-height: var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4));
-    max-height: var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4));
+    height: var(--codes-card-height);
+    min-height: var(--codes-card-height);
+    max-height: var(--codes-card-height);
     overflow: hidden;
 }
 
 .app-body__view--codes-yes .app-body__content .account-block.is-manual-add-slide.is-manual-add-slide-pending {
     opacity: 0;
-    transform: translateY(calc(-1 * (var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4)) + var(--codes-card-gap))));
+    transform: translateY(calc(-1 * (var(--codes-card-height) + var(--codes-card-gap))));
     pointer-events: none;
     transition: none;
 }
@@ -436,16 +465,4 @@
     animation: account-block-slide-in-from-top var(--slide-ms) ease-out forwards;
     pointer-events: auto;
     transition: none;
-}
-
-@keyframes account-block-slide-in-from-top {
-    from {
-        opacity: 0;
-        transform: translateY(calc(-1 * (var(--spacer-height, calc((100% - (var(--codes-card-gap) * 3)) / 4)) + var(--codes-card-gap))));
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }

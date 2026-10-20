@@ -1,3 +1,6 @@
+/* ==========================================================================
+   Manual Menu Keyframe Animations
+   ========================================================================== */
 @keyframes manual-menu-backdrop-in {
     from {
         opacity: 0;
@@ -42,6 +45,9 @@
     }
 }
 
+/* ==========================================================================
+   Manual Menu Animation Classes
+   ========================================================================== */
 .app-manual-menu.is-backdrop-visible .app-manual-menu__backdrop {
     animation: manual-menu-backdrop-in var(--blur-ms) ease forwards;
     pointer-events: auto;

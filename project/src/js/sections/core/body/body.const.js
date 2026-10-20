@@ -21,5 +21,6 @@ export const BODY_ACTIVE_CLASS = "is-active";
 export const BODY_FADE_IN_CLASS = "is-body-fade-in";
 export const BODY_CONTENT_FADE_IN_CLASS = "is-content-fade-in";
 export const BODY_CONTENT_FADE_OUT_CLASS = "is-content-fade-out";
+export const BODY_CONTENT_PENDING_CLASS = "is-content-pending";
 export const BODY_FADE_MS = 250;
 

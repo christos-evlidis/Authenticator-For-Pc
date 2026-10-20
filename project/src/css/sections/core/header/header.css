@@ -1,3 +1,6 @@
+/* ==========================================================================
+   Header Component Tokens
+   ========================================================================== */
 .app-header {
     --header-padding-block: 12px;
     --header-padding-inline: 14px;
@@ -8,6 +11,9 @@
     --header-slot-height: calc(var(--header-padding-block) * 2 + var(--header-btn-size));
 }
 
+/* ==========================================================================
+   Header Shell & Layout
+   ========================================================================== */
 .app-header {
     flex-shrink: 0;
     border-radius: var(--radius-l);
@@ -29,6 +35,9 @@
     gap: var(--gap-l);
 }
 
+/* ==========================================================================
+   Header Views & Title
+   ========================================================================== */
 .app-header__view {
     display: flex;
     align-items: center;
@@ -50,12 +59,16 @@
     line-height: 1.2;
     color: var(--color-text-primary);
 }
+
 .app-header__actions {
     display: flex;
     align-items: center;
     gap: var(--gap-md);
 }
 
+/* ==========================================================================
+   Header Buttons & Controls
+   ========================================================================== */
 .app-header__btn {
     display: inline-flex;
     align-items: center;

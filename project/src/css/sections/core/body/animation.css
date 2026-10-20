@@ -1,3 +1,6 @@
+/* ==========================================================================
+   Body Keyframe Animations
+   ========================================================================== */
 @keyframes body-fade-in {
     from {
         opacity: 0;
@@ -6,11 +9,6 @@
     to {
         opacity: 1;
     }
-}
-
-.app-body.is-body-fade-in {
-    opacity: 0;
-    animation: body-fade-in var(--fade-ms) ease forwards;
 }
 
 @keyframes body-content-fade-in {
@@ -25,11 +23,6 @@
     }
 }
 
-.app-body__view--codes-no.is-content-fade-in .app-body__content {
-    opacity: 0;
-    animation: body-content-fade-in var(--fade-ms) ease forwards;
-}
-
 @keyframes body-content-fade-out {
     from {
         opacity: 1;
@@ -40,6 +33,23 @@
         opacity: 0;
         transform: translateY(-6px);
     }
+}
+
+/* ==========================================================================
+   Body Animation Classes
+   ========================================================================== */
+.app-body.is-body-fade-in {
+    opacity: 0;
+    animation: body-fade-in var(--fade-ms) ease forwards;
+}
+
+.app-body__view--codes-no.is-content-pending .app-body__content {
+    opacity: 0;
+}
+
+.app-body__view--codes-no.is-content-fade-in .app-body__content {
+    opacity: 0;
+    animation: body-content-fade-in var(--fade-ms) ease forwards;
 }
 
 .app-body__view--codes-no.is-content-fade-out .app-body__content {

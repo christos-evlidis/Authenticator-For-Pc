@@ -1,3 +1,6 @@
+/* ==========================================================================
+   QR Menu Keyframe Animations
+   ========================================================================== */
 @keyframes qr-menu-backdrop-in {
     from {
         opacity: 0;
@@ -42,6 +45,9 @@
     }
 }
 
+/* ==========================================================================
+   QR Menu Animation Classes
+   ========================================================================== */
 .app-qr-menu.is-backdrop-visible .app-qr-menu__backdrop {
     animation: qr-menu-backdrop-in var(--blur-ms) ease forwards;
     pointer-events: auto;

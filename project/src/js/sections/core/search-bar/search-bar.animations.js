@@ -21,8 +21,6 @@ async function searchBarFadeIn() {
     SEARCH_COLLAPSED_CLASS,
     SEARCH_FADE_OUT_CLASS
   );
-  element.style.maxHeight = "";
-  element.style.minHeight = "";
   element.classList.add(SEARCH_FADE_IN_CLASS);
   await new Promise((resolve) => setTimeout(resolve, SEARCH_FADE_MS));
   element.classList.remove(SEARCH_FADE_IN_CLASS);
@@ -51,9 +49,6 @@ async function searchBarCollapse() {
     return;
   }
 
-  const currentHeight = element.offsetHeight;
-  element.style.maxHeight = `${currentHeight}px`;
-  element.style.minHeight = `${currentHeight}px`;
   element.classList.remove(SEARCH_FADE_IN_CLASS, SEARCH_FADE_OUT_CLASS);
   element.classList.add(SEARCH_COLLAPSING_CLASS);
 
@@ -86,8 +81,6 @@ async function searchBarCollapse() {
 
   element.classList.add(SEARCH_HIDDEN_CLASS);
   element.classList.remove(SEARCH_COLLAPSING_CLASS, SEARCH_COLLAPSED_CLASS);
-  element.style.maxHeight = "";
-  element.style.minHeight = "";
 }
 
 /**
@@ -137,8 +130,6 @@ async function searchBarExpand() {
   });
 
   element.classList.remove(SEARCH_COLLAPSING_CLASS);
-  element.style.maxHeight = "";
-  element.style.minHeight = "";
 }
 
 export { searchBarFadeIn, searchBarFadeOut, searchBarCollapse, searchBarExpand };
