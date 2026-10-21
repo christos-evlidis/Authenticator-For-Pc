@@ -2,7 +2,6 @@ import {
   OVERLAY_CLASS,
   OVERLAY_CSS_PATH,
   OVERLAY_HOST_CLASS,
-  OVERLAY_HOST_STYLE_ID,
   OVERLAY_INSTRUCTION_CLASS,
   OVERLAY_INSTRUCTION_TEXT,
   OVERLAY_SELECTION_CLASS,
@@ -10,14 +9,6 @@ import {
 
 /** Creates and mounts the QR scan overlay in the page DOM. */
 function contentOverlayCreate() {
-  if (!document.getElementById(OVERLAY_HOST_STYLE_ID)) {
-    const link = document.createElement("link");
-    link.id = OVERLAY_HOST_STYLE_ID;
-    link.rel = "stylesheet";
-    link.href = chrome.runtime.getURL(OVERLAY_CSS_PATH);
-    document.head.append(link);
-  }
-
   const bodyStyle = getComputedStyle(document.body);
   const mountParent =
     bodyStyle.transform !== "none" ||
@@ -31,6 +22,18 @@ function contentOverlayCreate() {
 
   const host = document.createElement("div");
   host.className = OVERLAY_HOST_CLASS;
+  Object.assign(host.style, {
+    position: "fixed",
+    inset: "0",
+    width: "100%",
+    height: "100%",
+    zIndex: "2147483647",
+    pointerEvents: "none",
+    margin: "0",
+    padding: "0",
+    border: "none",
+    background: "transparent",
+  });
 
   const shadow = host.attachShadow({ mode: "closed" });
   const stylesheet = document.createElement("link");

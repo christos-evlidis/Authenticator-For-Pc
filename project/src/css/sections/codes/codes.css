@@ -3,15 +3,15 @@
    ========================================================================== */
 .app-body__view--codes-yes .app-body__content {
     --codes-card-gap: 10px;
-    --codes-card-padding-block: 10px;
+    --codes-card-padding-block: var(--size-control-padding-block);
     --codes-card-padding-inline: 15px;
-    --codes-card-name-size: 18px;
-    --codes-card-email-size: 12px;
-    --codes-card-code-size: 30px;
-    --codes-card-code-letter-spacing: 2px;
-    --codes-card-action-btn-size: 28px;
-    --codes-card-edit-icon-size: 12px;
-    --codes-card-delete-icon-size: 20px;
+    --codes-card-name-size: var(--font-size-lg);
+    --codes-card-email-size: var(--font-size-xs);
+    --codes-card-code-size: var(--font-size-2xl);
+    --codes-card-code-letter-spacing: var(--gap-xs);
+    --codes-card-action-btn-size: var(--size-btn-sm);
+    --codes-card-edit-icon-size: var(--size-icon-xs);
+    --codes-card-delete-icon-size: var(--size-icon-lg);
     --codes-card-hotp-counter-max-width: 72px;
     --codes-card-height: calc((100% - (var(--codes-card-gap) * 3)) / 4);
 }

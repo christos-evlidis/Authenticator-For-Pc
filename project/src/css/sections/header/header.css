@@ -2,11 +2,11 @@
    Header Component Tokens
    ========================================================================== */
 .app-header {
-    --header-padding-block: 12px;
-    --header-padding-inline: 14px;
-    --header-btn-size: 32px;
-    --header-title-size: 16px;
-    --header-btn-icon-size: 18px;
+    --header-padding-block: var(--size-panel-header-padding-block);
+    --header-padding-inline: var(--size-panel-header-padding-inline);
+    --header-btn-size: var(--size-btn-md);
+    --header-title-size: var(--font-size-md);
+    --header-btn-icon-size: var(--size-icon-md);
     --header-actions-disabled-opacity: 0.5;
     --header-slot-height: calc(var(--header-padding-block) * 2 + var(--header-btn-size));
 }

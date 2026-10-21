@@ -38,8 +38,8 @@
     {
       "resources": [
         "css/overlay/scan.css",
-        "css/base/color.css",
-        "css/base/layout.css",
+        "css/tokens/color.css",
+        "css/tokens/layout.css",
         "js/const/const.scan.js",
         "js/services/scan/content/content-index.js",
         "js/services/scan/content/overlay/create.js",

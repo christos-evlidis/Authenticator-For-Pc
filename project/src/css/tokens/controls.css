@@ -1,0 +1,30 @@
+/* Extension common control, icon, and component size tokens */
+:root {
+    /* Interactive Button Sizing */
+    --size-btn-sm: 28px;
+    --size-btn-md: 32px;
+
+    /* Icon Sizing */
+    --size-icon-xs: 12px;
+    --size-icon-sm: 14px;
+    --size-icon-action: 15px;
+    --size-icon-md: 18px;
+    --size-icon-lg: 20px;
+    --size-icon-guide: 56px;
+
+    /* Indicator & Status Elements */
+    --size-status-dot: 10px;
+    --size-status-icon: 52px;
+
+    /* Inputs & Form Controls */
+    --size-control-height-sm: 24px;
+    --size-control-padding-block: 10px;
+    --size-control-padding-inline: 12px;
+    --size-control-inset: 4px;
+
+    /* Panel Headers & Padding */
+    --size-panel-header-padding-block: 12px;
+    --size-panel-header-padding-inline: 14px;
+    --size-panel-padding: 12px;
+    --size-panel-body-padding: 14px;
+}

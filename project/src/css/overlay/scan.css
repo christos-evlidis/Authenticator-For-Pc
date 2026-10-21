@@ -1,5 +1,5 @@
-@import url("../base/color.css");
-@import url("../base/layout.css");
+@import url("../tokens/color.css");
+@import url("../tokens/layout.css");
 
 .pc-auth-qr-scan-host {
     position: fixed !important;

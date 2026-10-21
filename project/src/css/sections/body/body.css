@@ -2,11 +2,11 @@
    Body Component Tokens
    ========================================================================== */
 .app-body {
-    --body-padding-block: 12px;
-    --body-padding-inline: 14px;
-    --body-icon-size: 56px;
+    --body-padding-block: var(--size-panel-header-padding-block);
+    --body-padding-inline: var(--size-panel-header-padding-inline);
+    --body-icon-size: var(--size-icon-guide);
     --body-message-max-width: 220px;
-    --body-message-size: 14px;
+    --body-message-size: var(--font-size-base);
     --body-content-padding-block: 24px;
     --body-content-padding-inline: 20px;
 }

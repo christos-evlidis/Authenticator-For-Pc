@@ -2,22 +2,22 @@
    User Menu Component Tokens
    ========================================================================== */
 .app-user-menu {
-    --user-menu-panel-padding: 12px;
-    --user-menu-header-padding-block: 12px;
-    --user-menu-header-padding-inline: 14px;
-    --user-menu-body-padding: 14px;
-    --user-menu-title-size: 16px;
-    --user-menu-btn-size: 32px;
-    --user-menu-btn-icon-size: 18px;
-    --user-menu-account-action-icon-size: 15px;
-    --user-menu-auth-switch-inset: 4px;
-    --user-menu-control-size: 14px;
-    --user-menu-control-padding-block: 10px;
-    --user-menu-control-padding-inline: 12px;
-    --user-menu-submit-padding-inline: 14px;
-    --user-menu-label-size: 13px;
-    --user-menu-status-dot-size: 10px;
-    --user-menu-status-icon-size: 52px;
+    --user-menu-panel-padding: var(--size-panel-padding);
+    --user-menu-header-padding-block: var(--size-panel-header-padding-block);
+    --user-menu-header-padding-inline: var(--size-panel-header-padding-inline);
+    --user-menu-body-padding: var(--size-panel-body-padding);
+    --user-menu-title-size: var(--font-size-md);
+    --user-menu-btn-size: var(--size-btn-md);
+    --user-menu-btn-icon-size: var(--size-icon-md);
+    --user-menu-account-action-icon-size: var(--size-icon-action);
+    --user-menu-auth-switch-inset: var(--size-control-inset);
+    --user-menu-control-size: var(--font-size-base);
+    --user-menu-control-padding-block: var(--size-control-padding-block);
+    --user-menu-control-padding-inline: var(--size-control-padding-inline);
+    --user-menu-submit-padding-inline: var(--size-panel-header-padding-inline);
+    --user-menu-label-size: var(--font-size-sm);
+    --user-menu-status-dot-size: var(--size-status-dot);
+    --user-menu-status-icon-size: var(--size-status-icon);
     --user-menu-status-circle-stroke: 2;
     --user-menu-status-mark-stroke: 3;
     --user-menu-status-circle-dash: 151;

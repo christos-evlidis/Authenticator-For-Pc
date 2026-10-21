@@ -1,24 +1,4 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    scrollbar-width: none;
-    user-select: none;
-}
-
-.fa,
-.fas,
-.fa-solid,
-.far,
-.fa-regular,
-.fab,
-.fa-brands {
-    overflow: visible;
-}
-
+/* Document body and top-level extension window frame */
 body {
     background: var(--color-surface-primary);
     font-family: var(--font-family);

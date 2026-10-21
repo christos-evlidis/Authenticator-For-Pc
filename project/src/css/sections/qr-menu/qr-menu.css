@@ -3,17 +3,17 @@
    ========================================================================== */
 .app-qr-menu {
     --qr-menu-panel-height: 375px;
-    --qr-menu-panel-padding: 12px;
-    --qr-menu-header-padding-block: 12px;
-    --qr-menu-header-padding-inline: 14px;
-    --qr-menu-title-size: 16px;
-    --qr-menu-btn-size: 32px;
-    --qr-menu-btn-icon-size: 18px;
+    --qr-menu-panel-padding: var(--size-panel-padding);
+    --qr-menu-header-padding-block: var(--size-panel-header-padding-block);
+    --qr-menu-header-padding-inline: var(--size-panel-header-padding-inline);
+    --qr-menu-title-size: var(--font-size-md);
+    --qr-menu-btn-size: var(--size-btn-md);
+    --qr-menu-btn-icon-size: var(--size-icon-md);
     --qr-menu-body-padding: 20px 18px;
     --qr-menu-guide-max-width: 260px;
-    --qr-menu-guide-icon-size: 56px;
-    --qr-menu-guide-icon-font-size: 26px;
-    --qr-menu-guide-font-size: 14px;
+    --qr-menu-guide-icon-size: var(--size-icon-guide);
+    --qr-menu-guide-icon-font-size: var(--font-size-xl);
+    --qr-menu-guide-font-size: var(--font-size-base);
 }
 
 /* ==========================================================================

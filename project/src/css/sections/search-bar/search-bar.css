@@ -2,11 +2,11 @@
    Search Bar Component Tokens
    ========================================================================== */
 .app-search-bar {
-    --search-bar-padding-block: 8px;
-    --search-bar-padding-inline: 14px;
-    --search-bar-icon-size: 14px;
-    --search-bar-input-height: 24px;
-    --search-bar-font-size: 14px;
+    --search-bar-padding-block: var(--gap-md);
+    --search-bar-padding-inline: var(--size-panel-header-padding-inline);
+    --search-bar-icon-size: var(--size-icon-sm);
+    --search-bar-input-height: var(--size-control-height-sm);
+    --search-bar-font-size: var(--font-size-base);
     --search-bar-height: calc(var(--search-bar-input-height) + (var(--search-bar-padding-block) * 2));
 }
 
