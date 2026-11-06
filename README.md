@@ -77,6 +77,26 @@ flowchart LR
 
 ---
 
+## Backend API & Database Design
+
+### REST Endpoints (`/v1`)
+
+| Method | Endpoint | Auth | Description |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/v1/auth/sessions` | None | Generates a new 24-digit `auth_key`, stores its `SHA-256` hash, and returns the key (`201`). |
+| `GET` | `/v1/auth/sessions` | Query / Header | Verifies whether the provided `auth_key` corresponds to an active session (`200` / `401`). |
+| `DELETE` | `/v1/auth/sessions` | `Bearer` / `X-Auth-Key` | Deletes the session and cascades deletion to the associated encrypted vault (`200`). |
+| `GET` | `/v1/vault` | `Bearer` / `X-Auth-Key` | Retrieves the encrypted vault `payload` and `updated_at` timestamp for the session (`200`). |
+| `PUT` | `/v1/vault` | `Bearer` / `X-Auth-Key` | Upserts the encrypted vault `payload` (validated up to 64 KB) and returns `updated_at` (`200`). |
+
+### Database Schema (SQLite)
+
+- **`sessions`**: `id (PK)`, `auth_hash (TEXT UNIQUE)`, `created_at (TIMESTAMP)`
+- **`vaults`**: `session_id (PK, FK -> sessions.id ON DELETE CASCADE)`, `payload (TEXT)`, `updated_at (TIMESTAMP)`
+- **`rate_limit_events`**: `id (PK)`, `ip (TEXT)`, `endpoint (TEXT)`, `created_at (INTEGER)`
+
+---
+
 ## Project Structure
 
 ```text
@@ -303,24 +323,4 @@ PC Authenticator/
                         ├── merge.js                        # Reconciles ready, pending, and restored account lists by ID
                         └── restore.js                      # Downloads and decrypts the remote vault snapshot into storage
 ```
-
----
-
-## Backend API & Database Design
-
-### REST Endpoints (`/v1`)
-
-| Method | Endpoint | Auth | Description |
-| :--- | :--- | :--- | :--- |
-| `POST` | `/v1/auth/sessions` | None | Generates a new 24-digit `auth_key`, stores its `SHA-256` hash, and returns the key (`201`). |
-| `GET` | `/v1/auth/sessions` | Query / Header | Verifies whether the provided `auth_key` corresponds to an active session (`200` / `401`). |
-| `DELETE` | `/v1/auth/sessions` | `Bearer` / `X-Auth-Key` | Deletes the session and cascades deletion to the associated encrypted vault (`200`). |
-| `GET` | `/v1/vault` | `Bearer` / `X-Auth-Key` | Retrieves the encrypted vault `payload` and `updated_at` timestamp for the session (`200`). |
-| `PUT` | `/v1/vault` | `Bearer` / `X-Auth-Key` | Upserts the encrypted vault `payload` (validated up to 64 KB) and returns `updated_at` (`200`). |
-
-### Database Schema (SQLite)
-
-- **`sessions`**: `id (PK)`, `auth_hash (TEXT UNIQUE)`, `created_at (TIMESTAMP)`
-- **`vaults`**: `session_id (PK, FK -> sessions.id ON DELETE CASCADE)`, `payload (TEXT)`, `updated_at (TIMESTAMP)`
-- **`rate_limit_events`**: `id (PK)`, `ip (TEXT)`, `endpoint (TEXT)`, `created_at (INTEGER)`
 
