@@ -1,13 +1,13 @@
 import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
 import "@fortawesome/fontawesome-free/css/solid.min.css";
-import { accountApiVerify, accountStorageClear, accountStorageGet } from "@/js/services/account/account-index.js";
+import { accountApiVerify, accountStorageClear, accountStorageGet } from "@/js/services/account/account.index.js";
 import { appStateSet } from "@/js/app/app.state.js";
-import { sectionsInit } from "@/js/sections/sections-index.js";
-import { scanPendingClear, scanPendingGet } from "@/js/services/scan/scan-index.js";
+import { sectionsInit } from "@/js/sections/sections.index.js";
+import { scanPendingClear, scanPendingGet } from "@/js/services/scan/scan.index.js";
 import { vaultActionAddQr } from "@/js/services/vault/action/add/qr.js";
 
-import { qrMenuClose, qrMenuMountOpen } from "@/js/sections/overlays/qr-menu/qr-menu.index.js";
-import { codesActionAdd } from "@/js/sections/core/codes/codes.index.js";
+import { qrMenuClose, qrMenuMountOpen } from "@/js/sections/qr-menu/qr-menu.index.js";
+import { codesActionAdd } from "@/js/sections/codes/codes.index.js";
 
 /** Bootstraps the application: restores auth, applies shell state, and initializes sections. */
 async function appInit() {

@@ -71,7 +71,8 @@ body.theme-dark {
 }
 
 /* overlay/scan.css — fixed palette, not theme-aware */
-:root {
+:root,
+:host {
     --color-scan-backdrop: #000000b8;
     --color-scan-text: #ffffff;
 }

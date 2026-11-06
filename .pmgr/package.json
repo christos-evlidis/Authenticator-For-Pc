@@ -1,0 +1,21 @@
+{
+  "name": "pc-authenticator",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "watch": "bun build.js --watch",
+    "build": "bun build.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "crypto-js": "^4.2.0",
+    "jsqr": "^1.4.0"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.0.0-beta.31",
+    "terser": "^5.51.2",
+    "vite": "^6.2.0"
+  }
+}

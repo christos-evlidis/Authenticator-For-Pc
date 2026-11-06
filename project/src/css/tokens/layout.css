@@ -1,5 +1,6 @@
 /* Extension layout tokens */
-:root {
+:root,
+:host {
     /* foundation */
     --extension-width: 350px;
     --extension-height: 600px;

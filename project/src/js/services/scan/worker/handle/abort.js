@@ -2,7 +2,7 @@ import { workerStoragePendingClear } from "../storage/pending/clear.js";
 import { workerTabResolve } from "../tab/resolve.js";
 
 import { MESSAGES } from "../../../../const/const.scan.js";
-import { messageContent } from "../../message/message-index.js";
+import { messageContent } from "../../message/message.index.js";
 
 /** Aborts an in-progress scan and clears pending storage. */
 async function workerHandleAbort(options = {}) {

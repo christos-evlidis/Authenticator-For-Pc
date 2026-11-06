@@ -26,7 +26,7 @@
     "http://*/*"
   ],
   "background": {
-    "service_worker": "js/services/scan/worker/worker-index.js",
+    "service_worker": "js/services/scan/worker/worker.index.js",
     "type": "module"
   },
   "icons": {
@@ -41,7 +41,7 @@
         "css/tokens/color.css",
         "css/tokens/layout.css",
         "js/const/const.scan.js",
-        "js/services/scan/content/content-index.js",
+        "js/services/scan/content/content.index.js",
         "js/services/scan/content/overlay/create.js",
         "js/services/scan/content/overlay/remove.js",
         "js/services/scan/content/overlay/start.js",

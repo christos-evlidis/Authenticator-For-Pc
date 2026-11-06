@@ -17,7 +17,7 @@ export const MESSAGES = {
 export const PENDING_KEY = "qrScanPending";
 
 // Content script paths.
-export const CONTENT_INDEX_PATH = "js/services/scan/content/content-index.js";
+export const CONTENT_INDEX_PATH = "js/services/scan/content/content.index.js";
 export const OVERLAY_CSS_PATH = "css/overlay/scan.css";
 
 // Overlay shell classes.
